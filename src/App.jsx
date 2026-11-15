@@ -3,6 +3,7 @@ import { PRESETS } from './data/mockData';
 import ClientBar from './components/ClientBar';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
+import DigitalServicesHub from './components/DigitalServicesHub';
 import ProgramFinder from './components/ProgramFinder';
 import StatsBento from './components/StatsBento';
 import CampusExperience from './components/CampusExperience';
@@ -13,18 +14,24 @@ import ApplicationCTA from './components/ApplicationCTA';
 import Footer from './components/Footer';
 import VirtualTourModal from './components/VirtualTourModal';
 import ApplyModal from './components/ApplyModal';
+import HimtuServicesModal from './components/HimtuServicesModal';
 
 export default function App() {
-  const [currentPresetKey, setCurrentPresetKey] = useState('aurelius');
+  const [currentPresetKey, setCurrentPresetKey] = useState('himtu'); // Default to HIMTU reference!
   const [isPitchOpen, setIsPitchOpen] = useState(false);
   const [isTourOpen, setIsTourOpen] = useState(false);
   const [applyModal, setApplyModal] = useState({
     isOpen: false,
-    mode: 'apply', // 'apply', 'request-info', 'visit', 'tuition-lock', 'event-rsvp', 'advising', 'catalog'
+    mode: 'apply',
     contextData: null
   });
+  const [serviceModal, setServiceModal] = useState({
+    isOpen: false,
+    modalType: 'otr',
+    initialData: null
+  });
 
-  const currentPreset = PRESETS[currentPresetKey] || PRESETS.aurelius;
+  const currentPreset = PRESETS[currentPresetKey] || PRESETS.himtu;
 
   const handleOpenApply = (mode = 'apply', contextData = null) => {
     setApplyModal({
@@ -36,6 +43,18 @@ export default function App() {
 
   const handleCloseApply = () => {
     setApplyModal(prev => ({ ...prev, isOpen: false }));
+  };
+
+  const handleOpenServiceModal = (modalType = 'otr', initialData = null) => {
+    setServiceModal({
+      isOpen: true,
+      modalType,
+      initialData
+    });
+  };
+
+  const handleCloseServiceModal = () => {
+    setServiceModal(prev => ({ ...prev, isOpen: false }));
   };
 
   const handleScrollToPrograms = () => {
@@ -77,38 +96,43 @@ export default function App() {
           onOpenApply={handleOpenApply}
         />
 
-        {/* 4. Interactive Program & Major Finder */}
+        {/* 4. Unified Digital Services & E-Governance Hub (himtu.ac.in Reference) */}
+        <DigitalServicesHub
+          onOpenServiceModal={handleOpenServiceModal}
+        />
+
+        {/* 5. Interactive Program & Major Finder */}
         <ProgramFinder
           onOpenApply={handleOpenApply}
         />
 
-        {/* 5. Institutional Bento Grid (Why Choose Us) */}
+        {/* 6. Institutional Bento Grid (Why Choose Us) */}
         <StatsBento
           preset={currentPreset}
           onOpenApply={handleOpenApply}
         />
 
-        {/* 6. Campus Experience & 360 Facilities Showcase */}
+        {/* 7. Campus Experience & 360 Facilities Showcase */}
         <CampusExperience
           onOpenTour={() => setIsTourOpen(true)}
         />
 
-        {/* 7. Interactive Tuition & Merit Scholarship Estimator */}
+        {/* 8. Interactive Tuition & Merit Scholarship Estimator */}
         <TuitionEstimator
           onOpenApply={handleOpenApply}
         />
 
-        {/* 8. Upcoming Events & Open Days Calendar */}
+        {/* 9. Upcoming Events & Open Days Calendar */}
         <UpcomingEvents
           onOpenApply={handleOpenApply}
         />
 
-        {/* 9. Alumni Success & Career Placements */}
+        {/* 10. Alumni Success & Career Placements */}
         <AlumniStories
           onOpenApply={handleOpenApply}
         />
 
-        {/* 10. High-Conversion Enrollment Call to Action */}
+        {/* 11. High-Conversion Enrollment Call to Action */}
         <ApplicationCTA
           preset={currentPreset}
           onOpenApply={handleOpenApply}
@@ -116,26 +140,34 @@ export default function App() {
 
       </main>
 
-      {/* 11. Comprehensive Collegiate Footer */}
+      {/* 12. Comprehensive Collegiate Footer */}
       <Footer
         preset={currentPreset}
         onOpenApply={handleOpenApply}
       />
 
-      {/* 12. Interactive Virtual Tour 360 Modal */}
+      {/* 13. Interactive Virtual Tour 360 Modal */}
       <VirtualTourModal
         isOpen={isTourOpen}
         onClose={() => setIsTourOpen(false)}
         onOpenApply={handleOpenApply}
       />
 
-      {/* 13. Interactive Multi-mode Admissions Modal */}
+      {/* 14. Interactive Multi-mode Admissions Modal */}
       <ApplyModal
         isOpen={applyModal.isOpen}
         onClose={handleCloseApply}
         mode={applyModal.mode}
         contextData={applyModal.contextData}
         preset={currentPreset}
+      />
+
+      {/* 15. HIMTU Digital Services Interactive Modal */}
+      <HimtuServicesModal
+        isOpen={serviceModal.isOpen}
+        onClose={handleCloseServiceModal}
+        modalType={serviceModal.modalType}
+        initialData={serviceModal.initialData}
       />
 
     </div>

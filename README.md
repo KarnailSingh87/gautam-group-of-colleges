@@ -1,74 +1,51 @@
-# Higher Education / University Website Homepage Concept
-### Designed with Modern 21st.dev & Dribbble Bento UI Patterns
+# Higher Education & Technical University Website Showcase
+### Inspired by 21st.dev, Dribbble Bento UI & Himachal Pradesh Technical University (himtu.ac.in)
 
-A client-ready, high-converting homepage built specifically for colleges, universities, and academic institutions. Inspired by modern Dribbble higher-ed concepts, 21st.dev interactive components, and uiCookies school templates.
+A client-ready, high-converting homepage built specifically for technical universities, state higher education boards, and colleges. It bridges the gap between **comprehensive institutional governance** (like HIMTU's real-world student portals, OTR, examination results, and affiliated colleges directory) and **ultra-modern UI/UX design** (21st.dev interactive bento grids, glassmorphism, and Dribbble aesthetics).
 
 ---
 
-## 🚀 Live Demo & How to Run
-
-The preview server is currently running:
+## 🚀 Live Preview Server
+The preview server is running:
 - **Local URL**: [http://localhost:5173/](http://localhost:5173/)
-- **Network URL**: Accessible on your local Wi-Fi network for mobile/tablet client demonstrations.
+- **Network URL**: Accessible across your local Wi-Fi for mobile/tablet presentation.
 
-To run again in the future:
+To run at any time:
 ```bash
-# Start development server
 npm run dev
-
-# Or build and preview production bundle
-npm run build
-npm run preview
+# or
+npm run build && npm run preview
 ```
 
-You can also deploy the contents of the `dist/` folder directly to Vercel, Netlify, or GitHub Pages with zero configuration.
+---
+
+## 🏛️ How himtu.ac.in Was Referenced & Modernized
+
+We analyzed **Himachal Pradesh Technical University's official portal ([himtu.ac.in](https://www.himtu.ac.in))** and translated its essential institutional features into an Apple / 21st.dev caliber interface:
+
+| HIMTU Feature (himtu.ac.in) | Traditional Problem on Old Portal | Our Modernized Prototype Solution |
+| :--- | :--- | :--- |
+| **One-Time Registration (OTR)** | Clunky forms, confusing sign-in paths | **Unified OTR Student Portal Card** with 1-click modal for new student PURN generation and existing candidate login. |
+| **Examination & Results Portal** | Slow PDF searches or complex captcha gates | **Interactive Instant Marks Card Lookup**: Enter Roll Number (e.g. `2024-HPTU-1082`) to preview grades, SGPA calculation, print marks card, or file scrutiny. |
+| **Press Notes & Circulars** | Hard-to-read table buried in submenus | **Real-Time Notice Feed with Flashing 'NEW' Badges**, categorized into Date Sheets, Vacant Seat Counseling, Results, and Tenders with instant PDF downloads. |
+| **HPCET Counseling & Allotment** | Fragmented link redirects | **HPCET Centralized Counseling Engine**: Choice filling schedules, seat matrix, and Round 1/2 allotment letters. |
+| **Question Papers (PYQ) & Syllabi** | Missing or hard-to-navigate archives | **Searchable Question Bank Archive**: Instant filter by branch (CSE, Civil, Pharmacy) and semester under the **NEP 2020 & CBCS schemes**. |
+| **Affiliated Colleges Directory** | Static text lists without filtering | **Interactive Directory**: Displays 42+ constituent & affiliated colleges (JNGEC Sundernagar, RGGEC Kangra, ABVGIET, etc.) with location, branch tags, and ratings. |
+| **State E-Governance & Helplines** | Often overlooked | Direct header and footer integration for **Mukhyamantri Seva Sankalp 1100**, **RTI**, and **Anti-Ragging 24x7 Cell**. |
 
 ---
 
-## 🎯 Key Client Presentation Features (Pitch Deck Highlights)
-
-When pitching to your client (Dean, Provost, Director of Admissions, or Marketing team), showcase these key features:
-
-### 1. Interactive Client Bar & Live Institution Presets
-Located at the very top of the screen:
-- **Instant Preset Switcher**: Switch between 3 collegiate styles in real-time:
-  - **St. Aurelius University**: Ivy League, prestigious heritage, liberal arts + medical research.
-  - **Vanguard Institute of Technology**: Modern STEM, quantum computing & AI incubator.
-  - **Oakhaven University**: Arts, human-centered design, and UX architecture.
-- **Pitch Deck & UX Strategy Drawer**: Click **"Pitch Deck & UX Strategy"** in the top bar to show the client conversion metrics, 98/100 Lighthouse benchmark, and WCAG AA accessibility compliance.
-
-### 2. High-Impact Hero Section (21st.dev & Dribbble Bento Fusion)
-- **Shimmering Ranking Badge**: Displays accreditation and #1 ranking badge.
-- **Editorial Typography**: Pairing serif prestige with modern sans-serif readability.
-- **Dual Action Funnel**: "Explore 140+ Programs" and "Take 360° Virtual Tour".
-- **Floating Live Badges**: 96.4% graduate placement, 12:1 faculty mentorship ratio, and student fellow spotlight.
-
-### 3. Interactive Degree & Program Finder (uiCookies & Harvard/MIT inspired)
-- Instant keyword search across 140+ majors.
-- Degree level filter: Undergraduate, Graduate, Doctoral.
-- Discipline tags: Engineering & AI, School of Management, Health Sciences, Arts & Architecture.
-- Shows starting salary outlook, credit requirements, duration, and direct "Apply to Major" modal triggers.
-
-### 4. Interactive Tuition & Merit Scholarship Estimator
-- Parents and prospective students can select residency, GPA tier, and housing plan.
-- Calculates guaranteed merit scholarship discounts (e.g., $18,500/year Presidential Fellowship) and net cost in real-time.
-- Captures high-intent student leads with the "Lock In & Email My Aid Breakdown" button.
-
-### 5. 360° Interactive Campus Immersion Modal
-- Click **"360° Tour"** in the navbar or hero section.
-- Explore campus hotspots: The Historic Quadrangle, Nexus AI Pavilion, Sterling Great Hall Library, and Olympic Athletic Stadium.
-- Interactive hotspots with simulated audio tour guide.
-
-### 6. Multi-Mode Admissions Lead Capture Modal
-- Captures undergraduate, graduate, and transfer applications with 256-bit SSL encryption trust badges.
-- Pre-fills academic major and term when launched from specific program cards.
-- Displays instant confirmation with generated Applicant ID.
+## 🎨 4 Instant University Presets (Client Showcase)
+Switch between these live at the top of the screen:
+1. **HPTU (himtu.ac.in)** *(Default)*: State Technical University, NEP 2020, HPCET, and Engineering/Pharmacy colleges.
+2. **St. Aurelius University**: Global Ivy League, heritage architecture, liberal arts & medical research.
+3. **Vanguard Institute of Technology**: Modern STEM, quantum computing & Silicon Valley accelerator.
+4. **Oakhaven University**: Arts, human-centered UI/UX design, and creative media.
 
 ---
 
 ## 🛠 Tech Stack
-- **Framework**: React 18
-- **Styling**: Tailwind CSS with custom glassmorphism, glowing badges, and bento layouts
+- **Framework**: React 18 + Vite
+- **Styling**: Tailwind CSS (custom animations, glassmorphism, responsive grid layouts)
 - **Icons**: Lucide React
-- **Build Tool**: Vite (sub-second HMR and 1.2s production build)
 - **Typography**: Google Fonts (*Plus Jakarta Sans* & *Playfair Display*)
