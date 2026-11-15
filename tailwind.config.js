@@ -44,7 +44,7 @@ export default {
       animation: {
         'float-slow': 'float 6s ease-in-out infinite',
         'pulse-subtle': 'pulseSubtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'marquee': 'marquee 25s linear infinite',
+        'marquee': 'marquee 75s linear infinite',
       },
       keyframes: {
         float: {

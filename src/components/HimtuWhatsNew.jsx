@@ -77,7 +77,10 @@ export default function HimtuWhatsNew({
 
         {/* Right: Scrolling Horizontal Ticker with Pause on Hover & Clickable Redirects */}
         <div className="overflow-hidden whitespace-nowrap py-2 px-3 flex-1 bg-slate-50 text-xs font-semibold text-slate-800 pause-marquee">
-          <div className="inline-flex items-center gap-8 animate-marquee hover:[animation-play-state:paused] cursor-pointer">
+          <div 
+            className="inline-flex items-center gap-8 animate-marquee hover:[animation-play-state:paused] cursor-pointer"
+            style={{ animationDuration: '75s' }}
+          >
             {allTickerItems.map((item, index) => (
               <React.Fragment key={`${item.id}-${index}`}>
                 <a
