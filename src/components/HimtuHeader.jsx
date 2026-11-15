@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Search, 
   Home, 
@@ -6,14 +6,21 @@ import {
   Phone, 
   Mail, 
   Volume2, 
+  VolumeX,
   Menu, 
-  X,
-  Sparkles,
-  Lock,
-  ExternalLink,
-  ChevronRight
+  X, 
+  Sparkles, 
+  Lock, 
+  ExternalLink, 
+  ChevronRight,
+  PhoneCall,
+  Map,
+  Check
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import SitemapModal from './SitemapModal';
+import TelephoneDirectoryModal from './TelephoneDirectoryModal';
+import WebMailModal from './WebMailModal';
 
 export default function HimtuHeader({ 
   currentPage = 'home',
@@ -28,7 +35,23 @@ export default function HimtuHeader({
   const [activeMenu, setActiveMenu] = useState(null); // 'about', 'admin', 'academics', 'exam', 'admissions', 'student', 'info', 'contact'
   const [activeTopMenu, setActiveTopMenu] = useState(null); // 'uss', 'tenders', 'rti'
   const [fontSizeOffset, setFontSizeOffset] = useState(0);
+  const [isSitemapOpen, setIsSitemapOpen] = useState(false);
+  const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false);
+  const [isWebMailOpen, setIsWebMailOpen] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const { lang, setLang } = useLanguage();
+
+  // Apply real dynamic document font scaling
+  useEffect(() => {
+    const html = document.documentElement;
+    if (fontSizeOffset === -1) {
+      html.style.fontSize = '90%';
+    } else if (fontSizeOffset === 1) {
+      html.style.fontSize = '110%';
+    } else {
+      html.style.fontSize = '100%';
+    }
+  }, [fontSizeOffset]);
 
   const handleNavClick = (pageId, modalTrigger = null) => {
     setActiveMenu(null);
@@ -55,68 +78,152 @@ export default function HimtuHeader({
           
           {/* Left Quick Links */}
           <div className="flex items-center gap-3">
-            <button onClick={() => handleNavClick('contact')} className="hover:text-blue-900 transition font-medium">Sitemap</button>
-            <span className="text-slate-300">|</span>
-            <button onClick={() => handleNavClick('contact')} className="hover:text-blue-900 transition font-medium flex items-center gap-1">
-              <span>Telephone Directory (01972-221493 / 9736391060)</span>
+            <button 
+              onClick={() => setIsSitemapOpen(true)} 
+              className="hover:text-blue-900 transition font-medium cursor-pointer"
+              title="Open Institutional Sitemap"
+            >
+              {lang === 'hi' ? 'साइटमैप' : 'Sitemap'}
             </button>
             <span className="text-slate-300">|</span>
-            <a href="mailto:ggchmr@gmail.com" className="hover:text-blue-900 transition font-medium">Web Mail</a>
+            <button 
+              onClick={() => setIsPhoneModalOpen(true)} 
+              className="hover:text-blue-900 transition font-medium flex items-center gap-1 cursor-pointer"
+              title="Open Official Telephone Directory"
+            >
+              <PhoneCall className="w-3 h-3 text-[#ea580c]" />
+              <span>{lang === 'hi' ? 'टेलीफोन डायरेक्टरी (+91-9418010420)' : 'Telephone Directory (+91-9418010420)'}</span>
+            </button>
             <span className="text-slate-300">|</span>
-            <button onClick={() => handleNavClick('about')} className="hover:text-blue-900 transition font-medium">Mile Stone</button>
+            <button 
+              onClick={() => setIsWebMailOpen(true)} 
+              className="hover:text-blue-900 transition font-medium cursor-pointer"
+              title="Open Institutional Web Mail"
+            >
+              {lang === 'hi' ? 'वेब मेल' : 'Web Mail'}
+            </button>
             <span className="text-slate-300">|</span>
-            <button onClick={onOpenPortalModal} className="hover:text-blue-900 transition font-medium flex items-center gap-1 text-blue-900 font-bold">
+            <button 
+              onClick={() => {
+                handleNavClick('about');
+                setTimeout(() => {
+                  const el = document.getElementById('milestones') || document.getElementById('history');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 200);
+              }} 
+              className="hover:text-blue-900 transition font-medium cursor-pointer"
+              title="View 25-Year Foundation Milestones"
+            >
+              {lang === 'hi' ? 'उपलब्धियां' : 'Mile Stone'}
+            </button>
+            <span className="text-slate-300">|</span>
+            <button 
+              onClick={onOpenPortalModal} 
+              className="hover:text-blue-900 transition font-medium flex items-center gap-1 text-blue-900 font-bold cursor-pointer"
+              title="Academic Bank of Credits & Student Portal"
+            >
               <span>NAD-ABC Scheme</span>
             </button>
           </div>
 
           {/* Right Accessibility & Language Controls */}
           <div className="flex items-center gap-3">
-            <a href="#main-content" className="hover:underline text-slate-600">Skip to main content</a>
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById('main-content') || document.querySelector('main');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                  el.focus?.();
+                }
+              }} 
+              className="hover:underline text-slate-600 cursor-pointer"
+            >
+              {lang === 'hi' ? 'मुख्य सामग्री पर जाएं' : 'Skip to main content'}
+            </button>
             <span className="text-slate-300">|</span>
             
             <div className="flex items-center gap-1.5 font-bold">
               <button 
                 onClick={() => setLang('en')}
-                className={`hover:text-blue-900 transition ${lang === 'en' ? 'text-blue-900 underline' : 'text-slate-600'}`}
+                className={`hover:text-blue-900 transition cursor-pointer px-1 py-0.5 rounded ${lang === 'en' ? 'text-blue-900 underline font-extrabold bg-blue-100/60' : 'text-slate-600'}`}
               >
                 English
               </button>
               <button 
                 onClick={() => setLang('hi')}
-                className={`hover:text-blue-900 transition ${lang === 'hi' ? 'text-blue-900 underline' : 'text-slate-600'}`}
+                className={`hover:text-blue-900 transition cursor-pointer px-1 py-0.5 rounded ${lang === 'hi' ? 'text-blue-900 underline font-extrabold bg-blue-100/60' : 'text-slate-600'}`}
               >
                 हिन्दी
               </button>
             </div>
             <span className="text-slate-300">|</span>
 
-            {/* Font Size Adjusters */}
+            {/* Font Size Adjusters with Active Visual Feedback */}
             <div className="flex items-center gap-1 text-xs font-bold text-slate-600">
-              <button onClick={() => setFontSizeOffset(-1)} className="hover:text-blue-900 px-1">A-</button>
-              <button onClick={() => setFontSizeOffset(0)} className="hover:text-blue-900 px-1">A</button>
-              <button onClick={() => setFontSizeOffset(1)} className="hover:text-blue-900 px-1">A+</button>
+              <button 
+                onClick={() => setFontSizeOffset(-1)} 
+                className={`hover:text-blue-900 px-1 rounded cursor-pointer ${fontSizeOffset === -1 ? 'bg-blue-200 text-blue-900' : ''}`}
+                title="Decrease Font Size (90%)"
+              >
+                A-
+              </button>
+              <button 
+                onClick={() => setFontSizeOffset(0)} 
+                className={`hover:text-blue-900 px-1 rounded cursor-pointer ${fontSizeOffset === 0 ? 'bg-blue-200 text-blue-900' : ''}`}
+                title="Normal Font Size (100%)"
+              >
+                A
+              </button>
+              <button 
+                onClick={() => setFontSizeOffset(1)} 
+                className={`hover:text-blue-900 px-1 rounded cursor-pointer ${fontSizeOffset === 1 ? 'bg-blue-200 text-blue-900' : ''}`}
+                title="Increase Font Size (110%)"
+              >
+                A+
+              </button>
             </div>
             <span className="text-slate-300">|</span>
 
+            {/* Interactive Text-to-Speech Toggle */}
             <button 
               onClick={() => {
-                const speech = new SpeechSynthesisUtterance("Welcome to Gautam College Hamirpur, Himachal Pradesh. Affiliated to HPTU, HPU and AMRU.");
-                window.speechSynthesis?.speak(speech);
+                if ('speechSynthesis' in window) {
+                  if (window.speechSynthesis.speaking) {
+                    window.speechSynthesis.cancel();
+                    setIsSpeaking(false);
+                    return;
+                  }
+                  const speechText = lang === 'hi' 
+                    ? "गौतम ग्रुप ऑफ कॉलेजेस, हमीरपुर, हिमाचल प्रदेश में आपका स्वागत है। स्थापना 1999। संबद्ध हिमाचल प्रदेश तकनीकी विश्वविद्यालय, एचपीयू एवं एएमआरयू। नर्सिंग, फार्मेसी, प्रबंधन और पॉलिटेक्निक में उत्कृष्ट संस्थान।"
+                    : "Welcome to Gautam Group of Colleges, Hamirpur, Himachal Pradesh. Established in 1999, affiliated to HPTU, HPU and AMRU. Offering accredited programs in Nursing, Pharmacy, Management and Technical Polytechnic.";
+                  const utter = new SpeechSynthesisUtterance(speechText);
+                  utter.lang = lang === 'hi' ? 'hi-IN' : 'en-IN';
+                  utter.rate = 0.95;
+                  utter.onstart = () => setIsSpeaking(true);
+                  utter.onend = () => setIsSpeaking(false);
+                  utter.onerror = () => setIsSpeaking(false);
+                  window.speechSynthesis.speak(utter);
+                }
               }}
-              title="Screen Reader Speech"
-              className="hover:text-blue-900 p-0.5"
+              title={isSpeaking ? "Stop Speech" : "Listen to Screen Reader Introduction"}
+              className={`hover:text-blue-900 p-0.5 rounded cursor-pointer transition ${isSpeaking ? 'bg-amber-200 text-amber-900 animate-pulse' : ''}`}
             >
-              <Volume2 className="w-3.5 h-3.5 text-slate-700" />
+              {isSpeaking ? (
+                <VolumeX className="w-3.5 h-3.5 text-red-600" />
+              ) : (
+                <Volume2 className="w-3.5 h-3.5 text-slate-700" />
+              )}
             </button>
 
             <span className="text-slate-300">|</span>
             <button
               onClick={onOpenCMSModal}
-              className="text-amber-800 hover:text-amber-950 font-bold flex items-center gap-1"
+              className="text-amber-800 hover:text-amber-950 font-bold flex items-center gap-1 cursor-pointer"
+              title="Official Staff & Faculty CMS Login"
             >
               <Lock className="w-3 h-3 text-amber-700" />
-              <span>Staff Login</span>
+              <span>{lang === 'hi' ? 'स्टाफ लॉगिन' : 'Staff Login'}</span>
             </button>
           </div>
 
@@ -804,6 +911,21 @@ export default function HimtuHeader({
           </div>
         </div>
       )}
+
+      {/* Institutional Utility Modals */}
+      <SitemapModal 
+        isOpen={isSitemapOpen} 
+        onClose={() => setIsSitemapOpen(false)} 
+        onNavigate={onNavigate} 
+      />
+      <TelephoneDirectoryModal 
+        isOpen={isPhoneModalOpen} 
+        onClose={() => setIsPhoneModalOpen(false)} 
+      />
+      <WebMailModal 
+        isOpen={isWebMailOpen} 
+        onClose={() => setIsWebMailOpen(false)} 
+      />
 
     </>
   );
