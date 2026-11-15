@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, GraduationCap, BookOpen, Clock, Building2, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { GraduationCap, BookOpen, Clock, Building2 } from 'lucide-react';
 import { getCdnUrl } from '../utils/cloudinary';
 
 export default function HimtuStatsLogos() {
-  const [logoIndex, setLogoIndex] = useState(0);
 
   const stats = [
     {
@@ -103,14 +102,6 @@ export default function HimtuStatsLogos() {
     }
   ];
 
-  const handlePrev = () => {
-    setLogoIndex((prev) => (prev === 0 ? statutoryLogos.length - 4 : Math.max(0, prev - 1)));
-  };
-
-  const handleNext = () => {
-    setLogoIndex((prev) => (prev >= statutoryLogos.length - 4 ? 0 : prev + 1));
-  };
-
   return (
     <section className="bg-white py-12 border-b border-slate-200 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -140,69 +131,34 @@ export default function HimtuStatsLogos() {
           })}
         </div>
 
-        {/* 2. Statutory Approvals & Apex Links Carousel */}
+        {/* 2. Statutory Approvals & Apex Affiliations Logos in a Single Line */}
         <div>
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <span className="text-xs font-bold text-[#ea580c] uppercase tracking-wider block">
-                Statutory Regulatory Authorities & Apex Affiliations
-              </span>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900">
-                Recognized & Approved By National Accreditation Councils
-              </h3>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={handlePrev}
-                aria-label="Previous Apex Body"
-                className="w-8 h-8 rounded-full bg-[#ea580c] text-white flex items-center justify-center hover:bg-orange-700 transition shadow-sm"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={handleNext}
-                aria-label="Next Apex Body"
-                className="w-8 h-8 rounded-full bg-[#ea580c] text-white flex items-center justify-center hover:bg-orange-700 transition shadow-sm"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
+          <div className="mb-6">
+            <span className="text-xs font-bold text-[#ea580c] uppercase tracking-wider block">
+              Statutory Regulatory Authorities & Apex Affiliations
+            </span>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+              Recognized & Approved By National Accreditation Councils
+            </h3>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {statutoryLogos.slice(logoIndex, logoIndex + 4).map((item, idx) => (
+          {/* All 8 Logos in One Line (Only Logos, No Text) */}
+          <div className="grid grid-cols-4 sm:grid-cols-8 gap-3 sm:gap-4 items-center">
+            {statutoryLogos.map((item, idx) => (
               <a
                 key={idx}
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-4 rounded-xl border border-slate-200 bg-white hover:border-[#ea580c] hover:shadow-lg transition-all flex flex-col justify-between min-h-[148px]"
+                title={`${item.name} (${item.abbr})`}
+                className="group h-20 sm:h-24 p-2 sm:p-3 rounded-xl border border-slate-200 bg-white hover:border-[#ea580c] hover:shadow-md transition-all flex items-center justify-center"
               >
-                <div className="flex items-center justify-between gap-2">
-                  <div className="h-12 w-28 flex items-center bg-slate-50/50 p-1 rounded-lg border border-slate-100">
-                    <img 
-                      src={getCdnUrl(item.logo)} 
-                      alt={item.abbr} 
-                      className="max-h-10 max-w-full object-contain group-hover:scale-105 transition-transform" 
-                      loading="lazy"
-                    />
-                  </div>
-                  <span className="text-[11px] font-semibold text-slate-400 group-hover:text-[#ea580c] flex items-center gap-0.5 shrink-0 transition-colors">
-                    Verify <ExternalLink className="w-2.5 h-2.5" />
-                  </span>
-                </div>
-                <div className="mt-3">
-                  <span className="text-[10px] font-mono font-bold text-blue-900 bg-blue-50 px-1.5 py-0.5 rounded">
-                    {item.abbr}
-                  </span>
-                  <h4 className="text-xs font-bold text-slate-900 line-clamp-1 group-hover:text-[#ea580c] transition-colors mt-1">
-                    {item.name}
-                  </h4>
-                  <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
-                    {item.body}
-                  </p>
-                </div>
+                <img 
+                  src={getCdnUrl(item.logo)} 
+                  alt={item.name} 
+                  className="max-h-12 sm:max-h-14 max-w-full object-contain group-hover:scale-105 transition-transform" 
+                  loading="lazy"
+                />
               </a>
             ))}
           </div>
