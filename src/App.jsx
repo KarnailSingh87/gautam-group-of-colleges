@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import ErrorBoundary from './components/ErrorBoundary';
-import TopUtilityBar from './components/TopUtilityBar';
-import Navbar from './components/Navbar';
-import NoticeBoardTicker from './components/NoticeBoardTicker';
-import HeroSection from './components/HeroSection';
+
+// HPTU (himtu.ac.in) Style Signature Components
+import HimtuHeader from './components/HimtuHeader';
+import HimtuWhatsNew from './components/HimtuWhatsNew';
+import HimtuHeroSection from './components/HimtuHeroSection';
+
+// Collegiate Core Modules
 import ConstituentColleges from './components/ConstituentColleges';
 import LeadershipDesk from './components/LeadershipDesk';
 import DigitalServicesHub from './components/DigitalServicesHub';
@@ -108,7 +111,7 @@ export default function App() {
     affiliations: 'Affiliations & Statutory Approvals',
     academics: 'Academics, Departments & Syllabi',
     admissions: 'Admissions, Eligibility & Fees',
-    faculty: 'Faculty & Staff Directory',
+    faculty: 'Faculty & Administration',
     facilities: 'Infrastructure, Central Library & Health Facilities',
     placements: 'Student Life, Placements & Research (IQAC)',
     compliance: 'Mandatory Disclosures (Anti-Ragging, ICC, RTI)',
@@ -121,29 +124,23 @@ export default function App() {
   return (
     <LanguageProvider>
       <ErrorBoundary>
-        <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-indigo-900 selection:text-amber-300">
+        <div id="main-content" className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-[#1e3a8a] selection:text-amber-300">
           
-          {/* 1. Official Institutional Utility Header */}
-          <TopUtilityBar
-            onOpenPortal={handleOpenServiceModal}
-          />
-
-          {/* 2. Main Institutional Navigation Bar with Mega-Menu & Lang Toggle */}
-          <Navbar
+          {/* 1. Official HPTU (himtu.ac.in) Header with Top Bar, Dual Branding & Primary Nav */}
+          <HimtuHeader
             currentPage={currentPage}
             onNavigate={handleNavigate}
             onOpenApply={handleOpenApply}
-            onOpenTour={() => setIsTourOpen(true)}
             onOpenPortalModal={() => setIsPortalModalOpen(true)}
             onOpenCMSModal={() => setIsCMSOpen(true)}
-            onScrollToPrograms={handleScrollToPrograms}
+            onOpenResults={() => handleOpenServiceModal('results')}
           />
 
-          {/* 3. Live Notification & Marquee Ticker */}
+          {/* 2. Official HPTU "What's New ▶" Ticker Marquee */}
           {currentPage === 'home' && (
-            <NoticeBoardTicker
-              onOpenServiceModal={handleOpenServiceModal}
+            <HimtuWhatsNew
               onOpenApply={handleOpenApply}
+              onOpenNoticeModal={() => handleOpenServiceModal('otr')}
             />
           )}
 
@@ -154,7 +151,7 @@ export default function App() {
                 <div className="flex items-center gap-2 text-slate-500">
                   <button
                     onClick={() => handleNavigate('home')}
-                    className="hover:text-indigo-900 transition flex items-center gap-1 font-bold"
+                    className="hover:text-blue-900 transition flex items-center gap-1 font-bold"
                   >
                     <Home className="w-3.5 h-3.5" />
                     <span>Home</span>
@@ -164,7 +161,7 @@ export default function App() {
                 </div>
                 <button
                   onClick={() => handleNavigate('home')}
-                  className="text-xs font-bold text-indigo-900 hover:text-indigo-700 transition"
+                  className="text-xs font-bold text-[#ea580c] hover:underline transition"
                 >
                   ← Back to Home
                 </button>
@@ -176,15 +173,15 @@ export default function App() {
           <main className="flex-1">
             {currentPage === 'home' && (
               <>
-                {/* Grand Hero Section */}
-                <HeroSection
-                  onOpenTour={() => setIsTourOpen(true)}
-                  onScrollToPrograms={handleScrollToPrograms}
+                {/* 3. Official HPTU Hero Section (Image Slider Left + "Notifications" Card Right) */}
+                <HimtuHeroSection
                   onOpenApply={handleOpenApply}
-                  onOpenPortal={handleOpenServiceModal}
+                  onOpenResults={() => handleOpenServiceModal('results')}
+                  onOpenTour={() => setIsTourOpen(true)}
+                  onOpenPortal={() => setIsPortalModalOpen(true)}
                 />
 
-                {/* The 6 Constituent Colleges */}
+                {/* The 6 Constituent Colleges of Gautam Group */}
                 <ConstituentColleges
                   onOpenApply={handleOpenApply}
                 />
