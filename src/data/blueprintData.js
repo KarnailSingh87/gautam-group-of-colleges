@@ -7,6 +7,8 @@ export const INSTITUTION_INFO = {
   address: 'Ward No. 10, near Bus Stand, Chakmoh, Galore, Hamirpur (Himachal Pradesh), PIN 177001',
   phonePrimary: '+91-9736391060',
   phoneLandline: '01972-221493',
+  phoneLandline2: '01972-223557',
+  phoneMobileNew: '+91-9418075475',
   phoneOffice1: '+91-9736991060',
   phoneOffice2: '+91-9418010420',
   phoneAdmission: '+91-9816687100',
@@ -16,6 +18,18 @@ export const INSTITUTION_INFO = {
   admissionWebsite: 'https://admission.ggchmr.com',
   aisheCode: 'C-11482 / C-53351',
   collegeCode: 'HMR-04 (HPU / HPTU)',
+  hpuAffiliationLetter: 'Letter No. (B.Sc.)1-213/2000-HP(ACAD)-3222 dated 20/09/2000 from Himachal Pradesh University',
+  mouCollaboration: 'Academic & Research MoU with NSCBM Government College Hamirpur',
+  staffStrength: {
+    directors: 1,
+    principals: 2,
+    associateProfessors: 4,
+    assistantProfessors: 40,
+    lecturers: 11,
+    otherFaculty: 15,
+    totalTeachingStaff: '73+ Dedicated Educators'
+  },
+  totalSeats: '1,165 Total Approved Seats across Group',
   locationGeo: 'Ward No. 10, Near Bus Stand, Chakmoh, Galore, Hamirpur (H.P.)',
   logo: '/gautam_group_colleges_logo.png',
   campusImage: '/ggc-campus.jpg',
@@ -46,6 +60,8 @@ export const INSTITUTION_INFO = {
       type: 'Degree College (UG & PG)',
       est: '1999',
       affiliation: 'Himachal Pradesh University (HPU), Shimla',
+      affiliationLetter: 'Letter No. (B.Sc.)1-213/2000-HP(ACAD)-3222 dated 20/09/2000',
+      facilities: 'Boys Hostel, Girls Hostel, Central Library, Sports, Cafeteria, Auditorium, IT Infrastructure, 24-Hour Wi-Fi, Laboratories',
       description: 'Undergraduate and Postgraduate degrees in Arts, Science, Commerce, and Computer Applications.'
     },
     {
@@ -53,44 +69,69 @@ export const INSTITUTION_INFO = {
       name: 'Gautam Polytechnic',
       type: 'Technical & Engineering Diplomas',
       est: '1999',
-      affiliation: 'H.P. Takniki Shiksha Board, Dharamshala',
-      description: 'Polytechnic diplomas in applied technologies and vocational engineering.'
+      affiliation: 'AICTE Approved & Affiliated to H.P. Takniki Shiksha Board, Dharamshala',
+      branches: [
+        'Civil Engineering',
+        'Computer Engineering',
+        'Electrical Engineering',
+        'Electronics and Communication Engineering (ECE)',
+        'Mechanical Engineering',
+        'Information Technology (IT)',
+        'Hotel Management',
+        'Architecture Engineering'
+      ],
+      helpline: '(01972) 223557, (01972) 221493, +91-9418075475, +91-9418010420',
+      description: 'AICTE-approved 3-year technical diplomas across 8 engineering and professional disciplines.'
     },
     {
       id: 'gimt',
       name: 'Gautam Institute of Management and Technology (GIMT)',
       type: 'Management & IT',
-      est: '2009',
+      est: '2012',
       affiliation: 'AICTE New Delhi & HPTU Hamirpur',
-      description: 'Professional management and software degree programs including MBA, BBA, BCA, and PGDCA.'
+      libraryDetails: '15,474 textbook titles, 500 reference technical journals, fully computerized on Troodon software',
+      wifiCoverage: '24/7 Wi-Fi reaching library, auditorium, cafeteria, and residential hostels',
+      facilities: 'Boys & Girls Hostels, Sports Complex, Guest House / Visitors Lounge, High-Speed Computing Labs',
+      description: 'Premier management and computing institute offering MBA (CAT/CMAT/MAT/HPCET), BCA, BBA, and PGDCA.'
     },
     {
       id: 'nursing',
       name: 'Gautam College of Nursing',
       type: 'Nursing & Health Sciences',
       est: '2014',
+      campusSize: '3-Acre Dedicated Healthcare Campus',
+      studentCount: '246+ Enrolled Nursing Scholars',
+      facultyCount: '21 Specialized Clinical Faculty Members',
       affiliation: 'Indian Nursing Council (INC), HP Nurses Registration Council (HPNRC) & HPU / AMRU Nerchowk',
-      entranceInfo: 'Admissions conducted via Atal Medical & Research University (AMRU) entrance at https://amruhp.ac.in',
-      description: 'Premier health education offering B.Sc Nursing, Post Basic B.Sc Nursing, and GNM with clinical rotations.'
+      entranceInfo: 'Admissions conducted via Atal Medical & Research University (AMRU) entrance (June-July) at https://amruhp.ac.in',
+      specialFacilities: 'Gymnasium, Health Centre with 24/7 first-aid services, Girls Hostel, Nursing Library, Advance Simulation Labs, Canteen, Guest Room, Training & Placement Cell',
+      clinicalTieUp: 'Clinical training attached to Dr. Radhakrishnan Government Medical College (GMC) Hamirpur',
+      description: 'Premier health education offering B.Sc Nursing (40 seats), Post Basic B.Sc Nursing (40 seats), and GNM (40 seats).'
     },
     {
       id: 'pharmacy',
       name: 'Gautam College of Pharmacy',
       type: 'Pharmaceutical Sciences & Research',
       est: '2019',
+      campusSize: '2-Acre Dedicated Pharmacy Campus',
+      studentCount: '312+ Pharmacy Scholars',
+      facultyCount: '26 Specialized Pharmacy Faculty',
       affiliation: 'Pharmacy Council of India (PCI) & HPTU Hamirpur',
-      description: 'PCI-approved B.Pharmacy and D.Pharmacy degree programs with advanced formulation laboratories.'
+      facilities: 'Pharmaceutics Lab, Pharmaceutical Chemistry, Pharmacology, Pharmacognosy, Machine Room, Instrumentation Room',
+      description: 'PCI-approved B.Pharmacy and D.Pharmacy programs with advanced formulation laboratories.'
     }
   ]
 };
 
 export const TELEPHONE_DIRECTORY = [
-  { purpose: 'Landline Office', number: '01972-221493', raw: '01972221493', desc: 'Main Campus Exchange' },
-  { purpose: 'Main / General Inquiry', number: '+91-9736391060', raw: '9736391060', desc: 'Central Inquiry Desk' },
+  { purpose: 'Landline Office 1', number: '01972-221493', raw: '01972221493', desc: 'Main Campus Exchange & Registrar Desk' },
+  { purpose: 'Landline Office 2 (Polytechnic)', number: '01972-223557', raw: '01972223557', desc: 'Gautam Polytechnic & Vocational Office' },
+  { purpose: 'Main / General Inquiry', number: '+91-9736391060', raw: '9736391060', desc: 'Central Campus Information Desk' },
   { purpose: 'Administrative Office 1', number: '+91-9736991060', raw: '9736991060', desc: 'Staff & Registry Section' },
   { purpose: 'Administrative Office 2', number: '+91-9418010420', raw: '9418010420', desc: 'Principal Desk Secretariat' },
+  { purpose: 'Polytechnic & Student Helpline', number: '+91-9418075475', raw: '9418075475', desc: 'Polytechnic Admissions & Inquiries' },
   { purpose: 'Admission Cell Helpdesk', number: '+91-9816687100', raw: '9816687100', desc: 'Counseling & Direct Merit Seats' },
-  { purpose: 'Training & Placement Cell', number: '+91-9736391060', raw: '9736391060', desc: 'Corporate Tie-ups & Campus Drives' }
+  { purpose: 'Training & Placement Cell', number: '+91-9736391060', raw: '9736391060', desc: 'Corporate Tie-ups & Hospital Rotations' }
 ];
 
 export const AFFILIATIONS_APPROVALS = [
@@ -606,7 +647,13 @@ export const FACULTY_MEMBERS = [
 ];
 
 export const LIBRARY_RESOURCES = {
-  totalVolumes: '35,000+ Textbooks and Reference Works',
+  totalVolumes: '35,000+ Textbooks and Reference Works across Group',
+  gimtLibrary: {
+    titles: '15,474 Textbook Titles',
+    journals: '500 Reference Technical Journals',
+    automation: 'Fully Computerized running on Troodon Library Automation Software',
+    wifi: 'High-Speed Wi-Fi coverage across reading halls and e-resource terminals'
+  },
   eJournals: 'DELNET & National Digital Library Portal Subscribed',
   seatingCapacity: '180 Students Silent Reading Hall',
   timings: 'Monday to Saturday: 8:30 AM to 6:00 PM (Extended till 8:00 PM during exams)',
@@ -618,6 +665,93 @@ export const LIBRARY_RESOURCES = {
     { title: 'NPTEL Online Certification', url: 'https://nptel.ac.in', desc: 'Engineering, pharma, and computing video lecture repositories' }
   ]
 };
+
+export const SEAT_MATRIX_FEES = [
+  {
+    college: 'Gautam College of Nursing',
+    course: 'B.Sc. Nursing',
+    seats: 40,
+    feeIndicative: '₹2,32,000',
+    feeNote: 'Indicative total (Third-party listing). Admissions strictly through Atal Medical & Research University (AMRU) HP Entrance.',
+    duration: '4 Years',
+    admissionRoute: 'AMRU Entrance (June-July) at https://amruhp.ac.in'
+  },
+  {
+    college: 'Gautam College of Nursing',
+    course: 'General Nursing & Midwifery (GNM)',
+    seats: 40,
+    feeIndicative: '₹1,17,000',
+    feeNote: 'Indicative total (3 Years). State regulatory norms apply.',
+    duration: '3 Years',
+    admissionRoute: 'State Nursing Counseling & Direct Merit'
+  },
+  {
+    college: 'Gautam College of Nursing',
+    course: 'Post Basic B.Sc. Nursing',
+    seats: 40,
+    feeIndicative: '₹1.01 Lakh',
+    feeNote: 'Indicative total (2 Years) for registered GNM nurses.',
+    duration: '2 Years',
+    admissionRoute: 'AMRU / State Counseling'
+  },
+  {
+    college: 'Gautam College of Pharmacy',
+    course: 'D.Pharma (Diploma in Pharmacy)',
+    seats: 60,
+    feeIndicative: '₹63,800',
+    feeNote: '₹63,800 tuition for 2 years (plus ₹96,000 hostel if opted). PCI approved.',
+    duration: '2 Years',
+    admissionRoute: 'HP Takniki Shiksha Board / Direct Merit'
+  },
+  {
+    college: 'Gautam College of Pharmacy',
+    course: 'B.Pharma (Bachelor of Pharmacy)',
+    seats: 60,
+    feeIndicative: 'As per HPTU Norms',
+    feeNote: 'PCI and HPTU approved 4-year degree.',
+    duration: '4 Years',
+    admissionRoute: 'HPCET Counseling & Direct Management Merit'
+  },
+  {
+    college: 'Gautam College (Degree College)',
+    course: 'BCA (Bachelor of Computer Applications)',
+    seats: 90,
+    feeIndicative: '₹1.08 Lakh',
+    feeNote: 'Total for 3 years (Careers360 listing). HPU affiliated.',
+    duration: '3 Years',
+    admissionRoute: 'Direct Merit via Gautam Group portal (admission.ggchmr.com)'
+  },
+  {
+    college: 'Gautam College (Degree College)',
+    course: 'B.Sc. Non-Medical',
+    seats: 120,
+    feeIndicative: '₹30.85K',
+    feeNote: 'Total for 3 years. Affiliation Letter No. (B.Sc.)1-213/2000-HP(ACAD)-3222 dated 20/09/2000.',
+    duration: '3 Years',
+    admissionRoute: 'Direct Merit (10+2 PCM)'
+  },
+  {
+    college: 'Gautam Institute of Management & Technology (GIMT)',
+    course: 'MBA (Master of Business Administration)',
+    seats: 60,
+    feeIndicative: 'About ₹1.00 Lakh',
+    feeNote: 'Total for 2 years. Accepted exams: CAT, CMAT, MAT, HPCET.',
+    duration: '2 Years',
+    admissionRoute: 'CAT / CMAT / MAT / HPCET / Merit'
+  },
+  {
+    college: 'Gautam Polytechnic',
+    course: 'Polytechnic Diploma (8 Engineering Branches)',
+    seats: 240,
+    feeIndicative: 'As per HPTSB / AICTE Norms',
+    feeNote: 'Civil, Computer, Electrical, ECE, Mechanical, IT, Hotel Mgmt, Architecture Engg.',
+    duration: '3 Years',
+    admissionRoute: 'HP PAT / Direct 10th Merit'
+  }
+];
+
+export const TOTAL_GROUP_SEATS = 1165;
+export const FEE_DISCLAIMER = 'All fee figures are indicative based on public third-party listings. Official fee schedules for 2026-27 are issued by the university / regulatory councils. For exact official fee breakdowns and seat allotment, please contact the college administration office at 01972-221493, 01972-223557 or email ggchmr@gmail.com.';
 
 export const MEDICAL_FACILITIES = {
   dispensary: 'Campus First-Aid & Health Care Clinic (Ward No. 10 Campus)',

@@ -50,20 +50,24 @@ export default function StudentLifePlacementsPage({ onOpenApply }) {
           <div className="space-y-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               <div className="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
-                <div className="text-3xl font-extrabold text-indigo-700">₹12.4 LPA</div>
-                <div className="text-xs text-slate-500 font-bold mt-1">Highest Package</div>
+                <div className="text-2xl font-black text-[#1e3a8a]">100%</div>
+                <div className="text-xs text-slate-500 font-bold mt-1">Clinical Bedside Training</div>
+                <div className="text-[10px] text-slate-400">Dr. Radhakrishnan GMC</div>
               </div>
               <div className="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
-                <div className="text-3xl font-extrabold text-emerald-700">100+</div>
-                <div className="text-xs text-slate-500 font-bold mt-1">Recruiting Companies</div>
+                <div className="text-2xl font-black text-emerald-700">Active</div>
+                <div className="text-xs text-slate-500 font-bold mt-1">Pharma & Hospital Drives</div>
+                <div className="text-[10px] text-slate-400">Regional & National Units</div>
               </div>
               <div className="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
-                <div className="text-3xl font-extrabold text-amber-700">25,000+</div>
+                <div className="text-2xl font-black text-amber-700">10,000+</div>
                 <div className="text-xs text-slate-500 font-bold mt-1">Alumni Network</div>
+                <div className="text-[10px] text-slate-400">Established 1999</div>
               </div>
               <div className="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
-                <div className="text-3xl font-extrabold text-blue-700">100%</div>
-                <div className="text-xs text-slate-500 font-bold mt-1">Clinical / Pharma Rotation</div>
+                <div className="text-2xl font-black text-rose-700">MoU</div>
+                <div className="text-xs text-slate-500 font-bold mt-1">Academic Research Linkage</div>
+                <div className="text-[10px] text-slate-400">NSCBM Govt College</div>
               </div>
             </div>
 
@@ -71,26 +75,31 @@ export default function StudentLifePlacementsPage({ onOpenApply }) {
             <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">Training & Corporate Relations Desk</h3>
-                  <p className="text-xs text-slate-500">Placement Officer: Prof. Vivek Dhiman | placement@ggchmr.com</p>
+                  <h3 className="text-lg font-bold text-slate-900">Training, Internship & Placement Cell</h3>
+                  <p className="text-xs text-slate-500 mt-0.5">Central Desk: +91-9736391060 | Landline: 01972-221493 | ggchmr@gmail.com</p>
                 </div>
                 <button
                   onClick={() => onOpenApply('apply', 'Placement Registration')}
-                  className="px-4 py-2 rounded-xl bg-indigo-600 text-white font-bold text-xs"
+                  className="px-4 py-2 rounded-xl bg-[#1e3a8a] text-white font-bold text-xs hover:bg-blue-900 transition"
                 >
                   Student Placement Registration
                 </button>
               </div>
 
               <div>
-                <h4 className="text-xs uppercase tracking-wider font-bold text-slate-500 mb-4">Prominent Corporate & Hospital Recruiters</h4>
+                <h4 className="text-xs uppercase tracking-wider font-bold text-slate-500 mb-4">Prominent Healthcare, Pharmaceutical & Corporate Partners</h4>
                 <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 text-center text-xs font-bold text-slate-700">
-                  {['Sun Pharma', 'Cipla Ltd', 'Macleods Pharma', 'Fortis Healthcare', 'Apollo Hospitals', 'Max Healthcare', 'Dr. Reddy’s', 'Wipro', 'Infosys', 'Tech Mahindra', 'HDFC Bank', 'Taj Hotels'].map((rec, idx) => (
-                    <div key={idx} className="p-3 bg-slate-50 rounded-2xl border border-slate-200 hover:border-indigo-400 transition-colors">
+                  {['Sun Pharma', 'Cipla Ltd', 'Macleods Pharma', 'Fortis Healthcare', 'Apollo Hospitals', 'Max Healthcare', 'Regional Health Centers', 'HDFC Bank', 'Himachal State Co-op', 'Regional Pharma Baddi', 'Dr. Radhakrishnan GMC', 'Civil Hospital Hamirpur'].map((rec, idx) => (
+                    <div key={idx} className="p-3 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-400 transition-colors">
                       {rec}
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Verified Placement Policy Notice */}
+              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-600 leading-relaxed">
+                <strong>Placement Integrity & Verification Policy:</strong> The Training and Placement Cell facilitates campus interviews, clinical internships, and pre-placement training. In adherence to transparency guidelines, only authenticated on-record recruitment drives are published. Candidates are encouraged to verify current batch placement drives directly through the cell at <strong>+91-9736391060</strong> or the Principal's Secretariat.
               </div>
             </div>
 

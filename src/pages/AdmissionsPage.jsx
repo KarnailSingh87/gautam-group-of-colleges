@@ -12,7 +12,7 @@ import {
   ArrowRight,
   ShieldCheck
 } from 'lucide-react';
-import { COURSES_DETAIL, SCHOLARSHIPS_DATA } from '../data/blueprintData';
+import { COURSES_DETAIL, SCHOLARSHIPS_DATA, SEAT_MATRIX_FEES, FEE_DISCLAIMER, INSTITUTION_INFO } from '../data/blueprintData';
 
 export default function AdmissionsPage({ onOpenApply, onOpenFeePay }) {
   const [activeFaq, setActiveFaq] = useState(null);
@@ -134,18 +134,28 @@ export default function AdmissionsPage({ onOpenApply, onOpenFeePay }) {
 
         {/* Comprehensive Fee Matrix Table */}
         <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-0">
-          <div className="p-6 border-b flex items-center justify-between">
+          <div className="p-6 border-b flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50">
             <div>
-              <h2 className="text-xl font-bold text-slate-900">Approved Course-Wise Fee Structure (Session 2024–25)</h2>
-              <p className="text-xs text-slate-500">Regulated and approved by Himachal Pradesh State Fee Committee & Affiliating Bodies</p>
+              <h2 className="text-xl font-bold text-slate-900">Approved Course Intake & Indicative Fees</h2>
+              <p className="text-xs text-slate-500 mt-0.5">Across Gautam Degree College, GIMT, Nursing, Pharmacy & Polytechnic (1,165 Total Intake)</p>
             </div>
-            <button
-              onClick={() => alert('Downloading Complete Fee Structure Schedule (PDF)...')}
-              className="px-3.5 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-1.5"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download Fee PDF</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <span className="px-3 py-1 bg-[#1e3a8a] text-white text-xs font-bold rounded-lg shrink-0">
+                1,165 Total Approved Seats
+              </span>
+            </div>
+          </div>
+
+          {/* Fee Transparency Note */}
+          <div className="p-4 bg-amber-50 border-b border-amber-200 text-xs text-amber-900">
+            <strong>Transparency Notice: </strong> {FEE_DISCLAIMER}
+            <div className="mt-1 font-bold text-slate-800 flex flex-wrap gap-2 text-[11px]">
+              <span>Campus Office: 01972-221493</span>
+              <span>•</span>
+              <span>Polytechnic Office: 01972-223557</span>
+              <span>•</span>
+              <span>Helpline: +91-9418075475</span>
+            </div>
           </div>
 
           <div className="overflow-x-auto">
@@ -153,22 +163,38 @@ export default function AdmissionsPage({ onOpenApply, onOpenFeePay }) {
               <thead>
                 <tr className="bg-slate-100 text-slate-700 uppercase font-bold text-[11px] border-b">
                   <th className="p-4">Program</th>
+                  <th className="p-4">College</th>
                   <th className="p-4">Duration</th>
-                  <th className="p-4">Tuition Fee (Per Year)</th>
-                  <th className="p-4">Exam Fee (Per Sem/Yr)</th>
-                  <th className="p-4">Refundable Caution Money</th>
-                  <th className="p-4 text-right">Hostel & Mess</th>
+                  <th className="p-4">Seats</th>
+                  <th className="p-4">Indicative Fee</th>
+                  <th className="p-4">Admission Route</th>
+                  <th className="p-4 text-right">Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 text-slate-800">
-                {COURSES_DETAIL.map((c, i) => (
+                {SEAT_MATRIX_FEES.map((row, i) => (
                   <tr key={i} className="hover:bg-slate-50">
-                    <td className="p-4 font-bold text-slate-900">{c.name}</td>
-                    <td className="p-4">{c.duration}</td>
-                    <td className="p-4 font-semibold text-indigo-700">{c.annualTuition}</td>
-                    <td className="p-4">{c.examFee}</td>
-                    <td className="p-4 font-mono text-slate-500">{c.cautionMoney}</td>
-                    <td className="p-4 text-right font-medium text-slate-700">₹55,000 / yr (Optional)</td>
+                    <td className="p-4 font-bold text-slate-900">{row.course}</td>
+                    <td className="p-4 text-slate-600">{row.college}</td>
+                    <td className="p-4">{row.duration}</td>
+                    <td className="p-4">
+                      <span className="px-2 py-0.5 rounded font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                        {row.seats} Seats
+                      </span>
+                    </td>
+                    <td className="p-4 font-semibold text-indigo-700">
+                      <div>{row.feeIndicative}</div>
+                      <span className="text-[10px] text-slate-500 font-normal">{row.feeNote}</span>
+                    </td>
+                    <td className="p-4 text-slate-600">{row.admissionRoute}</td>
+                    <td className="p-4 text-right font-medium">
+                      <button
+                        onClick={() => onOpenApply('apply', row.course)}
+                        className="px-3 py-1 rounded bg-[#ea580c] text-white font-bold hover:bg-orange-600 transition"
+                      >
+                        Apply
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

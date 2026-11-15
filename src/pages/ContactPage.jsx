@@ -64,6 +64,13 @@ export default function ContactPage({ onOpenApply }) {
       phone: '+91-9736991060 / 01972-221493',
       email: 'ggchmr@gmail.com',
       hours: 'Mon - Sat: 9:00 AM - 5:00 PM'
+    },
+    {
+      name: 'Gautam Polytechnic (AICTE Approved)',
+      location: 'Polytechnic Engineering Wing',
+      phone: '01972-223557 / 01972-221493 / +91-9418075475',
+      email: 'ggchmr@gmail.com',
+      hours: 'Mon - Sat: 9:00 AM - 5:00 PM'
     }
   ];
 
