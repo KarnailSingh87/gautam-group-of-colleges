@@ -19,7 +19,6 @@ import HimtuFooter from './components/HimtuFooter';
 import ConstituentColleges from './components/ConstituentColleges';
 import LeadershipDesk from './components/LeadershipDesk';
 import DigitalServicesHub from './components/DigitalServicesHub';
-import ProgramFinder from './components/ProgramFinder';
 import StatsBento from './components/StatsBento';
 import CampusExperience from './components/CampusExperience';
 import UpcomingEvents from './components/UpcomingEvents';
@@ -227,10 +226,6 @@ export default function App() {
                 <HimtuStatsLogos />
 
                 {/* Supplementary Academic & Student Tools */}
-                <ProgramFinder
-                  onOpenApply={handleOpenApply}
-                />
-
                 <LeadershipDesk
                   onOpenApply={handleOpenApply}
                 />
