@@ -22,7 +22,6 @@ import DigitalServicesHub from './components/DigitalServicesHub';
 import ProgramFinder from './components/ProgramFinder';
 import StatsBento from './components/StatsBento';
 import CampusExperience from './components/CampusExperience';
-import TuitionEstimator from './components/TuitionEstimator';
 import UpcomingEvents from './components/UpcomingEvents';
 import AlumniStories from './components/AlumniStories';
 import ApplicationCTA from './components/ApplicationCTA';
@@ -233,10 +232,6 @@ export default function App() {
                 />
 
                 <LeadershipDesk
-                  onOpenApply={handleOpenApply}
-                />
-
-                <TuitionEstimator
                   onOpenApply={handleOpenApply}
                 />
 
