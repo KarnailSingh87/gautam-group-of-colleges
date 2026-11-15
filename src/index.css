@@ -45,3 +45,11 @@
     linear-gradient(to right, rgba(14, 140, 228, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(14, 140, 228, 0.05) 1px, transparent 1px);
 }
+
+/* Marquee Running Line - Pause on cursor hover */
+.animate-marquee:hover {
+  animation-play-state: paused !important;
+}
+.pause-on-hover:hover .animate-marquee {
+  animation-play-state: paused !important;
+}

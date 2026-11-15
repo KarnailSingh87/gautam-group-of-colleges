@@ -145,6 +145,8 @@ export default function App() {
             <HimtuWhatsNew
               onOpenApply={handleOpenApply}
               onOpenNoticeModal={() => handleOpenServiceModal('otr')}
+              onOpenResults={() => handleOpenServiceModal('results')}
+              onNavigate={handleNavigate}
             />
           )}
 
