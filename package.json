@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && cp -r dist/assets . && cp dist/_redirects .",
+    "dev": "cp index.src.html index.html 2>/dev/null || true; vite",
+    "build": "cp index.src.html index.html 2>/dev/null || true; vite build && cp -r dist/assets . && cp dist/_redirects . && cp dist/index.html ./index.html",
     "preview": "vite preview",
     "start": "vite preview --host 0.0.0.0 --port ${PORT:-10000}"
   },
