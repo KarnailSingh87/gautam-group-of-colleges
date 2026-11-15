@@ -252,10 +252,10 @@ export default function HimtuHeader({
               {/* HPTU Style Official Typography */}
               <div className="flex flex-col text-left">
                 <div className="text-base sm:text-xl md:text-2xl font-bold text-[#ea580c] tracking-normal leading-tight font-['Noto_Sans_Devanagari',sans-serif]">
-                  गौतम ग्रुप ऑफ कॉलेजेस, हमीरपुर
+                  गौतम कॉलेज, हमीरपुर
                 </div>
                 <div className="text-xl sm:text-2xl md:text-[28px] font-black text-[#1b327b] tracking-tight leading-tight uppercase font-['Roboto_Condensed',sans-serif]">
-                  GAUTAM GROUP OF COLLEGES
+                  GAUTAM COLLEGE
                 </div>
                 <div className="text-[9px] sm:text-[11px] font-semibold text-slate-700 tracking-wider uppercase mt-0.5 font-sans">
                   (ESTABLISHED 1999 • AFFILIATED TO HPTU, HPU & AMRU • APPROVED BY AICTE, PCI, INC)
