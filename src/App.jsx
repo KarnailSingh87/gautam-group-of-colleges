@@ -12,7 +12,6 @@ import HimtuQuickAccess from './components/HimtuQuickAccess';
 import HimtuSchoolsGrid from './components/HimtuSchoolsGrid';
 import HimtuSocialFeed from './components/HimtuSocialFeed';
 import HimtuStatsLogos from './components/HimtuStatsLogos';
-import NitGallerySection from './components/NitGallerySection';
 import HimtuFooter from './components/HimtuFooter';
 
 // Collegiate Core Modules
@@ -253,13 +252,7 @@ export default function App() {
                   onOpenApply={handleOpenApply}
                 />
 
-                {/* 8. NIT Hamirpur Style Signature Photo/Video Gallery with Hover Zoom & Lightbox */}
-                <NitGallerySection
-                  onNavigate={handleNavigate}
-                  onOpenApply={handleOpenApply}
-                />
-
-                {/* 9. Social Media Engagements 4-Column Live Feed (FB, YT, X, IG) */}
+                {/* 8. Social Media Engagements 4-Column Live Feed (FB, YT, X, IG) */}
                 <HimtuSocialFeed />
 
                 {/* 9. Key Institutional Stat Counters & Apex Statutory Approvals Slider */}
