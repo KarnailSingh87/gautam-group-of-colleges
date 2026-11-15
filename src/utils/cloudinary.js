@@ -11,7 +11,8 @@ export function getCdnUrl(path) {
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
 
   const normalized = path.startsWith('/') ? path : `/${path}`;
-  return cloudinaryMap[normalized] || cloudinaryMap[path] || path;
+  const filename = '/' + path.split('/').filter(Boolean).pop();
+  return cloudinaryMap[normalized] || cloudinaryMap[filename] || cloudinaryMap[path] || path;
 }
 
 export default getCdnUrl;
