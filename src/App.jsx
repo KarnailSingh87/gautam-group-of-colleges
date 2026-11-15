@@ -32,7 +32,6 @@ import ApplyModal from './components/ApplyModal';
 import HimtuServicesModal from './components/HimtuServicesModal';
 import StudentPortalModal from './components/StudentPortalModal';
 import AdminCMSModal from './components/AdminCMSModal';
-import StickyApplyButton from './components/StickyApplyButton';
 
 // Dedicated Blueprint Pages
 import AboutPage from './pages/AboutPage';
@@ -322,11 +321,6 @@ export default function App() {
             onNavigate={handleNavigate}
             onOpenCMSModal={() => setIsCMSOpen(true)}
             onOpenPortalModal={() => setIsPortalModalOpen(true)}
-          />
-
-          {/* Floating Sticky Apply Now Button */}
-          <StickyApplyButton 
-            onOpenApply={handleOpenApply} 
           />
 
           {/* Modals */}
