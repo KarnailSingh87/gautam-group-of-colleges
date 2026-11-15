@@ -34,6 +34,7 @@ export default function LeadershipDesk({ onOpenApply }) {
           
           {/* Chairman / Principal Quote Card (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
+            {/* Leadership Message Card */}
             <div className="p-8 rounded-3xl bg-slate-800/80 border border-slate-700/80 shadow-2xl relative">
               <Quote className="w-12 h-12 text-amber-400/30 absolute top-6 right-6 pointer-events-none" />
               
@@ -56,6 +57,24 @@ export default function LeadershipDesk({ onOpenApply }) {
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   <span>College Code: HMR-04</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Event Media Strip */}
+            <div className="rounded-2xl overflow-hidden border border-slate-700 relative shadow-lg group">
+              <img
+                src="/himachaltonite-event.webp"
+                alt="State Dignitary Convocation Assembly at Gautam College Hamirpur"
+                className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+              <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs">
+                <span className="font-bold text-white drop-shadow">
+                  Hon'ble State Dignitaries & Academic Assembly at Hamirpur Campus
+                </span>
+                <span className="px-2 py-0.5 rounded bg-[#ea580c] text-white text-[10px] font-bold">
+                  Official Event
+                </span>
               </div>
             </div>
 

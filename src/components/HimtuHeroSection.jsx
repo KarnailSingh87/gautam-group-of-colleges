@@ -27,9 +27,9 @@ export default function HimtuHeroSection({
   const slides = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
-      title: 'Inaugural Ceremonial Lamp Lighting & Convocation',
-      subtitle: 'Silver Jubilee Academic Session at Gautam Group of Colleges, Hamirpur (H.P.)'
+      image: '/himachaltonite-event.webp',
+      title: 'State Dignitary & Academic Assembly at Hamirpur',
+      subtitle: 'Inaugural Session & Convocation at Gautam Group of Colleges, Hamirpur (H.P.)'
     },
     {
       id: 2,

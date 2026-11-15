@@ -19,6 +19,15 @@ export default function GalleryPage({ onOpenApply }) {
 
   const galleryItems = [
     {
+      id: 0,
+      type: 'image',
+      title: 'State Dignitary Convocation Assembly at Gautam College Hamirpur',
+      category: 'Convocation',
+      date: '2025',
+      url: '/himachaltonite-event.webp',
+      caption: 'Inaugural ceremonial address with state leaders and academic governing body.'
+    },
+    {
       id: 1,
       type: 'image',
       title: 'Actual Campus View of Gautam College of Nursing, Hamirpur',
