@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { X, Compass, MapPin, Play, Volume2, Eye, ChevronRight, CheckCircle2, Calendar, Phone } from 'lucide-react';
+import { getCdnUrl } from '../utils/cloudinary';
 
 const TOUR_STOPS = [
   {
     id: 1,
     title: 'Gautam College of Nursing & Main Campus Quad',
     category: 'Hamirpur Main Campus View',
-    image: 'https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg',
+    image: getCdnUrl('/ggc-campus.jpg'),
     audioTrack: 'Audio Guide: Located near Hamirpur Bus Stand, serving 25,000+ students across Himachal Pradesh since 1999.',
     hotspots: [
       { name: 'Central Admission & Counseling Cell', x: '30%', y: '45%' },

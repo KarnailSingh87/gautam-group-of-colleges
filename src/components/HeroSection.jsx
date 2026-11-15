@@ -243,7 +243,7 @@ export default function HeroSection({
             {/* Real Campus Visual Card with Crest */}
             <div className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
               <img
-                src="https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg"
+                src={getCdnUrl('/ggc-campus.jpg')}
                 alt="Actual Campus View of Gautam College of Nursing, Hamirpur"
                 className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500"
               />
