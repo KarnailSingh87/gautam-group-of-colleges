@@ -25,11 +25,13 @@ export default function HimtuHeader({
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null); // 'about', 'admin', 'academics', 'exam', 'admissions', 'student', 'info', 'contact'
+  const [activeTopMenu, setActiveTopMenu] = useState(null); // 'uss', 'tenders', 'rti'
   const [fontSizeOffset, setFontSizeOffset] = useState(0);
   const { lang, setLang } = useLanguage();
 
   const handleNavClick = (pageId, modalTrigger = null) => {
     setActiveMenu(null);
+    setActiveTopMenu(null);
     setMobileMenuOpen(false);
     if (modalTrigger === 'results') {
       if (onOpenResults) onOpenResults('results');
@@ -157,29 +159,112 @@ export default function HimtuHeader({
           <div className="hidden lg:flex items-center gap-5 shrink-0">
             
             <div className="flex items-center gap-4 text-xs font-bold text-slate-700">
-              <button 
-                onClick={() => handleNavClick('academics')} 
-                className="hover:text-[#1e3a8a] transition flex items-center gap-0.5"
-              >
-                <span>USS (University School of Studies)</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-              </button>
               
-              <button 
-                onClick={() => handleNavClick('downloads')} 
-                className="hover:text-[#1e3a8a] transition flex items-center gap-0.5"
+              {/* 1. USS (University School of Studies) Dropdown (Exact Match to Image 1) */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setActiveTopMenu('uss')}
+                onMouseLeave={() => setActiveTopMenu(null)}
               >
-                <span>Tenders</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-              </button>
+                <button 
+                  onClick={() => handleNavClick('academics')} 
+                  className={`transition flex items-center gap-0.5 py-1 ${
+                    activeTopMenu === 'uss' ? 'text-[#ea580c]' : 'hover:text-[#ea580c] text-slate-700'
+                  }`}
+                >
+                  <span>USS (University School of Studies)</span>
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                </button>
+
+                {activeTopMenu === 'uss' && (
+                  <div className="absolute top-full left-0 w-80 bg-white rounded-b-md shadow-2xl border border-slate-200 border-t-2 border-t-[#ea580c] py-1.5 animate-in fade-in slide-in-from-top-1 z-50 text-slate-800 text-left">
+                    <button onClick={() => handleNavClick('academics')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] border-b border-slate-100 transition-colors">
+                      School of Humanities & Social Science
+                    </button>
+                    <button onClick={() => handleNavClick('academics')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] border-b border-slate-100 transition-colors">
+                      School of Tourism and Hospitality Management
+                    </button>
+                    <button onClick={() => handleNavClick('academics')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] border-b border-slate-100 transition-colors">
+                      School of Environmental Sciences
+                    </button>
+                    <button onClick={() => handleNavClick('academics')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] border-b border-slate-100 transition-colors">
+                      School of Engineering and Technology
+                    </button>
+                    <button onClick={() => handleNavClick('academics')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] border-b border-slate-100 transition-colors">
+                      School of Commerce and Management
+                    </button>
+                    <button onClick={() => handleNavClick('academics')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] transition-colors">
+                      School of Basic and Applied Sciences
+                    </button>
+                  </div>
+                )}
+              </div>
               
-              <button 
-                onClick={() => handleNavClick('compliance')} 
-                className="hover:text-[#1e3a8a] transition flex items-center gap-0.5"
+              {/* 2. Tenders Dropdown (Exact Match to Image 2) */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setActiveTopMenu('tenders')}
+                onMouseLeave={() => setActiveTopMenu(null)}
               >
-                <span>RTI</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-              </button>
+                <button 
+                  onClick={() => handleNavClick('downloads')} 
+                  className={`transition flex items-center gap-0.5 py-1 ${
+                    activeTopMenu === 'tenders' ? 'text-[#ea580c]' : 'hover:text-[#ea580c] text-slate-700'
+                  }`}
+                >
+                  <span>Tenders</span>
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                </button>
+
+                {activeTopMenu === 'tenders' && (
+                  <div className="absolute top-full left-0 w-52 bg-white rounded-b-md shadow-2xl border border-slate-200 border-t-2 border-t-[#ea580c] py-1.5 animate-in fade-in slide-in-from-top-1 z-50 text-slate-800 text-left">
+                    <button onClick={() => handleNavClick('downloads')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] border-b border-slate-100 transition-colors">
+                      Published Tenders
+                    </button>
+                    <button onClick={() => handleNavClick('downloads')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] transition-colors">
+                      Tenders Archive
+                    </button>
+                  </div>
+                )}
+              </div>
+              
+              {/* 3. RTI Dropdown (Exact Match to Image 3) */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setActiveTopMenu('rti')}
+                onMouseLeave={() => setActiveTopMenu(null)}
+              >
+                <button 
+                  onClick={() => handleNavClick('compliance')} 
+                  className={`transition flex items-center gap-0.5 py-1 ${
+                    activeTopMenu === 'rti' ? 'text-[#ea580c]' : 'hover:text-[#ea580c] text-slate-700'
+                  }`}
+                >
+                  <span>RTI</span>
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                </button>
+
+                {activeTopMenu === 'rti' && (
+                  <div className="absolute top-full right-0 w-64 bg-white rounded-b-md shadow-2xl border border-slate-200 border-t-2 border-t-[#ea580c] py-1.5 animate-in fade-in slide-in-from-top-1 z-50 text-slate-800 text-left">
+                    <button onClick={() => handleNavClick('compliance')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] border-b border-slate-100 transition-colors">
+                      Officers (deal with RTI)
+                    </button>
+                    <button onClick={() => handleNavClick('compliance')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] border-b border-slate-100 transition-colors">
+                      Minutes of meeting (BOG/FC/AC)
+                    </button>
+                    <button onClick={() => handleNavClick('faculty')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] border-b border-slate-100 transition-colors">
+                      Admin Staff
+                    </button>
+                    <button onClick={() => handleNavClick('compliance')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] border-b border-slate-100 transition-colors">
+                      Annual Reports
+                    </button>
+                    <button onClick={() => handleNavClick('compliance')} className="w-full text-left px-4 py-2 text-xs hover:bg-slate-50 hover:text-[#ea580c] transition-colors">
+                      Miscellaneous
+                    </button>
+                  </div>
+                )}
+              </div>
+
             </div>
 
             {/* Bright Orange Button (Exact HPTU "Results" button style) */}
