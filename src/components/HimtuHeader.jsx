@@ -5,15 +5,13 @@ import {
   ChevronDown, 
   Phone, 
   Mail, 
-  Globe, 
   Volume2, 
   Menu, 
   X,
   Sparkles,
-  Database,
   Lock,
   ExternalLink,
-  ShieldCheck
+  ChevronRight
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -26,14 +24,22 @@ export default function HimtuHeader({
   onOpenResults
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null); // 'about', 'admin', 'academics', 'exam', 'admissions', 'student', 'info', 'contact'
   const [fontSizeOffset, setFontSizeOffset] = useState(0);
-  const { lang, toggleLang, setLang } = useLanguage();
+  const { lang, setLang } = useLanguage();
 
-  const handleNavClick = (pageId) => {
-    if (onNavigate) {
+  const handleNavClick = (pageId, modalTrigger = null) => {
+    setActiveMenu(null);
+    setMobileMenuOpen(false);
+    if (modalTrigger === 'results') {
+      if (onOpenResults) onOpenResults('results');
+    } else if (modalTrigger === 'apply') {
+      if (onOpenApply) onOpenApply('apply');
+    } else if (modalTrigger === 'portal') {
+      if (onOpenPortalModal) onOpenPortalModal();
+    } else if (pageId && onNavigate) {
       onNavigate(pageId);
     }
-    setMobileMenuOpen(false);
   };
 
   return (
@@ -155,7 +161,7 @@ export default function HimtuHeader({
                 onClick={() => handleNavClick('academics')} 
                 className="hover:text-[#1e3a8a] transition flex items-center gap-0.5"
               >
-                <span>Constituent Colleges</span>
+                <span>USS (University School of Studies)</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
               </button>
               
@@ -178,10 +184,10 @@ export default function HimtuHeader({
 
             {/* Bright Orange Button (Exact HPTU "Results" button style) */}
             <button
-              onClick={() => onOpenApply('apply')}
+              onClick={() => handleNavClick(null, 'results')}
               className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#ea580c] to-[#f97316] hover:from-[#c2410c] hover:to-[#ea580c] text-white font-black text-sm tracking-wide shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2"
             >
-              <span>Admissions 2025</span>
+              <span>Results</span>
               <Sparkles className="w-4 h-4 text-amber-200" />
             </button>
 
@@ -207,102 +213,445 @@ export default function HimtuHeader({
         </div>
       </div>
 
-      {/* 3. PRIMARY NAVIGATION BAR (HPTU Deep Royal Navy Blue `#1e3a8a` with Orange Home Icon) */}
-      <nav className="bg-[#1e3a8a] text-white border-t border-blue-900 hidden lg:block">
+      {/* 3. PRIMARY NAVIGATION BAR WITH INTERACTIVE HPTU-STYLE DROPDOWNS */}
+      <nav className="bg-[#1e3a8a] text-white border-t border-blue-900 hidden lg:block relative">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
           
           <div className="flex items-center">
+            
             {/* Orange Home Icon Button (Exact HPTU Style) */}
             <button
               onClick={() => handleNavClick('home')}
               className={`p-3.5 bg-[#ea580c] hover:bg-[#c2410c] text-white flex items-center justify-center transition-colors shadow-inner ${
-                currentPage === 'home' ? 'bg-[#c2410c]' : ''
+                currentPage === 'home' && !activeMenu ? 'bg-[#c2410c]' : ''
               }`}
               title="Home"
             >
               <Home className="w-5 h-5 fill-current" />
             </button>
 
-            {/* Navigation Links */}
+            {/* Navigation Tabs with HPTU Orange Active State */}
             <div className="flex items-center text-xs xl:text-sm font-bold tracking-wide">
               
-              <button
-                onClick={() => handleNavClick('about')}
-                className={`px-3.5 py-3.5 hover:bg-blue-900 transition-colors ${
-                  currentPage === 'about' ? 'bg-blue-900 text-amber-300' : 'text-white'
-                }`}
+              {/* 1. About US */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setActiveMenu('about')}
+                onMouseLeave={() => setActiveMenu(null)}
               >
-                About US
-              </button>
+                <button
+                  onClick={() => handleNavClick('about')}
+                  className={`px-3.5 py-3.5 transition-colors flex items-center gap-1 ${
+                    activeMenu === 'about'
+                      ? 'bg-[#ea580c] text-white'
+                      : currentPage === 'about'
+                      ? 'bg-blue-900 text-amber-300'
+                      : 'hover:bg-blue-900 text-white'
+                  }`}
+                >
+                  <span>About US</span>
+                </button>
 
-              <button
-                onClick={() => handleNavClick('affiliations')}
-                className={`px-3.5 py-3.5 hover:bg-blue-900 transition-colors ${
-                  currentPage === 'affiliations' ? 'bg-blue-900 text-amber-300' : 'text-white'
-                }`}
-              >
-                Affiliations
-              </button>
+                {/* Dropdown Menu */}
+                {activeMenu === 'about' && (
+                  <div className="absolute top-full left-0 w-72 bg-white rounded-b-md shadow-2xl border border-slate-300 border-t-0 animate-in fade-in slide-in-from-top-1 z-50 text-slate-800 text-left">
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      About Institution
+                    </div>
+                    <button onClick={() => handleNavClick('about')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>History & Silver Jubilee (1999–2025)</span>
+                    </button>
+                    <button onClick={() => handleNavClick('about')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Vision, Mission & Core Values</span>
+                    </button>
+                    <button onClick={() => handleNavClick('about')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Principal & Chairman's Desk</span>
+                    </button>
 
-              <button
-                onClick={() => handleNavClick('academics')}
-                className={`px-3.5 py-3.5 hover:bg-blue-900 transition-colors ${
-                  currentPage === 'academics' ? 'bg-blue-900 text-amber-300' : 'text-white'
-                }`}
-              >
-                Academics
-              </button>
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Governance & Recognition
+                    </div>
+                    <button onClick={() => handleNavClick('about')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Governing Body & Trust</span>
+                    </button>
+                    <button onClick={() => handleNavClick('affiliations')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Statutory Approvals (HPTU, HPU, AMRU)</span>
+                    </button>
+                    <button onClick={() => handleNavClick('affiliations')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] flex items-center justify-between">
+                      <span>Council Recognition (PCI, INC, AICTE)</span>
+                    </button>
+                  </div>
+                )}
+              </div>
 
-              <button
-                onClick={() => handleNavClick('faculty')}
-                className={`px-3.5 py-3.5 hover:bg-blue-900 transition-colors ${
-                  currentPage === 'faculty' ? 'bg-blue-900 text-amber-300' : 'text-white'
-                }`}
+              {/* 2. Administration */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setActiveMenu('admin')}
+                onMouseLeave={() => setActiveMenu(null)}
               >
-                Administration
-              </button>
+                <button
+                  onClick={() => handleNavClick('faculty')}
+                  className={`px-3.5 py-3.5 transition-colors flex items-center gap-1 ${
+                    activeMenu === 'admin'
+                      ? 'bg-[#ea580c] text-white'
+                      : currentPage === 'faculty'
+                      ? 'bg-blue-900 text-amber-300'
+                      : 'hover:bg-blue-900 text-white'
+                  }`}
+                >
+                  <span>Administration</span>
+                </button>
 
-              <button
-                onClick={() => onOpenResults ? onOpenResults('results') : handleNavClick('academics')}
-                className="px-3.5 py-3.5 hover:bg-blue-900 transition-colors text-white"
-              >
-                Examination
-              </button>
+                {activeMenu === 'admin' && (
+                  <div className="absolute top-full left-0 w-72 bg-white rounded-b-md shadow-2xl border border-slate-300 border-t-0 animate-in fade-in slide-in-from-top-1 z-50 text-slate-800 text-left">
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Administrative Directorate
+                    </div>
+                    <button onClick={() => handleNavClick('faculty')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Office of the Principal / Director</span>
+                    </button>
+                    <button onClick={() => handleNavClick('faculty')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Faculty & Staff Directory (140+ Teachers)</span>
+                    </button>
+                    <button onClick={() => handleNavClick('faculty')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Non-Teaching & Lab Staff</span>
+                    </button>
 
-              <button
-                onClick={() => handleNavClick('admissions')}
-                className={`px-3.5 py-3.5 hover:bg-blue-900 transition-colors ${
-                  currentPage === 'admissions' ? 'bg-blue-900 text-amber-300' : 'text-white'
-                }`}
-              >
-                Admissions
-              </button>
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Statutory Compliance Cells
+                    </div>
+                    <button onClick={() => handleNavClick('compliance')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Anti-Ragging Committee (1800-180-5522)</span>
+                    </button>
+                    <button onClick={() => handleNavClick('compliance')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Internal Complaints Committee (ICC)</span>
+                    </button>
+                    <button onClick={() => handleNavClick('compliance')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Grievance Redressal Cell</span>
+                    </button>
+                    <button onClick={() => handleNavClick('compliance')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] flex items-center justify-between">
+                      <span>Right to Information (RTI Cell)</span>
+                    </button>
+                  </div>
+                )}
+              </div>
 
-              <button
-                onClick={onOpenPortalModal}
-                className="px-3.5 py-3.5 hover:bg-blue-900 transition-colors text-amber-300 flex items-center gap-1"
+              {/* 3. Academics (Exact Match to Screenshot 2) */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setActiveMenu('academics')}
+                onMouseLeave={() => setActiveMenu(null)}
               >
-                <span>Student Zone</span>
-                <ChevronDown className="w-3.5 h-3.5 text-amber-300/80" />
-              </button>
+                <button
+                  onClick={() => handleNavClick('academics')}
+                  className={`px-3.5 py-3.5 transition-colors flex items-center gap-1 ${
+                    activeMenu === 'academics'
+                      ? 'bg-[#ea580c] text-white'
+                      : currentPage === 'academics'
+                      ? 'bg-blue-900 text-amber-300'
+                      : 'hover:bg-blue-900 text-white'
+                  }`}
+                >
+                  <span>Academics</span>
+                </button>
 
-              <button
-                onClick={() => handleNavClick('downloads')}
-                className={`px-3.5 py-3.5 hover:bg-blue-900 transition-colors ${
-                  currentPage === 'downloads' ? 'bg-blue-900 text-amber-300' : 'text-white'
-                }`}
-              >
-                Information Corner
-              </button>
+                {activeMenu === 'academics' && (
+                  <div className="absolute top-full left-0 w-80 bg-white rounded-b-md shadow-2xl border border-slate-300 border-t-0 animate-in fade-in slide-in-from-top-1 z-50 text-slate-800 text-left">
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Academic Programs
+                    </div>
+                    <button onClick={() => handleNavClick('academics')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Undergraduate (B.Pharm, B.Sc Nursing, BCA, BBA, B.Sc)</span>
+                    </button>
+                    <button onClick={() => handleNavClick('academics')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Postgraduate (MBA, M.Sc Chemistry/Phys/Bot/Zoo)</span>
+                    </button>
 
-              <button
-                onClick={() => handleNavClick('contact')}
-                className={`px-3.5 py-3.5 hover:bg-blue-900 transition-colors ${
-                  currentPage === 'contact' ? 'bg-blue-900 text-amber-300' : 'text-white'
-                }`}
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Schools / Departments / Centres
+                    </div>
+                    <button onClick={() => handleNavClick('faculty')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Faculty / Staff Details</span>
+                    </button>
+                    <button onClick={() => handleNavClick('placements')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Internal Quality Assurance Cell (IQAC)</span>
+                    </button>
+                    <button onClick={() => handleNavClick('facilities')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Library & Digital Resources</span>
+                    </button>
+                    <button onClick={() => handleNavClick('facilities')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Academic Collaborations & Hospital Tie-up</span>
+                    </button>
+                    <button onClick={() => handleNavClick('academics')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Academic Calendar 2025–26</span>
+                    </button>
+                    <button onClick={() => handleNavClick('downloads')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Statutes & Ordinances (Academics/Examinations)</span>
+                    </button>
+                    <button onClick={() => handleNavClick('affiliations')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] flex items-center justify-between">
+                      <span>Affiliation Process & Approvals</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* 4. Examination (Exact Match to Screenshot 1) */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setActiveMenu('exam')}
+                onMouseLeave={() => setActiveMenu(null)}
               >
-                Contact Us
-              </button>
+                <button
+                  onClick={() => handleNavClick(null, 'results')}
+                  className={`px-3.5 py-3.5 transition-colors flex items-center gap-1 ${
+                    activeMenu === 'exam'
+                      ? 'bg-[#ea580c] text-white'
+                      : 'hover:bg-blue-900 text-white'
+                  }`}
+                >
+                  <span>Examination</span>
+                </button>
+
+                {activeMenu === 'exam' && (
+                  <div className="absolute top-full left-0 w-72 bg-white rounded-b-md shadow-2xl border border-slate-300 border-t-0 animate-in fade-in slide-in-from-top-1 z-50 text-slate-800 text-left">
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Examination Portal
+                    </div>
+                    <button onClick={() => handleNavClick(null, 'portal')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Student Login (ERP / OTR)</span>
+                    </button>
+                    <button onClick={onOpenCMSModal} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>College Login / Staff Desk</span>
+                    </button>
+
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Examination Schedule
+                    </div>
+                    <button onClick={() => handleNavClick(null, 'results')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Date Sheets (Odd / Even Semesters)</span>
+                    </button>
+                    <button onClick={() => handleNavClick(null, 'results')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Online Examination Form</span>
+                    </button>
+                    <button onClick={() => handleNavClick(null, 'results')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Online Re-Evaluation Form</span>
+                    </button>
+                    <button onClick={() => handleNavClick(null, 'results')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between font-bold text-[#ea580c]">
+                      <span>View Results</span>
+                    </button>
+
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Download Forms
+                    </div>
+                    <button onClick={() => handleNavClick('downloads')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] flex items-center justify-between">
+                      <span>Student Related Forms & PYQs</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* 5. Admissions */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setActiveMenu('admissions')}
+                onMouseLeave={() => setActiveMenu(null)}
+              >
+                <button
+                  onClick={() => handleNavClick('admissions')}
+                  className={`px-3.5 py-3.5 transition-colors flex items-center gap-1 ${
+                    activeMenu === 'admissions'
+                      ? 'bg-[#ea580c] text-white'
+                      : currentPage === 'admissions'
+                      ? 'bg-blue-900 text-amber-300'
+                      : 'hover:bg-blue-900 text-white'
+                  }`}
+                >
+                  <span>Admissions</span>
+                </button>
+
+                {activeMenu === 'admissions' && (
+                  <div className="absolute top-full left-0 w-72 bg-white rounded-b-md shadow-2xl border border-slate-300 border-t-0 animate-in fade-in slide-in-from-top-1 z-50 text-slate-800 text-left">
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Admissions 2025–26
+                    </div>
+                    <button onClick={() => handleNavClick(null, 'apply')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between font-bold text-[#ea580c]">
+                      <span>Online Admission Application Form</span>
+                    </button>
+                    <button onClick={() => handleNavClick('admissions')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Admission Process & Checklist</span>
+                    </button>
+                    <button onClick={() => handleNavClick('admissions')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Eligibility Criteria & Seat Intake</span>
+                    </button>
+
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Fee & Scholarships
+                    </div>
+                    <button onClick={() => handleNavClick('admissions')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Fee Structure (Session 2025–26)</span>
+                    </button>
+                    <button onClick={() => handleNavClick(null, 'portal')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Pay Tuition Fee Online</span>
+                    </button>
+                    <button onClick={() => handleNavClick('admissions')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>HP e-Pass & NSP Scholarships</span>
+                    </button>
+
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Helpdesk & Prospectus
+                    </div>
+                    <button onClick={() => handleNavClick('downloads')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Download Prospectus 2025–26 (PDF)</span>
+                    </button>
+                    <a href="tel:+919418010420" className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] flex items-center justify-between text-emerald-700 font-bold">
+                      <span>Admission Helpline (+91-9418010420)</span>
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              {/* 6. Student Zone */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setActiveMenu('student')}
+                onMouseLeave={() => setActiveMenu(null)}
+              >
+                <button
+                  onClick={onOpenPortalModal}
+                  className={`px-3.5 py-3.5 transition-colors flex items-center gap-1 ${
+                    activeMenu === 'student'
+                      ? 'bg-[#ea580c] text-white'
+                      : 'hover:bg-blue-900 text-amber-300'
+                  }`}
+                >
+                  <span>Student Zone</span>
+                  <ChevronDown className="w-3.5 h-3.5" />
+                </button>
+
+                {activeMenu === 'student' && (
+                  <div className="absolute top-full left-0 w-72 bg-white rounded-b-md shadow-2xl border border-slate-300 border-t-0 animate-in fade-in slide-in-from-top-1 z-50 text-slate-800 text-left">
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Digital Student Services
+                    </div>
+                    <button onClick={onOpenPortalModal} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between font-bold text-indigo-900">
+                      <span>Academic Bank of Credits (ABC / APAAR)</span>
+                    </button>
+                    <button onClick={onOpenPortalModal} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>DigiLocker Marksheets & Degrees</span>
+                    </button>
+                    <button onClick={onOpenPortalModal} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Student SIS & Attendance ERP</span>
+                    </button>
+
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Campus Life & Facilities
+                    </div>
+                    <button onClick={() => handleNavClick('facilities')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Boys & Girls Hostels</span>
+                    </button>
+                    <button onClick={() => handleNavClick('facilities')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Campus Medical Dispensary</span>
+                    </button>
+                    <button onClick={() => handleNavClick('facilities')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>HRTC Concessional Bus Pass</span>
+                    </button>
+                    <button onClick={() => handleNavClick('placements')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>NSS, NCC & Sports Units</span>
+                    </button>
+                    <button onClick={() => handleNavClick('alumni')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] flex items-center justify-between">
+                      <span>Alumni Association (25,000+ Network)</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* 7. Information Corner */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setActiveMenu('info')}
+                onMouseLeave={() => setActiveMenu(null)}
+              >
+                <button
+                  onClick={() => handleNavClick('downloads')}
+                  className={`px-3.5 py-3.5 transition-colors flex items-center gap-1 ${
+                    activeMenu === 'info'
+                      ? 'bg-[#ea580c] text-white'
+                      : currentPage === 'downloads'
+                      ? 'bg-blue-900 text-amber-300'
+                      : 'hover:bg-blue-900 text-white'
+                  }`}
+                >
+                  <span>Information Corner</span>
+                </button>
+
+                {activeMenu === 'info' && (
+                  <div className="absolute top-full left-0 w-72 bg-white rounded-b-md shadow-2xl border border-slate-300 border-t-0 animate-in fade-in slide-in-from-top-1 z-50 text-slate-800 text-left">
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Public Notices & Media
+                    </div>
+                    <button onClick={() => handleNavClick('downloads')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Latest Circulars & Notifications</span>
+                    </button>
+                    <button onClick={() => handleNavClick('gallery')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Photo & Video Gallery</span>
+                    </button>
+                    <button onClick={() => handleNavClick('downloads')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Tenders & Quotations</span>
+                    </button>
+                    
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Central Downloads
+                    </div>
+                    <button onClick={() => handleNavClick('downloads')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Official Forms & Prospectus</span>
+                    </button>
+                    <button onClick={() => handleNavClick('downloads')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] flex items-center justify-between">
+                      <span>Previous Year Question Papers (PYQ)</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* 8. Contact Us */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setActiveMenu('contact')}
+                onMouseLeave={() => setActiveMenu(null)}
+              >
+                <button
+                  onClick={() => handleNavClick('contact')}
+                  className={`px-3.5 py-3.5 transition-colors flex items-center gap-1 ${
+                    activeMenu === 'contact'
+                      ? 'bg-[#ea580c] text-white'
+                      : currentPage === 'contact'
+                      ? 'bg-blue-900 text-amber-300'
+                      : 'hover:bg-blue-900 text-white'
+                  }`}
+                >
+                  <span>Contact Us</span>
+                </button>
+
+                {activeMenu === 'contact' && (
+                  <div className="absolute top-full right-0 w-72 bg-white rounded-b-md shadow-2xl border border-slate-300 border-t-0 animate-in fade-in slide-in-from-top-1 z-50 text-slate-800 text-left">
+                    <div className="bg-[#1e3a8a] text-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider">
+                      Campus Location & Desk
+                    </div>
+                    <button onClick={() => handleNavClick('contact')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Hamirpur Campus Address & Map</span>
+                    </button>
+                    <button onClick={() => handleNavClick('contact')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>How to Reach (800m from Bus Stand)</span>
+                    </button>
+                    <button onClick={() => handleNavClick('contact')} className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] border-b border-slate-100 flex items-center justify-between">
+                      <span>Office Directory & Extensions</span>
+                    </button>
+                    <a href="https://wa.me/919418010420" target="_blank" rel="noopener noreferrer" className="w-full text-left px-3.5 py-2 text-xs hover:bg-blue-50 hover:text-[#1e3a8a] flex items-center justify-between text-emerald-700 font-bold">
+                      <span>Direct WhatsApp Helpdesk</span>
+                    </a>
+                  </div>
+                )}
+              </div>
 
             </div>
           </div>
@@ -330,9 +679,10 @@ export default function HimtuHeader({
             <button onClick={() => handleNavClick('about')} className="text-left p-2 rounded hover:bg-blue-900">About Us</button>
             <button onClick={() => handleNavClick('affiliations')} className="text-left p-2 rounded hover:bg-blue-900">Affiliations</button>
             <button onClick={() => handleNavClick('academics')} className="text-left p-2 rounded hover:bg-blue-900">Academics</button>
-            <button onClick={() => handleNavClick('faculty')} className="text-left p-2 rounded hover:bg-blue-900">Faculty & Admin</button>
+            <button onClick={() => handleNavClick('faculty')} className="text-left p-2 rounded hover:bg-blue-900">Administration</button>
+            <button onClick={() => handleNavClick(null, 'results')} className="text-left p-2 rounded hover:bg-blue-900 text-amber-300">Examination & Results</button>
             <button onClick={() => handleNavClick('admissions')} className="text-left p-2 rounded hover:bg-blue-900">Admissions 2025</button>
-            <button onClick={onOpenPortalModal} className="text-left p-2 rounded hover:bg-blue-900 text-amber-300">Student Zone (ABC/ERP)</button>
+            <button onClick={() => handleNavClick(null, 'portal')} className="text-left p-2 rounded hover:bg-blue-900 text-amber-300">Student Zone (ABC)</button>
             <button onClick={() => handleNavClick('downloads')} className="text-left p-2 rounded hover:bg-blue-900">Information Corner</button>
             <button onClick={() => handleNavClick('gallery')} className="text-left p-2 rounded hover:bg-blue-900">Gallery</button>
             <button onClick={() => handleNavClick('contact')} className="text-left p-2 rounded hover:bg-blue-900">Contact Us</button>
