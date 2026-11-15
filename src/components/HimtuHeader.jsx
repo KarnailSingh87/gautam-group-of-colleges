@@ -45,7 +45,8 @@ export default function HimtuHeader({
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md font-sans">
+    <>
+      <header className="bg-white font-sans">
       
       {/* 1. TOP UTILITY BAR (Exact HPTU Style) */}
       <div className="bg-slate-100 border-b border-slate-300 text-[11px] text-slate-700 py-1 px-4 hidden md:block">
@@ -297,10 +298,11 @@ export default function HimtuHeader({
 
         </div>
       </div>
+    </header>
 
-      {/* 3. PRIMARY NAVIGATION BAR WITH INTERACTIVE HPTU-STYLE DROPDOWNS */}
-      <nav className="bg-[#1e3a8a] text-white border-t border-blue-900 hidden lg:block relative">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+    {/* 3. PRIMARY NAVIGATION BAR WITH INTERACTIVE HPTU-STYLE DROPDOWNS (STICKY NAVBAR) */}
+    <nav className="sticky top-0 z-50 bg-[#1e3a8a] text-white border-t border-blue-900 border-b border-blue-950 hidden lg:block shadow-md">
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
           
           <div className="flex items-center">
             
@@ -758,7 +760,7 @@ export default function HimtuHeader({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#1e3a8a] text-white px-4 py-4 space-y-2 divide-y divide-blue-800 animate-in slide-in-from-top duration-200">
+        <div className="lg:hidden sticky top-0 z-50 bg-[#1e3a8a] text-white px-4 py-4 space-y-2 divide-y divide-blue-800 animate-in slide-in-from-top duration-200 shadow-xl">
           <div className="grid grid-cols-2 gap-2 text-xs font-bold pt-2">
             <button onClick={() => handleNavClick('home')} className="text-left p-2 rounded hover:bg-blue-900">🏠 Home</button>
             <button onClick={() => handleNavClick('about')} className="text-left p-2 rounded hover:bg-blue-900">About Us</button>
@@ -791,6 +793,6 @@ export default function HimtuHeader({
         </div>
       )}
 
-    </header>
+    </>
   );
 }

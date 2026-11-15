@@ -50,7 +50,7 @@ export default function Navbar({
 
   return (
     <header className="sticky top-0 z-40 bg-white/98 backdrop-blur-md border-b border-slate-200/90 shadow-sm transition-all font-sans">
-      
+
       {/* 1. Official Institutional Ribbon / Navy & Gold Utility Strip */}
       <div className="bg-slate-950 text-white text-[11px] py-1.5 px-4 hidden sm:block border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -120,9 +120,9 @@ export default function Navbar({
               className="flex items-center gap-3 group text-left"
             >
               <div className="w-13 h-13 rounded-2xl bg-white text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform border border-slate-200 overflow-hidden p-1">
-                <img 
-                  src="/gautam_group_colleges_logo.png" 
-                  alt="Gautam College Logo" 
+                <img
+                  src="/ggc-logo.webp"
+                  alt="Gautam College Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -145,28 +145,26 @@ export default function Navbar({
             {/* Home */}
             <button
               onClick={() => handleNavClick('home')}
-              className={`px-3 py-2 rounded-lg text-xs font-bold transition-all ${
-                currentPage === 'home'
-                  ? 'bg-slate-900 text-amber-300 font-extrabold'
-                  : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
-              }`}
+              className={`px-3 py-2 rounded-lg text-xs font-bold transition-all ${currentPage === 'home'
+                ? 'bg-slate-900 text-amber-300 font-extrabold'
+                : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
+                }`}
             >
               {t('home')}
             </button>
 
             {/* About Mega-Menu */}
-            <div 
+            <div
               className="relative group"
               onMouseEnter={() => setActiveDropdown('about')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
                 onClick={() => handleNavClick('about')}
-                className={`px-3 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
-                  currentPage === 'about'
-                    ? 'bg-slate-900 text-amber-300 font-extrabold'
-                    : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
-                }`}
+                className={`px-3 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${currentPage === 'about'
+                  ? 'bg-slate-900 text-amber-300 font-extrabold'
+                  : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
+                  }`}
               >
                 <span>{t('about')}</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 transition-transform" />
@@ -212,18 +210,17 @@ export default function Navbar({
             </div>
 
             {/* Academics Mega-Menu */}
-            <div 
+            <div
               className="relative group"
               onMouseEnter={() => setActiveDropdown('academics')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
                 onClick={() => handleNavClick('academics')}
-                className={`px-3 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
-                  currentPage === 'academics'
-                    ? 'bg-slate-900 text-amber-300 font-extrabold'
-                    : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
-                }`}
+                className={`px-3 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${currentPage === 'academics'
+                  ? 'bg-slate-900 text-amber-300 font-extrabold'
+                  : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
+                  }`}
               >
                 <span>{t('academics')}</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 transition-transform" />
@@ -269,18 +266,17 @@ export default function Navbar({
             </div>
 
             {/* Admissions Mega-Menu */}
-            <div 
+            <div
               className="relative group"
               onMouseEnter={() => setActiveDropdown('admissions')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
                 onClick={() => handleNavClick('admissions')}
-                className={`px-3 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
-                  currentPage === 'admissions'
-                    ? 'bg-slate-900 text-amber-300 font-extrabold'
-                    : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
-                }`}
+                className={`px-3 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${currentPage === 'admissions'
+                  ? 'bg-slate-900 text-amber-300 font-extrabold'
+                  : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
+                  }`}
               >
                 <span>{t('admissions')}</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 transition-transform" />
@@ -328,11 +324,10 @@ export default function Navbar({
             {/* Campus & Facilities */}
             <button
               onClick={() => handleNavClick('facilities')}
-              className={`px-3 py-2 rounded-lg text-xs font-bold transition-all ${
-                currentPage === 'facilities'
-                  ? 'bg-slate-900 text-amber-300 font-extrabold'
-                  : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
-              }`}
+              className={`px-3 py-2 rounded-lg text-xs font-bold transition-all ${currentPage === 'facilities'
+                ? 'bg-slate-900 text-amber-300 font-extrabold'
+                : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
+                }`}
             >
               {t('facilities')}
             </button>
@@ -340,17 +335,16 @@ export default function Navbar({
             {/* Placements & Research */}
             <button
               onClick={() => handleNavClick('placements')}
-              className={`px-3 py-2 rounded-lg text-xs font-bold transition-all ${
-                currentPage === 'placements'
-                  ? 'bg-slate-900 text-amber-300 font-extrabold'
-                  : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
-              }`}
+              className={`px-3 py-2 rounded-lg text-xs font-bold transition-all ${currentPage === 'placements'
+                ? 'bg-slate-900 text-amber-300 font-extrabold'
+                : 'text-slate-700 hover:text-indigo-900 hover:bg-slate-100/70'
+                }`}
             >
               {t('placements')}
             </button>
 
             {/* More Menu Dropdown (Gallery, Downloads, Alumni, Compliance, Contact) */}
-            <div 
+            <div
               className="relative group"
               onMouseEnter={() => setActiveDropdown('more')}
               onMouseLeave={() => setActiveDropdown(null)}
