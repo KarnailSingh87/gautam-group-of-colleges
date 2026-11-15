@@ -4,14 +4,7 @@ import {
   Sparkles, 
   ExternalLink, 
   Calendar, 
-  CheckCircle, 
-  FileText, 
-  GraduationCap, 
-  Megaphone, 
-  Users, 
-  Mic, 
-  Download,
-  Accessibility
+  CheckCircle 
 } from 'lucide-react';
 
 export default function HimtuHeroSection({ 
@@ -121,106 +114,7 @@ export default function HimtuHeroSection({
 
   return (
     <section className="relative bg-slate-50 py-4 sm:py-6 overflow-hidden">
-      
-      {/* 1. PINNED LEFT SOCIAL MEDIA SIDEBAR (Exact HPTU Style) */}
-      <div className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1.5 shadow-md">
-        <a 
-          href="https://www.facebook.com/search/top?q=Gautam%20Group%20of%20Colleges%20Hamirpur" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="w-9 h-9 bg-[#1877f2] text-white flex items-center justify-center hover:w-11 transition-all rounded-r"
-          title="Facebook"
-        >
-          <span className="font-bold text-sm">f</span>
-        </a>
-        <a 
-          href="https://twitter.com/search?q=Gautam%20College%20Hamirpur" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="w-9 h-9 bg-black text-white flex items-center justify-center hover:w-11 transition-all rounded-r font-bold text-sm"
-          title="X / Twitter"
-        >
-          𝕏
-        </a>
-        <a 
-          href="https://www.instagram.com/explore/tags/gautamcollegehamirpur/" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="w-9 h-9 bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center hover:w-11 transition-all rounded-r text-xs font-bold"
-          title="Instagram"
-        >
-          IG
-        </a>
-        <a 
-          href="https://www.youtube.com/@gautamgroupofcollegesggc2063" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="w-9 h-9 bg-[#ff0000] text-white flex items-center justify-center hover:w-11 transition-all rounded-r font-bold text-xs"
-          title="YouTube (@gautamgroupofcollegesggc2063)"
-        >
-          YT
-        </a>
-        <a 
-          href="https://wa.me/919418010420" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="w-9 h-9 bg-[#25d366] text-white flex items-center justify-center hover:w-11 transition-all rounded-r font-bold text-sm"
-          title="WhatsApp Helpdesk"
-        >
-          ✆
-        </a>
-      </div>
-
-      {/* 2. PINNED RIGHT ACCESSIBILITY & FAST UTILITIES DOCK (Exact HPTU Style) */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1 shadow-md">
-        <button 
-          onClick={() => onOpenApply('apply')}
-          className="w-9 h-9 bg-[#ea580c] hover:bg-[#c2410c] text-white flex items-center justify-center transition-all rounded-l" 
-          title="Prospectus / Online Apply"
-        >
-          <FileText className="w-4 h-4" />
-        </button>
-        <button 
-          onClick={() => {
-            const speech = new SpeechSynthesisUtterance("Gautam Group of Colleges Hamirpur admissions are open for session 2025-26.");
-            window.speechSynthesis?.speak(speech);
-          }}
-          className="w-9 h-9 bg-[#ea580c] hover:bg-[#c2410c] text-white flex items-center justify-center transition-all rounded-l" 
-          title="Speech Reader"
-        >
-          <Mic className="w-4 h-4" />
-        </button>
-        <button 
-          onClick={onOpenResults}
-          className="w-9 h-9 bg-[#ea580c] hover:bg-[#c2410c] text-white flex items-center justify-center transition-all rounded-l" 
-          title="Academic Results"
-        >
-          <GraduationCap className="w-4 h-4" />
-        </button>
-        <button 
-          onClick={() => onOpenApply('request-info')}
-          className="w-9 h-9 bg-[#ea580c] hover:bg-[#c2410c] text-white flex items-center justify-center transition-all rounded-l" 
-          title="Important Circulars"
-        >
-          <Megaphone className="w-4 h-4" />
-        </button>
-        <button 
-          onClick={onOpenPortal}
-          className="w-9 h-9 bg-[#ea580c] hover:bg-[#c2410c] text-white flex items-center justify-center transition-all rounded-l" 
-          title="Student Zone & ABC ID"
-        >
-          <Users className="w-4 h-4" />
-        </button>
-        <button 
-          onClick={onOpenTour}
-          className="w-9 h-9 bg-[#6366f1] text-white flex items-center justify-center transition-all rounded-l" 
-          title="Accessibility & 360 Tour"
-        >
-          <Accessibility className="w-4 h-4" />
-        </button>
-      </div>
-
-      {/* 3. MAIN CONTAINER GRID (Slider Left + Notifications Card Right) */}
+      {/* MAIN CONTAINER GRID (Slider Left + Notifications Card Right) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
           

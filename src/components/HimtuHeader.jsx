@@ -216,15 +216,7 @@ export default function HimtuHeader({
               )}
             </button>
 
-            <span className="text-slate-300">|</span>
-            <button
-              onClick={onOpenCMSModal}
-              className="text-amber-800 hover:text-amber-950 font-bold flex items-center gap-1 cursor-pointer"
-              title="Official Staff & Faculty CMS Login"
-            >
-              <Lock className="w-3 h-3 text-amber-700" />
-              <span>{lang === 'hi' ? 'स्टाफ लॉगिन' : 'Staff Login'}</span>
-            </button>
+            {/* Staff Login removed */}
           </div>
 
         </div>
@@ -429,14 +421,7 @@ export default function HimtuHeader({
             <button onClick={() => { setMobileMenuOpen(false); handleNavClick('contact'); }} className="text-left p-2 rounded hover:bg-blue-900">Contact Us</button>
           </div>
 
-          <div className="pt-3 flex items-center justify-between">
-            <button
-              onClick={() => { setMobileMenuOpen(false); onOpenCMSModal(); }}
-              className="text-xs text-amber-300 font-bold flex items-center gap-1"
-            >
-              <Lock className="w-3.5 h-3.5" />
-              <span>Staff Login CMS</span>
-            </button>
+          <div className="pt-3 flex items-center justify-end">
             <button
               onClick={() => { setMobileMenuOpen(false); onOpenApply('apply'); }}
               className="px-4 py-1.5 rounded-lg bg-[#ea580c] text-white font-bold text-xs"
