@@ -107,7 +107,7 @@ export default function HimtuHeroSection({
           el.scrollTop += 1;
         }
       }
-    }, 38);
+    }, 24);
 
     return () => clearInterval(interval);
   }, []);
