@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "cp index.src.html index.html 2>/dev/null || true; vite",
-    "build": "cp index.src.html index.html 2>/dev/null || true; vite build && cp -r dist/assets . && cp dist/_redirects . && cp dist/index.html ./index.html",
+    "build": "cp index.src.html index.html 2>/dev/null || true; vite build && cp -r dist/* . && cp -r public/* . && cp dist/assets/*.js assets/index.js 2>/dev/null || true",
     "preview": "vite preview",
     "start": "vite preview --host 0.0.0.0 --port ${PORT:-10000}"
   },
