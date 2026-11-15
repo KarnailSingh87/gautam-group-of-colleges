@@ -63,7 +63,7 @@ export default function HimtuMediaPrograms({ onOpenApply, onNavigate }) {
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-slate-200">
                 <img 
-                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" 
+                  src="/ggc-media/life-at-ggc.webp" 
                   alt="Life @ GGC" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -80,8 +80,8 @@ export default function HimtuMediaPrograms({ onOpenApply, onNavigate }) {
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-slate-200">
                 <img 
-                  src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" 
-                  alt="Newsletter" 
+                  src="/ggc-media/annual-report.webp" 
+                  alt="Newsletter & Annual Report" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
