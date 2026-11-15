@@ -1,10 +1,10 @@
 import React from 'react';
-import { 
-  GraduationCap, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  ShieldCheck, 
+import {
+  GraduationCap,
+  MapPin,
+  Phone,
+  Mail,
+  ShieldCheck,
   ExternalLink,
   Award,
   Database
@@ -13,18 +13,18 @@ import {
 export default function Footer({ onNavigate, onOpenApply, onOpenPortalModal }) {
   return (
     <footer className="bg-slate-950 text-slate-300 border-t border-slate-800 text-sm">
-      
+
       {/* Upper Main Footer Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-          
+
           {/* Col 1 & 2: Brand & Institution Overview */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-13 h-13 rounded-2xl bg-white text-white flex items-center justify-center font-bold shadow-md overflow-hidden p-1">
-                <img 
-                  src="/ggc-logo.webp" 
-                  alt="Gautam Group Logo" 
+                <img
+                  src="/ggc-logo.webp"
+                  alt="Gautam Group Logo"
                   className="w-full h-full object-contain"
                 />
               </div>

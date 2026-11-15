@@ -27,27 +27,15 @@ export default function HimtuHeroSection({
   const slides = [
     {
       id: 1,
-      image: '/himachaltonite-event.webp',
-      title: 'State Dignitary & Academic Assembly at Hamirpur',
-      subtitle: 'Inaugural Session & Convocation at Gautam Group of Colleges, Hamirpur (H.P.)'
-    },
-    {
-      id: 2,
-      image: 'https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg',
+      image: '/ggc-campus.jpg',
       title: 'Actual Campus View — Gautam College of Nursing & Healthcare',
       subtitle: 'Near Bus Stand, Ward No. 10, Hamirpur (H.P.) • Est. 1999'
     },
     {
-      id: 3,
-      image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=80',
-      title: 'Pharmaceutical Chemistry & Advanced Machine Formulation Lab',
-      subtitle: 'PCI Approved B.Pharm & D.Pharm Facilities Affiliated to HPTU Hamirpur'
-    },
-    {
-      id: 4,
-      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80',
-      title: 'Clinical Rotations & ICU Simulation Bedside Training',
-      subtitle: 'In Association with Dr. Radhakrishnan Govt Medical College & Hospital Hamirpur'
+      id: 2,
+      image: '/himachaltonite-event.webp',
+      title: 'State Dignitary & Academic Assembly at Hamirpur',
+      subtitle: 'Inaugural Session & Convocation at Gautam Group of Colleges, Hamirpur (H.P.)'
     }
   ];
 

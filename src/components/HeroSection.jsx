@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { 
-  ArrowRight, 
-  Play, 
-  Sparkles, 
-  CheckCircle2, 
-  ShieldCheck, 
-  TrendingUp, 
-  Users, 
-  Award, 
+import {
+  ArrowRight,
+  Play,
+  Sparkles,
+  CheckCircle2,
+  ShieldCheck,
+  TrendingUp,
+  Users,
+  Award,
   BookOpen,
   Compass,
   MapPin,
@@ -21,9 +21,9 @@ import {
   Download
 } from 'lucide-react';
 
-export default function HeroSection({ 
-  onOpenTour, 
-  onScrollToPrograms, 
+export default function HeroSection({
+  onOpenTour,
+  onScrollToPrograms,
   onOpenApply,
   onOpenPortal
 }) {
@@ -241,13 +241,13 @@ export default function HeroSection({
 
             {/* Real Campus Visual Card with Crest */}
             <div className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
-              <img 
-                src="https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg" 
-                alt="Actual Campus View of Gautam College of Nursing, Hamirpur" 
+              <img
+                src="https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg"
+                alt="Actual Campus View of Gautam College of Nursing, Hamirpur"
                 className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-              
+
               <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
                   <img src="/ggc-logo.webp" alt="GGC Logo" className="w-5 h-5 bg-white rounded-full p-0.5" />
@@ -274,7 +274,7 @@ export default function HeroSection({
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            
+
             {/* 1. Admission 2025 */}
             <button
               onClick={() => onOpenApply('apply')}
