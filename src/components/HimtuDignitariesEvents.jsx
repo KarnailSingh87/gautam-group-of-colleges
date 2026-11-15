@@ -78,11 +78,11 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults }) {
             
             {/* Dignitary 1: Chief Minister */}
             <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs text-center flex flex-col items-center justify-center flex-1 hover:shadow-md transition">
-              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-200 shadow-sm p-0.5 bg-slate-50 mb-2">
+              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#1e3a8a]/20 shadow-sm p-0.5 bg-slate-50 mb-2">
                 <img 
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" 
-                  alt="Hon'ble Chief Minister"
-                  className="w-full h-full object-cover rounded-full"
+                  src="/dignitaries/cm_sukhvinder_singh_sq.jpg" 
+                  alt="Sh. Sukhvinder Singh, Hon'ble Chief Minister, Himachal Pradesh"
+                  className="w-full h-full object-cover object-top rounded-full"
                 />
               </div>
               <h3 className="text-sm font-bold text-slate-900 leading-tight">Sh. Sukhvinder Singh</h3>
@@ -92,11 +92,11 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults }) {
 
             {/* Dignitary 2: Technical Education Minister */}
             <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs text-center flex flex-col items-center justify-center flex-1 hover:shadow-md transition">
-              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-200 shadow-sm p-0.5 bg-slate-50 mb-2">
+              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#1e3a8a]/20 shadow-sm p-0.5 bg-slate-50 mb-2">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" 
-                  alt="Hon'ble Technical Education Minister"
-                  className="w-full h-full object-cover rounded-full"
+                  src="/dignitaries/rajesh_dharmani_official.jpg" 
+                  alt="Sh. Rajesh Dharmani, Hon'ble Technical Education Minister, Himachal Pradesh"
+                  className="w-full h-full object-cover object-top rounded-full"
                 />
               </div>
               <h3 className="text-sm font-bold text-slate-900 leading-tight">Sh. Rajesh Dharmani</h3>
@@ -177,16 +177,16 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults }) {
 
           </div>
 
-          {/* RIGHT COLUMN: 2 Dignitary Cards (Governor & Vice Chancellor / Principal) (3 Cols) */}
+          {/* RIGHT COLUMN: 2 Dignitary Cards (Governor & Principal / Director) (3 Cols) */}
           <div className="lg:col-span-3 flex flex-col gap-4">
             
             {/* Dignitary 3: Governor */}
             <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs text-center flex flex-col items-center justify-center flex-1 hover:shadow-md transition">
-              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-200 shadow-sm p-0.5 bg-slate-50 mb-2">
+              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#1e3a8a]/20 shadow-sm p-0.5 bg-slate-50 mb-2">
                 <img 
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80" 
-                  alt="Hon'ble Governor"
-                  className="w-full h-full object-cover rounded-full"
+                  src="/dignitaries/gov_shiv_pratap_shukla_sq.jpg" 
+                  alt="Sh. Shiv Pratap Shukla, Hon'ble Governor, Himachal Pradesh"
+                  className="w-full h-full object-cover object-top rounded-full"
                 />
               </div>
               <h3 className="text-sm font-bold text-slate-900 leading-tight">Sh. Shiv Pratap Shukla</h3>
@@ -196,11 +196,11 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults }) {
 
             {/* Dignitary 4: Principal cum Secretary */}
             <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs text-center flex flex-col items-center justify-center flex-1 hover:shadow-md transition">
-              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-200 shadow-sm p-0.5 bg-slate-50 mb-2">
+              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#ea580c]/30 shadow-sm p-0.5 bg-slate-50 mb-2">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" 
-                  alt="Principal cum Secretary"
-                  className="w-full h-full object-cover rounded-full"
+                  src="/dignitaries/dr_rajneesh_gautam_sq.jpg" 
+                  alt="Dr. Rajneesh Gautam, Principal cum Secretary, Gautam Group of Colleges"
+                  className="w-full h-full object-cover object-top rounded-full"
                 />
               </div>
               <h3 className="text-sm font-bold text-slate-900 leading-tight">Dr. Rajneesh Gautam</h3>
