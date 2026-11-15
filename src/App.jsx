@@ -23,7 +23,6 @@ import StatsBento from './components/StatsBento';
 import CampusExperience from './components/CampusExperience';
 import UpcomingEvents from './components/UpcomingEvents';
 import AlumniStories from './components/AlumniStories';
-import ApplicationCTA from './components/ApplicationCTA';
 
 // Modals & Floating Utilities
 import VirtualTourModal from './components/VirtualTourModal';
@@ -247,10 +246,6 @@ export default function App() {
 
                 <CampusExperience
                   onOpenTour={() => setIsTourOpen(true)}
-                />
-
-                <ApplicationCTA
-                  onOpenApply={handleOpenApply}
                 />
               </>
             )}
