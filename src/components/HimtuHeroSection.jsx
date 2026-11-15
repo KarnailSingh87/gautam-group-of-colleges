@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  ChevronLeft, 
-  ChevronRight, 
   Bell, 
   Sparkles, 
   ExternalLink, 
@@ -249,24 +247,6 @@ export default function HimtuHeroSection({
                 <p className="text-xs text-slate-200 mt-0.5 drop-shadow line-clamp-1">
                   {slides[currentSlide].subtitle}
                 </p>
-              </div>
-
-              {/* Slider Bottom-Right Circular Orange Arrows (Exact HPTU Style) */}
-              <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2">
-                <button
-                  onClick={prevSlide}
-                  className="w-9 h-9 rounded-full bg-[#ea580c] hover:bg-[#c2410c] text-white flex items-center justify-center shadow-lg transition active:scale-95"
-                  aria-label="Previous Slide"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="w-9 h-9 rounded-full bg-[#ea580c] hover:bg-[#c2410c] text-white flex items-center justify-center shadow-lg transition active:scale-95"
-                  aria-label="Next Slide"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
               </div>
 
             </div>
