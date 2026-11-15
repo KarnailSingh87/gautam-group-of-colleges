@@ -172,6 +172,7 @@ export const GGC_PRESS_NOTICES = [
     id: 1,
     date: '15 Nov 2026',
     tag: 'Admissions 2025-26',
+    category: 'Admissions',
     title: 'Direct Walk-in Counseling & Registration open for B.Pharmacy, D.Pharmacy, and B.Sc. Nursing Vacant Seats.',
     isNew: true,
     fileSize: '450 KB PDF'
@@ -180,6 +181,7 @@ export const GGC_PRESS_NOTICES = [
     id: 2,
     date: '12 Nov 2026',
     tag: 'HPTU Examination',
+    category: 'Examination',
     title: 'Submission of Examination Forms for HPTU B.Tech, B.Pharmacy & MBA Odd Semester (December 2026 Session).',
     isNew: true,
     fileSize: '620 KB PDF'
@@ -188,6 +190,7 @@ export const GGC_PRESS_NOTICES = [
     id: 3,
     date: '08 Nov 2026',
     tag: 'Campus Placement',
+    category: 'Placements',
     title: 'Annual Campus Placement Drive by Sun Pharmaceutical Industries & Fortis Healthcare on 5th December.',
     isNew: false,
     fileSize: '310 KB PDF'
@@ -196,11 +199,14 @@ export const GGC_PRESS_NOTICES = [
     id: 4,
     date: '01 Nov 2026',
     tag: 'Scholarship Notice',
+    category: 'Scholarship',
     title: 'Mandatory Aadhaar KYC & Biometric verification for HP State Post-Matric Scholarship Renewal on NSP Portal.',
     isNew: false,
     fileSize: '580 KB PDF'
   }
 ];
+
+export const NOTICES = GGC_PRESS_NOTICES;
 
 export const PROGRAMS = [
   {

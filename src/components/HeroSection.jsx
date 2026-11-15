@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   ArrowRight, 
   Play, 
@@ -8,21 +8,40 @@ import {
   TrendingUp, 
   Users, 
   Award, 
-  Globe2, 
   BookOpen,
   Compass,
   MapPin,
   Building,
-  GraduationCap
+  GraduationCap,
+  Calendar,
+  FileText,
+  CreditCard,
+  UserCheck,
+  Send,
+  Download
 } from 'lucide-react';
 
 export default function HeroSection({ 
   onOpenTour, 
   onScrollToPrograms, 
-  onOpenApply 
+  onOpenApply,
+  onOpenPortal
 }) {
+  const [quickForm, setQuickForm] = useState({
+    name: '',
+    phone: '',
+    stream: 'B.Pharmacy (PCI / HPTU)',
+    city: 'Hamirpur'
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleQuickSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  };
+
   return (
-    <section className="relative overflow-hidden bg-slate-950 text-white pt-10 pb-16 lg:pt-14 lg:pb-24 border-b border-slate-800">
+    <section className="relative overflow-hidden bg-slate-950 text-white pt-8 pb-16 lg:pt-12 lg:pb-20 border-b border-slate-800">
       {/* Background Decorative Gradients & Grid */}
       <div className="absolute inset-0 pattern-grid opacity-15 pointer-events-none"></div>
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -31,8 +50,8 @@ export default function HeroSection({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Badges & Pre-header */}
-        <div className="flex flex-wrap items-center gap-3 mb-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-bold backdrop-blur-md">
+        <div className="flex flex-wrap items-center gap-2.5 mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-bold backdrop-blur-md">
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
@@ -51,170 +70,298 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Hero Grid: Content (Left) & Bento Visual (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        {/* Hero Grid: Content (Left) & Shoolini-Style Conversion Box / Campus View (Right) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
-          {/* Left Column: Bold Typography & CTAs */}
+          {/* Left Column: Bold Academic Credibility & Conversion CTAs (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
             
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.14]">
-              Himachal’s Premier Hub for{' '}
-              <span className="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-indigo-200 to-cyan-200">
-                Pharmacy, Healthcare
-              </span>{' '}
-              & Professional Excellence.
-            </h1>
+            <div className="space-y-3">
+              <span className="text-xs uppercase tracking-widest font-extrabold text-amber-400">
+                Pioneering Professional Education in Himachal Pradesh
+              </span>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
+                Excellence in{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-indigo-200 to-cyan-200">
+                  Pharmacy, Healthcare,
+                </span>{' '}
+                Technology & Management.
+              </h1>
+            </div>
 
-            <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed font-normal">
-              Empowering 25,000+ scholars since 1999. Featuring top-ranked constituent colleges in <strong>B.Pharmacy, B.Sc. Nursing, MBA, BCA, M.Sc Sciences, and Hotel Management</strong> with state-of-the-art laboratories and confirmed industrial placements.
+            <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+              Empowering 25,000+ scholars since 1999. Featuring top-ranked constituent colleges in <strong>B.Pharmacy, B.Sc. Nursing, MBA, BCA, M.Sc Sciences, and Hotel Management</strong> with 100% clinical rotation tie-up at Dr. Radhakrishnan Govt Medical College Hamirpur.
             </p>
 
             {/* CTAs Group */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-1">
               <button
-                onClick={onScrollToPrograms}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                onClick={() => onOpenApply('apply')}
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-extrabold text-sm shadow-lg shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
-                <span>Explore 2025-26 Courses</span>
-                <ArrowRight className="w-5 h-5" />
+                <span>Apply for 2025–26 Session</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
 
               <button
                 onClick={onOpenTour}
-                className="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-100 font-bold text-sm sm:text-base border border-slate-700 backdrop-blur-md transition-all group"
+                className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-100 font-bold text-sm border border-slate-700 backdrop-blur-md transition-all group"
               >
-                <div className="w-8 h-8 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                  <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+                <div className="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                  <Play className="w-3 h-3 fill-current ml-0.5" />
                 </div>
-                <span>Take Campus Tour</span>
+                <span>360° Campus Tour</span>
+              </button>
+
+              <button
+                onClick={onScrollToPrograms}
+                className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-xl text-slate-300 hover:text-white text-sm font-semibold hover:bg-slate-900/60 transition"
+              >
+                <BookOpen className="w-4 h-4 text-amber-300" />
+                <span>View All 24+ Courses</span>
               </button>
             </div>
 
-            {/* Micro Social Proof / Hamirpur Key Highlights */}
-            <div className="pt-4 flex flex-wrap items-center gap-5 text-xs text-slate-400 border-t border-slate-800">
-              <div className="flex items-center gap-2">
+            {/* Highlights Strip */}
+            <div className="pt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-300 border-t border-slate-800/80">
+              <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>Prime Central Location (Near Bus Stand)</span>
+                <span>Zero Ragging Campus (24x7 Helpline)</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>HP State Post-Matric Scholarship Facility</span>
+                <span>HP e-Pass & NSP Scholarship Center</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>Dedicated Girls & Boys Hostels</span>
+                <span>800m from Hamirpur Bus Stand</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Dribbble/21st.dev Layered Bento Showcase */}
-          <div className="lg:col-span-5 relative">
+          {/* Right Column: Shoolini/HPTU Interactive Admission Box & Real Campus Visual (5 Cols) */}
+          <div className="lg:col-span-5 space-y-4">
             
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              
-              {/* Primary Image Card: Real Campus View of Gautam College of Nursing, Hamirpur */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700 group">
-                <img 
-                  src="https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg" 
-                  alt="Campus View of Gautam College of Nursing, Hamirpur" 
-                  className="w-full h-[430px] object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-
-                {/* Top Institution Official Crest Tag */}
-                <div className="absolute top-4 right-4 z-10 flex items-center gap-2 bg-slate-950/90 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-slate-700 shadow-xl">
-                  <img 
-                    src="/ggc-logo.webp"
-                    alt="GGC Logo" 
-                    className="w-7 h-7 rounded-full object-contain bg-white p-0.5 shadow-sm"
-                  />
-                  <span className="text-[11px] font-bold text-amber-300">Gautam Group (Est. 1999)</span>
-                </div>
-
-                {/* Bottom Overlay Label */}
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <div className="inline-block px-2.5 py-1 rounded bg-indigo-600/90 backdrop-blur-sm text-[11px] font-bold uppercase tracking-wider mb-2">
-                    Actual Campus View • Gautam College of Nursing
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold">25 Years of Shaping Healthcare & Technology Leaders</h3>
-                  <p className="text-xs text-slate-300 mt-0.5">Near Bus Stand, Hamirpur • INC, HPNRC & AMRU Approved Campus</p>
-                </div>
-              </div>
-
-              {/* Floating Stat Card 1 (Top Left): 100% Clinical & Industry Training */}
-              <div className="absolute -top-5 -left-4 sm:-left-6 bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-2xl p-3.5 shadow-2xl max-w-[210px] hidden sm:block">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
-                    <TrendingUp className="w-5 h-5" />
+            {/* Shoolini-style Quick Admission Inquiry Card */}
+            <div className="bg-slate-900/95 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-slate-700/80 shadow-2xl relative">
+              <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-xs">
+                    <Sparkles className="w-4 h-4 text-amber-300" />
                   </div>
                   <div>
-                    <div className="text-xl font-extrabold text-white">100%</div>
-                    <div className="text-[11px] text-slate-400 leading-tight">Clinical & Pharma Training Record</div>
+                    <h3 className="text-sm font-bold text-white">Admissions 2025–26 Helpdesk</h3>
+                    <p className="text-[10px] text-amber-300 font-medium">Free Counseling & Instant Prospectus</p>
                   </div>
                 </div>
+                <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full font-bold">
+                  Open
+                </span>
               </div>
 
-              {/* Floating Placement Highlight Card (Bottom Right): Sun Pharma / Fortis */}
-              <div className="absolute -bottom-6 -right-3 sm:-right-6 bg-slate-900/95 backdrop-blur-md border border-slate-700/80 rounded-2xl p-3.5 shadow-2xl max-w-[240px]">
-                <div className="flex items-center gap-3">
-                  <img 
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" 
-                    alt="Alumni" 
-                    className="w-11 h-11 rounded-full object-cover border-2 border-indigo-400 shadow-sm"
-                  />
+              {isSubmitted ? (
+                <div className="p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/30 text-center space-y-2 animate-in fade-in">
+                  <CheckCircle2 className="w-8 h-8 text-emerald-400 mx-auto" />
+                  <div className="text-xs font-bold text-emerald-200">Inquiry Registered Successfully!</div>
+                  <div className="text-[11px] text-slate-300">
+                    Application Ref: <span className="font-mono font-bold text-white">GGC-ADM-2025-{Math.floor(1000 + Math.random() * 9000)}</span>
+                  </div>
+                  <p className="text-[10px] text-slate-400">
+                    Our admissions counselor will call you on <strong>{quickForm.phone}</strong> with seat availability & fee structure details.
+                  </p>
+                  <button
+                    onClick={() => setIsSubmitted(false)}
+                    className="mt-2 text-[11px] font-bold text-indigo-400 hover:underline"
+                  >
+                    Submit another inquiry
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleQuickSubmit} className="space-y-3">
                   <div>
-                    <div className="text-xs font-bold text-white flex items-center gap-1">
-                      <span>Pooja Dhiman (Nursing)</span>
-                      <Award className="w-3.5 h-3.5 text-amber-400" />
+                    <label className="block text-[11px] font-bold text-slate-300 mb-1">
+                      Choose Your Program / Stream *
+                    </label>
+                    <select
+                      value={quickForm.stream}
+                      onChange={(e) => setQuickForm({ ...quickForm, stream: e.target.value })}
+                      className="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white focus:outline-none focus:border-indigo-500"
+                    >
+                      <option>B.Pharmacy (4 Years - PCI / HPTU)</option>
+                      <option>D.Pharmacy (2 Years - PCI / HPTSB)</option>
+                      <option>B.Sc. Nursing (4 Years - INC / AMRU)</option>
+                      <option>GNM Diploma (3 Years - INC / HPNRC)</option>
+                      <option>MBA (2 Years - AICTE / HPTU)</option>
+                      <option>BCA (3 Years - HPU Shimla)</option>
+                      <option>M.Sc Physics / Chemistry / Bot / Zoo</option>
+                      <option>BHM - Hotel Management & Catering</option>
+                    </select>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2.5">
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-300 mb-1">
+                        Candidate Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Rahul Sharma"
+                        value={quickForm.name}
+                        onChange={(e) => setQuickForm({ ...quickForm, name: e.target.value })}
+                        className="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white focus:outline-none focus:border-indigo-500 placeholder-slate-500"
+                      />
                     </div>
-                    <div className="text-[11px] text-emerald-400 font-semibold">Fortis Healthcare Mohali</div>
-                    <div className="text-[10px] text-slate-400 mt-0.5">Annual Package: ₹6.8 LPA</div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-300 mb-1">
+                        Mobile Number *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="10-digit phone"
+                        value={quickForm.phone}
+                        onChange={(e) => setQuickForm({ ...quickForm, phone: e.target.value })}
+                        className="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-xs text-white focus:outline-none focus:border-indigo-500 placeholder-slate-500"
+                      />
+                    </div>
                   </div>
-                </div>
-              </div>
 
+                  <button
+                    type="submit"
+                    className="w-full py-2.5 rounded-lg bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-400 hover:to-indigo-500 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5"
+                  >
+                    <Send className="w-3.5 h-3.5" />
+                    <span>Get Instant Call Back & Prospectus</span>
+                  </button>
+                </form>
+              )}
+            </div>
+
+            {/* Real Campus Visual Card with Crest */}
+            <div className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-xl group">
+              <img 
+                src="https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg" 
+                alt="Actual Campus View of Gautam College of Nursing, Hamirpur" 
+                className="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+              
+              <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-xs">
+                <div className="flex items-center gap-2">
+                  <img src="/ggc-logo.webp" alt="GGC Logo" className="w-5 h-5 bg-white rounded-full p-0.5" />
+                  <span className="font-bold text-white text-[11px]">Real Campus • Gautam College Hamirpur</span>
+                </div>
+                <button
+                  onClick={onOpenTour}
+                  className="text-[10px] bg-white/20 backdrop-blur-sm text-white px-2 py-0.5 rounded font-bold hover:bg-white/30 transition"
+                >
+                  Explore Tour →
+                </button>
+              </div>
             </div>
 
           </div>
 
         </div>
 
-        {/* Global Statistics Strip for Gautam Group */}
-        <div className="mt-14 pt-8 border-t border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
-          
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-3xl font-extrabold text-amber-400">
-              25+ Years
-            </div>
-            <div className="text-xs text-slate-200 font-bold mt-1">Academic Heritage</div>
-            <div className="text-[11px] text-slate-500 mt-0.5">Established in 1999 at Hamirpur</div>
+        {/* 6-PILLAR INSTITUTIONAL QUICK DOCK (NIT Hamirpur & HPTU Reference Role) */}
+        <div className="mt-12 pt-8 border-t border-slate-800/80">
+          <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+            <Building className="w-4 h-4 text-indigo-400" />
+            <span>Digital Services & Fast-Access Portals (HPTU • HPU • AMRU Gateway)</span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-3xl font-extrabold text-indigo-400">
-              6 Colleges
-            </div>
-            <div className="text-xs text-slate-200 font-bold mt-1">Constituent Institutions</div>
-            <div className="text-[11px] text-slate-500 mt-0.5">Pharmacy, Nursing, Mgmt, Sciences</div>
-          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            
+            {/* 1. Admission 2025 */}
+            <button
+              onClick={() => onOpenApply('apply')}
+              className="p-3.5 rounded-xl bg-slate-900/80 hover:bg-indigo-600/20 border border-slate-800 hover:border-indigo-500/50 transition-all text-left group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <GraduationCap className="w-4 h-4" />
+              </div>
+              <div className="text-xs font-bold text-white group-hover:text-indigo-300 transition-colors">
+                Online Admission
+              </div>
+              <div className="text-[10px] text-slate-400 mt-0.5">Session 2025–26</div>
+            </button>
 
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-3xl font-extrabold text-emerald-400">
-              25,000+
-            </div>
-            <div className="text-xs text-slate-200 font-bold mt-1">Successful Alumni</div>
-            <div className="text-[11px] text-slate-500 mt-0.5">Serving across India & Abroad</div>
-          </div>
+            {/* 2. Exam & Results */}
+            <button
+              onClick={() => onOpenPortal('results')}
+              className="p-3.5 rounded-xl bg-slate-900/80 hover:bg-indigo-600/20 border border-slate-800 hover:border-indigo-500/50 transition-all text-left group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <Calendar className="w-4 h-4" />
+              </div>
+              <div className="text-xs font-bold text-white group-hover:text-indigo-300 transition-colors">
+                Exam Datesheet
+              </div>
+              <div className="text-[10px] text-slate-400 mt-0.5">HPTU & HPU Results</div>
+            </button>
 
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-3xl font-extrabold text-cyan-400">
-              100+
-            </div>
-            <div className="text-xs text-slate-200 font-bold mt-1">Campus Recruiters</div>
-            <div className="text-[11px] text-slate-500 mt-0.5">Pharma, Hospitals, Banks & IT</div>
-          </div>
+            {/* 3. Fee Payment */}
+            <button
+              onClick={() => onOpenPortal('fee-pay')}
+              className="p-3.5 rounded-xl bg-slate-900/80 hover:bg-indigo-600/20 border border-slate-800 hover:border-indigo-500/50 transition-all text-left group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <CreditCard className="w-4 h-4" />
+              </div>
+              <div className="text-xs font-bold text-white group-hover:text-indigo-300 transition-colors">
+                Pay Fee Online
+              </div>
+              <div className="text-[10px] text-slate-400 mt-0.5">Instant SBI / PNB Receipt</div>
+            </button>
 
+            {/* 4. Syllabus & PYQ */}
+            <button
+              onClick={() => onOpenPortal('pyq')}
+              className="p-3.5 rounded-xl bg-slate-900/80 hover:bg-indigo-600/20 border border-slate-800 hover:border-indigo-500/50 transition-all text-left group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <FileText className="w-4 h-4" />
+              </div>
+              <div className="text-xs font-bold text-white group-hover:text-indigo-300 transition-colors">
+                Syllabus & PYQ
+              </div>
+              <div className="text-[10px] text-slate-400 mt-0.5">Download PDF Papers</div>
+            </button>
+
+            {/* 5. Student ERP / OTR */}
+            <button
+              onClick={() => onOpenPortal('otr')}
+              className="p-3.5 rounded-xl bg-slate-900/80 hover:bg-indigo-600/20 border border-slate-800 hover:border-indigo-500/50 transition-all text-left group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <UserCheck className="w-4 h-4" />
+              </div>
+              <div className="text-xs font-bold text-white group-hover:text-indigo-300 transition-colors">
+                Student ERP / SIS
+              </div>
+              <div className="text-[10px] text-slate-400 mt-0.5">Biometrics & Roll No</div>
+            </button>
+
+            {/* 6. Anti-Ragging */}
+            <a
+              href="https://www.antiragging.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3.5 rounded-xl bg-slate-900/80 hover:bg-rose-600/20 border border-slate-800 hover:border-rose-500/50 transition-all text-left group block"
+            >
+              <div className="w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+              <div className="text-xs font-bold text-white group-hover:text-rose-300 transition-colors">
+                Anti-Ragging Cell
+              </div>
+              <div className="text-[10px] text-rose-400 font-bold mt-0.5">1800-180-5522</div>
+            </a>
+
+          </div>
         </div>
 
       </div>

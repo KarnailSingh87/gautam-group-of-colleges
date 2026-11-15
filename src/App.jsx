@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 import TopUtilityBar from './components/TopUtilityBar';
 import Navbar from './components/Navbar';
+import NoticeBoardTicker from './components/NoticeBoardTicker';
 import HeroSection from './components/HeroSection';
 import ConstituentColleges from './components/ConstituentColleges';
+import LeadershipDesk from './components/LeadershipDesk';
 import DigitalServicesHub from './components/DigitalServicesHub';
 import ProgramFinder from './components/ProgramFinder';
 import StatsBento from './components/StatsBento';
@@ -123,6 +125,14 @@ export default function App() {
           onScrollToPrograms={handleScrollToPrograms}
         />
 
+        {/* 3. Live Notification & Marquee Ticker (NITH / HPTU Template Function) */}
+        {currentPage === 'home' && (
+          <NoticeBoardTicker
+            onOpenServiceModal={handleOpenServiceModal}
+            onOpenApply={handleOpenApply}
+          />
+        )}
+
         {/* Breadcrumb Navigation when browsing sub-pages */}
         {currentPage !== 'home' && (
           <div className="bg-white border-b border-slate-200/80 py-2.5 px-4 sm:px-6 lg:px-8 shadow-xs">
@@ -152,19 +162,25 @@ export default function App() {
         <main className="flex-1">
           {currentPage === 'home' && (
             <>
-              {/* Hero Section */}
+              {/* Grand Hero Section (Shoolini University High-Conversion + NITH Quick Dock) */}
               <HeroSection
                 onOpenTour={() => setIsTourOpen(true)}
                 onScrollToPrograms={handleScrollToPrograms}
                 onOpenApply={handleOpenApply}
+                onOpenPortal={handleOpenServiceModal}
               />
 
-              {/* The 6 Constituent Colleges */}
+              {/* The 6 Constituent Colleges of Gautam Group */}
               <ConstituentColleges
                 onOpenApply={handleOpenApply}
               />
 
-              {/* Unified Digital Services & E-Governance Hub */}
+              {/* Leadership Desk: Director & Principal's Message (NITH / IIT Mandi / Shoolini Style) */}
+              <LeadershipDesk
+                onOpenApply={handleOpenApply}
+              />
+
+              {/* Unified Digital Services & E-Governance Hub (HPTU, HPU & AMRU Affiliated) */}
               <DigitalServicesHub
                 onOpenServiceModal={handleOpenServiceModal}
               />
@@ -174,7 +190,7 @@ export default function App() {
                 onOpenApply={handleOpenApply}
               />
 
-              {/* Institutional Bento Grid */}
+              {/* Institutional Bento Grid (Why Choose GGC Hamirpur) */}
               <StatsBento
                 onOpenApply={handleOpenApply}
               />
