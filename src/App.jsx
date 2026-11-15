@@ -6,6 +6,13 @@ import ErrorBoundary from './components/ErrorBoundary';
 import HimtuHeader from './components/HimtuHeader';
 import HimtuWhatsNew from './components/HimtuWhatsNew';
 import HimtuHeroSection from './components/HimtuHeroSection';
+import HimtuDignitariesEvents from './components/HimtuDignitariesEvents';
+import HimtuMediaPrograms from './components/HimtuMediaPrograms';
+import HimtuQuickAccess from './components/HimtuQuickAccess';
+import HimtuSchoolsGrid from './components/HimtuSchoolsGrid';
+import HimtuSocialFeed from './components/HimtuSocialFeed';
+import HimtuStatsLogos from './components/HimtuStatsLogos';
+import HimtuFooter from './components/HimtuFooter';
 
 // Collegiate Core Modules
 import ConstituentColleges from './components/ConstituentColleges';
@@ -18,7 +25,6 @@ import TuitionEstimator from './components/TuitionEstimator';
 import UpcomingEvents from './components/UpcomingEvents';
 import AlumniStories from './components/AlumniStories';
 import ApplicationCTA from './components/ApplicationCTA';
-import Footer from './components/Footer';
 
 // Modals & Floating Utilities
 import VirtualTourModal from './components/VirtualTourModal';
@@ -181,52 +187,56 @@ export default function App() {
                   onOpenPortal={() => setIsPortalModalOpen(true)}
                 />
 
-                {/* The 6 Constituent Colleges of Gautam Group */}
-                <ConstituentColleges
+                {/* 4. Dignitaries & Tabbed Academic Events Bulletin (HPTU Dignitaries layout) */}
+                <HimtuDignitariesEvents
+                  onOpenApply={handleOpenApply}
+                  onOpenResults={() => handleOpenServiceModal('results')}
+                  onNavigate={handleNavigate}
+                />
+
+                {/* 5. GGC Media (Life @ GGC, Newsletter, Latest News) + Most Popular Degrees Search */}
+                <HimtuMediaPrograms
+                  onOpenApply={handleOpenApply}
+                  onNavigate={handleNavigate}
+                />
+
+                {/* 6. Quick Access 8-Card Purple/Navy Grid */}
+                <HimtuQuickAccess
+                  onNavigate={handleNavigate}
+                  onOpenApply={handleOpenApply}
+                  onOpenPortal={() => setIsPortalModalOpen(true)}
+                  onOpenResults={() => handleOpenServiceModal('results')}
+                />
+
+                {/* 7. USS: University School of Studies / Constituent Colleges with Carousel */}
+                <HimtuSchoolsGrid
+                  onNavigate={handleNavigate}
                   onOpenApply={handleOpenApply}
                 />
 
-                {/* Leadership Desk: Director & Principal's Message */}
-                <LeadershipDesk
-                  onOpenApply={handleOpenApply}
-                />
+                {/* 8. Social Media Engagements 4-Column Live Feed (FB, YT, X, IG) */}
+                <HimtuSocialFeed />
 
-                {/* Unified Digital Services & E-Governance Hub */}
-                <DigitalServicesHub
-                  onOpenServiceModal={handleOpenServiceModal}
-                />
+                {/* 9. Key Institutional Stat Counters & Apex Statutory Approvals Slider */}
+                <HimtuStatsLogos />
 
-                {/* Interactive Program & Major Finder */}
+                {/* Supplementary Academic & Student Tools */}
                 <ProgramFinder
                   onOpenApply={handleOpenApply}
                 />
 
-                {/* Institutional Bento Grid */}
-                <StatsBento
+                <LeadershipDesk
                   onOpenApply={handleOpenApply}
                 />
 
-                {/* Campus Experience Showcase */}
-                <CampusExperience
-                  onOpenTour={() => setIsTourOpen(true)}
-                />
-
-                {/* Interactive Fee Estimator */}
                 <TuitionEstimator
                   onOpenApply={handleOpenApply}
                 />
 
-                {/* Upcoming Events */}
-                <UpcomingEvents
-                  onOpenApply={handleOpenApply}
+                <CampusExperience
+                  onOpenTour={() => setIsTourOpen(true)}
                 />
 
-                {/* Alumni Stories */}
-                <AlumniStories
-                  onOpenApply={handleOpenApply}
-                />
-
-                {/* Application Call to Action */}
                 <ApplicationCTA
                   onOpenApply={handleOpenApply}
                 />
@@ -308,10 +318,10 @@ export default function App() {
             )}
           </main>
 
-          {/* Official Collegiate Footer */}
-          <Footer
+          {/* Official HPTU Dark Footer */}
+          <HimtuFooter
             onNavigate={handleNavigate}
-            onOpenApply={handleOpenApply}
+            onOpenCMSModal={() => setIsCMSOpen(true)}
             onOpenPortalModal={() => setIsPortalModalOpen(true)}
           />
 
