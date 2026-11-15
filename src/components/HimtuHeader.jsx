@@ -70,7 +70,7 @@ export default function HimtuHeader({
 
   return (
     <>
-      <header className="bg-white font-sans">
+      <header className="bg-white font-sans relative z-50">
       
       {/* 1. TOP UTILITY BAR (Exact HPTU Style) */}
       <div className="bg-slate-100 border-b border-slate-300 text-[11px] text-slate-700 py-1 px-4 hidden md:block">
@@ -409,7 +409,7 @@ export default function HimtuHeader({
     </header>
 
     {/* 3. PRIMARY NAVIGATION BAR WITH INTERACTIVE HPTU-STYLE DROPDOWNS (STICKY NAVBAR) */}
-    <nav className="sticky top-0 z-50 bg-[#1e3a8a] text-white border-t border-blue-900 border-b border-blue-950 hidden lg:block shadow-md">
+    <nav className="sticky top-0 z-40 bg-[#1e3a8a] text-white border-t border-blue-900 border-b border-blue-950 hidden lg:block shadow-md">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
           
           <div className="flex items-center">
