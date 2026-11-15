@@ -10,7 +10,8 @@ import {
   Sparkles,
   SlidersHorizontal,
   ChevronRight,
-  Filter
+  Filter,
+  TrendingUp
 } from 'lucide-react';
 import { PROGRAMS } from '../data/mockData';
 
