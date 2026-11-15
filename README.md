@@ -25,9 +25,32 @@ Designed using modern **21st.dev** micro-interactions, **Dribbble Bento UI**, an
 
 ---
 
+## 🌐 1-Click Deployment on Render
+
+This repository includes a pre-configured `render.yaml` Blueprint and `_redirects` for 100% free hosting with automatic SSL and SPA routing on **Render**:
+
+### Option 1: Automatic Blueprint (Recommended)
+1. Go to [Render Dashboard](https://dashboard.render.com/) and click **New +** → **Blueprint**.
+2. Connect your repository: `KarnailSingh87/gautam-group-of-colleges`.
+3. Render will read `render.yaml` and set up everything automatically!
+
+### Option 2: Manual Static Site
+1. On [Render](https://dashboard.render.com/), click **New +** → **Static Site**.
+2. Select repository `gautam-group-of-colleges`.
+3. Configure:
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `dist`
+4. Under **Redirects/Rewrites**:
+   - **Source**: `/*`
+   - **Destination**: `/index.html`
+   - **Action**: `Rewrite`
+5. Click **Create Static Site**!
+
+---
+
 ## 🚀 How to Run & Present to Client
 - **Local Dev Server**: [http://localhost:5174/](http://localhost:5174/) or [http://localhost:5173/](http://localhost:5173/)
-- **Production Bundle**: Built in `dist/` ready for cPanel, Vercel, or Netlify deployment.
+- **Production Bundle**: Built in `dist/` ready for Render, cPanel, Vercel, or Netlify deployment.
 
 To start again in any terminal:
 ```bash
