@@ -70,7 +70,7 @@ export default function HimtuHeader({
 
   return (
     <>
-      <header className="bg-white font-sans relative z-50">
+      <header className="bg-white font-sans sticky top-0 lg:relative z-50 shadow-xs lg:shadow-none">
       
       {/* 1. TOP UTILITY BAR (Exact HPTU Style) */}
       <div className="bg-slate-100 border-b border-slate-300 text-[11px] text-slate-700 py-1 px-4 hidden md:block">
@@ -231,34 +231,34 @@ export default function HimtuHeader({
       </div>
 
       {/* 2. MAIN BRANDING HEADER (HPTU Crest, Dual Hindi/English Typography & Orange Results Button) */}
-      <div className="bg-white py-3 px-4 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div className="bg-white py-2 sm:py-3 px-3 sm:px-4 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
           
           {/* Left: Emblem Logo + Dual Hindi & English Name */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-1">
             <button 
               onClick={() => handleNavClick('home')} 
-              className="flex items-center gap-3 sm:gap-4 text-left group"
+              className="flex items-center gap-2.5 sm:gap-4 text-left group min-w-0"
             >
               {/* College Official Crest */}
-              <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-white p-1 rounded-full border-2 border-amber-500 shadow-sm overflow-hidden flex items-center justify-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 shrink-0 bg-white p-0.5 sm:p-1 rounded-full border-2 border-amber-500 shadow-sm overflow-hidden flex items-center justify-center">
                 <img 
                   src="/gautam_group_colleges_logo.png" 
-                  alt="Gautam Group of Colleges Logo" 
+                  alt="Gautam College Logo" 
                   className="w-full h-full object-contain"
                 />
               </div>
 
               {/* HPTU Style Official Typography */}
-              <div className="flex flex-col text-left">
-                <div className="text-base sm:text-xl md:text-2xl font-bold text-[#ea580c] tracking-normal leading-tight font-['Noto_Sans_Devanagari',sans-serif]">
+              <div className="flex flex-col text-left min-w-0">
+                <div className="text-xs sm:text-lg md:text-2xl font-bold text-[#ea580c] tracking-normal leading-tight font-['Noto_Sans_Devanagari',sans-serif] truncate sm:whitespace-normal">
                   गौतम कॉलेज, हमीरपुर
                 </div>
-                <div className="text-xl sm:text-2xl md:text-[28px] font-black text-[#1b327b] tracking-tight leading-tight uppercase font-['Roboto_Condensed',sans-serif]">
+                <div className="text-sm sm:text-xl md:text-[28px] font-black text-[#1b327b] tracking-tight leading-tight uppercase font-['Roboto_Condensed',sans-serif] truncate sm:whitespace-normal">
                   GAUTAM COLLEGE
                 </div>
-                <div className="text-[9px] sm:text-[11px] font-semibold text-slate-700 tracking-wider uppercase mt-0.5 font-sans">
-                  (ESTABLISHED 1999 • AFFILIATED TO HPTU, HPU & AMRU • APPROVED BY AICTE, PCI, INC)
+                <div className="text-[8px] sm:text-[10px] md:text-[11px] font-semibold text-slate-700 tracking-wider uppercase mt-0.5 font-sans truncate sm:whitespace-normal">
+                  (ESTABLISHED 1999 • AFFILIATED TO HPTU, HPU & AMRU)
                 </div>
               </div>
             </button>
@@ -387,18 +387,12 @@ export default function HimtuHeader({
 
           </div>
 
-          {/* Mobile Hamburger */}
-          <div className="flex lg:hidden items-center gap-2">
-            <button
-              onClick={() => onOpenApply('apply')}
-              className="px-3 py-1.5 rounded-lg bg-[#ea580c] text-white font-bold text-xs shadow-xs"
-            >
-              Admissions
-            </button>
+          {/* Mobile Hamburger Menu Icon Button (Exact HPTU Mobile Layout) */}
+          <div className="flex lg:hidden items-center shrink-0">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-slate-100 text-slate-800 hover:bg-slate-200"
-              aria-label="Toggle menu"
+              className="p-1.5 text-slate-800 hover:text-[#ea580c] hover:bg-slate-100 rounded-lg transition"
+              aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -406,6 +400,52 @@ export default function HimtuHeader({
 
         </div>
       </div>
+
+      {/* Mobile Drawer Menu (Anchored directly inside sticky header) */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-[#1e3a8a] text-white px-4 py-4 space-y-3 divide-y divide-blue-800 animate-in slide-in-from-top duration-200 shadow-xl border-t border-blue-900 max-h-[80vh] overflow-y-auto">
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              if (onOpenSearch) onOpenSearch();
+            }}
+            className="w-full flex items-center gap-2 p-2.5 rounded-lg bg-blue-950/80 border border-blue-800 text-slate-200 text-xs font-semibold"
+          >
+            <Search className="w-4 h-4 text-amber-300" />
+            <span>Search programs, faculty, hostels, fees...</span>
+          </button>
+          
+          <div className="grid grid-cols-2 gap-2 text-xs font-bold pt-2">
+            <button onClick={() => { setMobileMenuOpen(false); handleNavClick('home'); }} className="text-left p-2 rounded hover:bg-blue-900">🏠 Home</button>
+            <button onClick={() => { setMobileMenuOpen(false); handleNavClick('about'); }} className="text-left p-2 rounded hover:bg-blue-900">About Us</button>
+            <button onClick={() => { setMobileMenuOpen(false); handleNavClick('affiliations'); }} className="text-left p-2 rounded hover:bg-blue-900">Affiliations</button>
+            <button onClick={() => { setMobileMenuOpen(false); handleNavClick('academics'); }} className="text-left p-2 rounded hover:bg-blue-900">Academics</button>
+            <button onClick={() => { setMobileMenuOpen(false); handleNavClick('faculty'); }} className="text-left p-2 rounded hover:bg-blue-900">Administration</button>
+            <button onClick={() => { setMobileMenuOpen(false); handleNavClick(null, 'results'); }} className="text-left p-2 rounded hover:bg-blue-900 text-amber-300">Examination & Results</button>
+            <button onClick={() => { setMobileMenuOpen(false); handleNavClick('admissions'); }} className="text-left p-2 rounded hover:bg-blue-900">Admissions 2025</button>
+            <button onClick={() => { setMobileMenuOpen(false); handleNavClick(null, 'portal'); }} className="text-left p-2 rounded hover:bg-blue-900 text-amber-300">Student Zone (ABC)</button>
+            <button onClick={() => { setMobileMenuOpen(false); handleNavClick('downloads'); }} className="text-left p-2 rounded hover:bg-blue-900">Information Corner</button>
+            <button onClick={() => { setMobileMenuOpen(false); handleNavClick('gallery'); }} className="text-left p-2 rounded hover:bg-blue-900">Gallery</button>
+            <button onClick={() => { setMobileMenuOpen(false); handleNavClick('contact'); }} className="text-left p-2 rounded hover:bg-blue-900">Contact Us</button>
+          </div>
+
+          <div className="pt-3 flex items-center justify-between">
+            <button
+              onClick={() => { setMobileMenuOpen(false); onOpenCMSModal(); }}
+              className="text-xs text-amber-300 font-bold flex items-center gap-1"
+            >
+              <Lock className="w-3.5 h-3.5" />
+              <span>Staff Login CMS</span>
+            </button>
+            <button
+              onClick={() => { setMobileMenuOpen(false); onOpenApply('apply'); }}
+              className="px-4 py-1.5 rounded-lg bg-[#ea580c] text-white font-bold text-xs"
+            >
+              Apply Online
+            </button>
+          </div>
+        </div>
+      )}
     </header>
 
     {/* 3. PRIMARY NAVIGATION BAR WITH INTERACTIVE HPTU-STYLE DROPDOWNS (STICKY NAVBAR) */}
@@ -865,52 +905,6 @@ export default function HimtuHeader({
 
         </div>
       </nav>
-
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden sticky top-0 z-50 bg-[#1e3a8a] text-white px-4 py-4 space-y-3 divide-y divide-blue-800 animate-in slide-in-from-top duration-200 shadow-xl">
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              if (onOpenSearch) onOpenSearch();
-            }}
-            className="w-full flex items-center gap-2 p-2.5 rounded-lg bg-blue-950/80 border border-blue-800 text-slate-200 text-xs font-semibold"
-          >
-            <Search className="w-4 h-4 text-amber-300" />
-            <span>Search programs, faculty, hostels, fees...</span>
-          </button>
-          
-          <div className="grid grid-cols-2 gap-2 text-xs font-bold pt-2">
-            <button onClick={() => handleNavClick('home')} className="text-left p-2 rounded hover:bg-blue-900">🏠 Home</button>
-            <button onClick={() => handleNavClick('about')} className="text-left p-2 rounded hover:bg-blue-900">About Us</button>
-            <button onClick={() => handleNavClick('affiliations')} className="text-left p-2 rounded hover:bg-blue-900">Affiliations</button>
-            <button onClick={() => handleNavClick('academics')} className="text-left p-2 rounded hover:bg-blue-900">Academics</button>
-            <button onClick={() => handleNavClick('faculty')} className="text-left p-2 rounded hover:bg-blue-900">Administration</button>
-            <button onClick={() => handleNavClick(null, 'results')} className="text-left p-2 rounded hover:bg-blue-900 text-amber-300">Examination & Results</button>
-            <button onClick={() => handleNavClick('admissions')} className="text-left p-2 rounded hover:bg-blue-900">Admissions 2025</button>
-            <button onClick={() => handleNavClick(null, 'portal')} className="text-left p-2 rounded hover:bg-blue-900 text-amber-300">Student Zone (ABC)</button>
-            <button onClick={() => handleNavClick('downloads')} className="text-left p-2 rounded hover:bg-blue-900">Information Corner</button>
-            <button onClick={() => handleNavClick('gallery')} className="text-left p-2 rounded hover:bg-blue-900">Gallery</button>
-            <button onClick={() => handleNavClick('contact')} className="text-left p-2 rounded hover:bg-blue-900">Contact Us</button>
-          </div>
-
-          <div className="pt-3 flex items-center justify-between">
-            <button
-              onClick={onOpenCMSModal}
-              className="text-xs text-amber-300 font-bold flex items-center gap-1"
-            >
-              <Lock className="w-3.5 h-3.5" />
-              <span>Staff Login CMS</span>
-            </button>
-            <button
-              onClick={() => onOpenApply('apply')}
-              className="px-4 py-1.5 rounded-lg bg-[#ea580c] text-white font-bold text-xs"
-            >
-              Apply Online
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* Institutional Utility Modals */}
       <SitemapModal 
