@@ -4,16 +4,13 @@ import {
   Phone, 
   Mail, 
   ExternalLink, 
-  Facebook, 
-  Youtube, 
-  Twitter, 
-  Instagram, 
   ShieldCheck, 
   Lock, 
   FileText, 
   ChevronRight,
   Globe
 } from 'lucide-react';
+import { FacebookIcon, YoutubeIcon, XIcon, InstagramIcon } from './SocialIcons';
 
 export default function HimtuFooter({ onNavigate, onOpenCMSModal, onOpenPortalModal }) {
   const usefulLinks = [
@@ -179,16 +176,16 @@ export default function HimtuFooter({ onNavigate, onOpenCMSModal, onOpenPortalMo
                 <span className="text-xs font-bold text-slate-300 block mb-2">Connect With Us:</span>
                 <div className="flex items-center gap-2">
                   <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#1877F2] flex items-center justify-center transition">
-                    <Facebook className="w-4 h-4 text-white" />
+                    <FacebookIcon className="w-4 h-4 text-white" />
                   </a>
                   <a href="https://youtube.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#FF0000] flex items-center justify-center transition">
-                    <Youtube className="w-4 h-4 text-white" />
+                    <YoutubeIcon className="w-4 h-4 text-white" />
                   </a>
                   <a href="https://x.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-black flex items-center justify-center transition">
-                    <Twitter className="w-4 h-4 text-white" />
+                    <XIcon className="w-4 h-4 text-white" />
                   </a>
                   <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-pink-600 flex items-center justify-center transition">
-                    <Instagram className="w-4 h-4 text-white" />
+                    <InstagramIcon className="w-4 h-4 text-white" />
                   </a>
                 </div>
               </div>
