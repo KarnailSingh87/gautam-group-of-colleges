@@ -55,6 +55,21 @@ export default function App() {
   const [isCMSOpen, setIsCMSOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  // Force window to top on page refresh and initial mount
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, []);
+
   // Global Cmd+K / Ctrl+K search hotkey
   useEffect(() => {
     const handleGlobalKey = (e) => {
