@@ -150,7 +150,10 @@ export default function HimtuMediaPrograms({ onOpenApply, onNavigate }) {
 
           {/* Degrees Horizontal Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {popularDegrees.slice(0, 4).map((deg, idx) => (
+            {popularDegrees
+              .filter((deg) => !searchProgram.trim() || deg.name.toLowerCase().includes(searchProgram.toLowerCase()) || deg.dept.toLowerCase().includes(searchProgram.toLowerCase()))
+              .slice(0, 4)
+              .map((deg, idx) => (
               <div key={idx} className="bg-white rounded-xl p-5 border border-slate-200 shadow-xs flex flex-col justify-between hover:border-[#ea580c] transition">
                 <div className="space-y-1.5">
                   <div className="text-[10px] font-bold text-[#ea580c] uppercase tracking-wider">
@@ -174,6 +177,17 @@ export default function HimtuMediaPrograms({ onOpenApply, onNavigate }) {
                 </div>
               </div>
             ))}
+            {popularDegrees.filter((deg) => !searchProgram.trim() || deg.name.toLowerCase().includes(searchProgram.toLowerCase()) || deg.dept.toLowerCase().includes(searchProgram.toLowerCase())).length === 0 && (
+              <div className="col-span-full py-6 text-center bg-slate-50 rounded-xl border border-dashed border-slate-300">
+                <p className="text-xs text-slate-600">No popular degrees match "{searchProgram}".</p>
+                <button
+                  onClick={() => onOpenApply('apply', searchProgram)}
+                  className="mt-2 px-4 py-1.5 bg-[#ea580c] text-white font-bold text-xs rounded-lg shadow-xs"
+                >
+                  Inquire for "{searchProgram}"
+                </button>
+              </div>
+            )}
           </div>
         </div>
 

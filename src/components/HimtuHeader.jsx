@@ -21,7 +21,8 @@ export default function HimtuHeader({
   onOpenApply,
   onOpenPortalModal,
   onOpenCMSModal,
-  onOpenResults
+  onOpenResults,
+  onOpenSearch
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null); // 'about', 'admin', 'academics', 'exam', 'admissions', 'student', 'info', 'contact'
@@ -746,13 +747,13 @@ export default function HimtuHeader({
           {/* Right Search Button */}
           <button
             onClick={() => {
-              const el = document.getElementById('programs');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
+              if (onOpenSearch) onOpenSearch();
             }}
-            className="p-3 hover:bg-blue-900 text-white transition-colors"
-            title="Search Courses"
+            className="p-3 hover:bg-blue-900 text-white transition-colors flex items-center gap-1.5 group cursor-pointer"
+            title="Search Entire Website (Cmd+K)"
           >
-            <Search className="w-4 h-4" />
+            <Search className="w-4 h-4 group-hover:scale-110 transition-transform text-amber-300" />
+            <span className="hidden xl:inline text-[11px] font-sans font-semibold text-slate-200">Search</span>
           </button>
 
         </div>
@@ -760,7 +761,18 @@ export default function HimtuHeader({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden sticky top-0 z-50 bg-[#1e3a8a] text-white px-4 py-4 space-y-2 divide-y divide-blue-800 animate-in slide-in-from-top duration-200 shadow-xl">
+        <div className="lg:hidden sticky top-0 z-50 bg-[#1e3a8a] text-white px-4 py-4 space-y-3 divide-y divide-blue-800 animate-in slide-in-from-top duration-200 shadow-xl">
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              if (onOpenSearch) onOpenSearch();
+            }}
+            className="w-full flex items-center gap-2 p-2.5 rounded-lg bg-blue-950/80 border border-blue-800 text-slate-200 text-xs font-semibold"
+          >
+            <Search className="w-4 h-4 text-amber-300" />
+            <span>Search programs, faculty, hostels, fees...</span>
+          </button>
+          
           <div className="grid grid-cols-2 gap-2 text-xs font-bold pt-2">
             <button onClick={() => handleNavClick('home')} className="text-left p-2 rounded hover:bg-blue-900">🏠 Home</button>
             <button onClick={() => handleNavClick('about')} className="text-left p-2 rounded hover:bg-blue-900">About Us</button>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import ErrorBoundary from './components/ErrorBoundary';
 
@@ -31,6 +31,7 @@ import ApplyModal from './components/ApplyModal';
 import HimtuServicesModal from './components/HimtuServicesModal';
 import StudentPortalModal from './components/StudentPortalModal';
 import AdminCMSModal from './components/AdminCMSModal';
+import GlobalSearchModal from './components/GlobalSearchModal';
 
 // Dedicated Blueprint Pages
 import AboutPage from './pages/AboutPage';
@@ -53,6 +54,19 @@ export default function App() {
   const [isTourOpen, setIsTourOpen] = useState(false);
   const [isPortalModalOpen, setIsPortalModalOpen] = useState(false);
   const [isCMSOpen, setIsCMSOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  // Global Cmd+K / Ctrl+K search hotkey
+  useEffect(() => {
+    const handleGlobalKey = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsSearchOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKey);
+    return () => window.removeEventListener('keydown', handleGlobalKey);
+  }, []);
 
   const [applyModal, setApplyModal] = useState({
     isOpen: false,
@@ -137,6 +151,7 @@ export default function App() {
             onOpenPortalModal={() => setIsPortalModalOpen(true)}
             onOpenCMSModal={() => setIsCMSOpen(true)}
             onOpenResults={() => handleOpenServiceModal('results')}
+            onOpenSearch={() => setIsSearchOpen(true)}
           />
 
           {/* 2. Official HPTU "What's New ▶" Ticker Marquee */}
@@ -351,6 +366,16 @@ export default function App() {
           <AdminCMSModal
             isOpen={isCMSOpen}
             onClose={() => setIsCMSOpen(false)}
+          />
+
+          {/* Interactive Global Search Modal (triggered by Header search button or Cmd+K) */}
+          <GlobalSearchModal
+            isOpen={isSearchOpen}
+            onClose={() => setIsSearchOpen(false)}
+            onNavigate={handleNavigate}
+            onOpenApply={handleOpenApply}
+            onOpenResults={() => handleOpenServiceModal('results')}
+            onOpenPortal={() => setIsPortalModalOpen(true)}
           />
 
         </div>
