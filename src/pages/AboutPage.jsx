@@ -92,9 +92,11 @@ export default function AboutPage({ onOpenApply, onOpenTour }) {
               </p>
             </div>
             <div className="pt-4 border-t border-slate-100 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#1b327b] text-white font-bold flex items-center justify-center text-sm shadow">
-                RG
-              </div>
+              <img 
+                src="/dignitaries/dr_rajneesh_gautam.png" 
+                alt="Dr. Rajneesh Gautam"
+                className="w-12 h-12 rounded-full object-cover object-top border-2 border-[#1b327b]/30 shadow"
+              />
               <div>
                 <div className="font-bold text-slate-900 text-sm">Dr. Rajneesh Gautam</div>
                 <div className="text-xs text-[#ea580c] font-bold">Principal cum Secretary, Gautam Group of Colleges</div>

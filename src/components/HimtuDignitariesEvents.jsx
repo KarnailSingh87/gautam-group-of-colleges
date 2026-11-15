@@ -210,7 +210,7 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults, onO
             <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs text-center flex flex-col items-center justify-center flex-1 hover:shadow-md transition">
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#ea580c]/30 shadow-sm p-0.5 bg-slate-50 mb-2">
                 <img 
-                  src="/dignitaries/dr_rajneesh_gautam_sq.jpg" 
+                  src="/dignitaries/dr_rajneesh_gautam.png" 
                   alt="Dr. Rajneesh Gautam, Principal cum Secretary, Gautam Group of Colleges"
                   className="w-full h-full object-cover object-top rounded-full"
                 />

@@ -55,9 +55,11 @@ export default function FacultyPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white rounded-2xl p-6 border-2 border-[#ea580c]/30 shadow-sm flex flex-col justify-between hover:shadow-md transition">
             <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-orange-100 text-[#ea580c] flex items-center justify-center font-black text-xl shrink-0">
-                RG
-              </div>
+              <img 
+                src="/dignitaries/dr_rajneesh_gautam.png" 
+                alt="Dr. Rajneesh Gautam"
+                className="w-14 h-14 rounded-2xl object-cover object-top border-2 border-[#ea580c]/30 shadow-xs shrink-0" 
+              />
               <div className="space-y-1">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#ea580c] bg-orange-50 px-2 py-0.5 rounded">
                   Head of Institution

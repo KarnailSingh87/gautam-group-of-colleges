@@ -47,10 +47,17 @@ export default function LeadershipDesk({ onOpenApply }) {
               </blockquote>
 
               <div className="mt-6 pt-6 border-t border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <div className="font-bold text-base text-white">Dr. Rajneesh Gautam</div>
-                  <div className="text-xs text-amber-400 font-bold">Principal cum Secretary • Gautam Group of Colleges</div>
-                  <div className="text-[11px] text-slate-300 mt-0.5">Ph.D., M.Sc. • Leading Academic Administration & Society Governance</div>
+                <div className="flex items-center gap-3.5">
+                  <img
+                    src="/dignitaries/dr_rajneesh_gautam.png"
+                    alt="Dr. Rajneesh Gautam"
+                    className="w-14 h-14 rounded-full object-cover object-top border-2 border-amber-400 shadow-md shrink-0"
+                  />
+                  <div>
+                    <div className="font-bold text-base text-white">Dr. Rajneesh Gautam</div>
+                    <div className="text-xs text-amber-400 font-bold">Principal cum Secretary • Gautam Group of Colleges</div>
+                    <div className="text-[11px] text-slate-300 mt-0.5">Ph.D., M.Sc. • Leading Academic Administration & Society Governance</div>
+                  </div>
                 </div>
 
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs">
