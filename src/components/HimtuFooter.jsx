@@ -11,6 +11,7 @@ import {
   Globe
 } from 'lucide-react';
 import { FacebookIcon, YoutubeIcon, XIcon, InstagramIcon } from './SocialIcons';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function HimtuFooter({ onNavigate, onOpenCMSModal, onOpenPortalModal }) {
   const usefulLinks = [
@@ -46,7 +47,7 @@ export default function HimtuFooter({ onNavigate, onOpenCMSModal, onOpenPortalMo
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3.5">
               <img 
-                src="/gautam_group_colleges_logo.png" 
+                src={getCdnUrl('/gautam_group_colleges_logo.png')} 
                 alt="GGC Crest" 
                 className="w-16 h-16 object-contain bg-white rounded-full p-1 border-2 border-amber-400 shrink-0 shadow-md"
               />

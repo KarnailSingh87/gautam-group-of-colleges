@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight, Calendar, ArrowRight, ExternalLink } from 'lucide-react';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults, onOpenNotificationsModal }) {
   const [activeTab, setActiveTab] = useState('events'); // 'events', 'official'
@@ -80,7 +81,7 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults, onO
             <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs text-center flex flex-col items-center justify-center flex-1 hover:shadow-md transition">
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#1e3a8a]/20 shadow-sm p-0.5 bg-slate-50 mb-2">
                 <img 
-                  src="/dignitaries/cm_sukhvinder_singh_sq.jpg" 
+                  src={getCdnUrl('/dignitaries/cm_sukhvinder_singh_sq.jpg')} 
                   alt="Sh. Sukhvinder Singh, Hon'ble Chief Minister, Himachal Pradesh"
                   className="w-full h-full object-cover object-top rounded-full"
                 />
@@ -94,7 +95,7 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults, onO
             <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs text-center flex flex-col items-center justify-center flex-1 hover:shadow-md transition">
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#1e3a8a]/20 shadow-sm p-0.5 bg-slate-50 mb-2">
                 <img 
-                  src="/dignitaries/rajesh_dharmani_official.jpg" 
+                  src={getCdnUrl('/dignitaries/rajesh_dharmani_official.jpg')} 
                   alt="Sh. Rajesh Dharmani, Hon'ble Technical Education Minister, Himachal Pradesh"
                   className="w-full h-full object-cover object-top rounded-full"
                 />
@@ -196,7 +197,7 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults, onO
             <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs text-center flex flex-col items-center justify-center flex-1 hover:shadow-md transition">
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#1e3a8a]/20 shadow-sm p-0.5 bg-slate-50 mb-2">
                 <img 
-                  src="/dignitaries/gov_shiv_pratap_shukla_sq.jpg" 
+                  src={getCdnUrl('/dignitaries/gov_shiv_pratap_shukla_sq.jpg')} 
                   alt="Sh. Shiv Pratap Shukla, Hon'ble Governor, Himachal Pradesh"
                   className="w-full h-full object-cover object-top rounded-full"
                 />
@@ -210,7 +211,7 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults, onO
             <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs text-center flex flex-col items-center justify-center flex-1 hover:shadow-md transition">
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#ea580c]/30 shadow-sm p-0.5 bg-slate-50 mb-2">
                 <img 
-                  src="/dignitaries/dr_rajneesh_gautam.png" 
+                  src={getCdnUrl('/dignitaries/dr_rajneesh_gautam.png')} 
                   alt="Dr. Rajneesh Gautam, Principal cum Secretary, Gautam Group of Colleges"
                   className="w-full h-full object-cover object-top rounded-full"
                 />

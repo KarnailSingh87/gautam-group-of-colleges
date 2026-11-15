@@ -6,6 +6,7 @@ import {
   Calendar, 
   CheckCircle 
 } from 'lucide-react';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function HimtuHeroSection({ 
   onOpenApply, 
@@ -19,13 +20,13 @@ export default function HimtuHeroSection({
   const slides = [
     {
       id: 1,
-      image: '/ggc-campus.jpg',
+      image: getCdnUrl('/ggc-campus.jpg'),
       title: 'Actual Campus View — Gautam College of Nursing & Healthcare',
       subtitle: 'Near Bus Stand, Ward No. 10, Hamirpur (H.P.) • Est. 1999'
     },
     {
       id: 2,
-      image: '/himachaltonite-event.webp',
+      image: getCdnUrl('/himachaltonite-event.webp'),
       title: 'State Dignitary & Academic Assembly at Hamirpur',
       subtitle: 'Inaugural Session & Convocation at Gautam Group of Colleges, Hamirpur (H.P.)'
     }

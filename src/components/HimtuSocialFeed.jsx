@@ -9,6 +9,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { FacebookIcon, YoutubeIcon, XIcon, InstagramIcon } from './SocialIcons';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function HimtuSocialFeed() {
   return (
@@ -49,7 +50,7 @@ export default function HimtuSocialFeed() {
             <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
               <div className="flex items-center gap-2.5">
                 <img 
-                  src="/gautam_group_colleges_logo.png" 
+                  src={getCdnUrl('/gautam_group_colleges_logo.png')} 
                   alt="GGC Logo" 
                   className="w-9 h-9 rounded-full object-contain border border-slate-200 p-0.5 bg-slate-50"
                 />
@@ -65,7 +66,7 @@ export default function HimtuSocialFeed() {
               {/* Newspaper Clipping Image */}
               <div className="rounded-lg overflow-hidden border border-slate-200 aspect-[4/3] bg-slate-100">
                 <img 
-                  src="/himachaltonite-event.webp" 
+                  src={getCdnUrl('/himachaltonite-event.webp')} 
                   alt="Newspaper coverage" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300"
                 />
@@ -110,7 +111,7 @@ export default function HimtuSocialFeed() {
             <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
               <div className="flex items-center gap-2.5">
                 <img 
-                  src="/gautam_group_colleges_logo.png" 
+                  src={getCdnUrl('/gautam_group_colleges_logo.png')} 
                   alt="GGC Logo" 
                   className="w-9 h-9 rounded-full object-contain border border-slate-200 p-0.5 bg-slate-50"
                 />
@@ -184,7 +185,7 @@ export default function HimtuSocialFeed() {
             <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
               <div className="flex items-center gap-2.5">
                 <img 
-                  src="/gautam_group_colleges_logo.png" 
+                  src={getCdnUrl('/gautam_group_colleges_logo.png')} 
                   alt="GGC Logo" 
                   className="w-9 h-9 rounded-full object-contain border border-slate-200 p-0.5 bg-slate-50"
                 />
@@ -241,7 +242,7 @@ export default function HimtuSocialFeed() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <img 
-                    src="/gautam_group_colleges_logo.png" 
+                    src={getCdnUrl('/gautam_group_colleges_logo.png')} 
                     alt="GGC Logo" 
                     className="w-8 h-8 rounded-full object-contain border border-pink-500 p-0.5"
                   />

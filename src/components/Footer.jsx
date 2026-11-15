@@ -9,6 +9,7 @@ import {
   Award,
   Database
 } from 'lucide-react';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function Footer({ onNavigate, onOpenApply, onOpenPortalModal }) {
   return (
@@ -23,7 +24,7 @@ export default function Footer({ onNavigate, onOpenApply, onOpenPortalModal }) {
             <div className="flex items-center gap-3">
               <div className="w-13 h-13 rounded-2xl bg-white text-white flex items-center justify-center font-bold shadow-md overflow-hidden p-1">
                 <img
-                  src="/gautam_group_colleges_logo.png"
+                  src={getCdnUrl('/gautam_group_colleges_logo.png')}
                   alt="Gautam Group Logo"
                   className="w-full h-full object-contain"
                 />

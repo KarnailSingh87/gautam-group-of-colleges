@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, GraduationCap, BookOpen, Clock, Building2, ExternalLink } from 'lucide-react';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function HimtuStatsLogos() {
   const [logoIndex, setLogoIndex] = useState(0);
@@ -181,7 +182,7 @@ export default function HimtuStatsLogos() {
                 <div className="flex items-center justify-between gap-2">
                   <div className="h-12 w-28 flex items-center bg-slate-50/50 p-1 rounded-lg border border-slate-100">
                     <img 
-                      src={item.logo} 
+                      src={getCdnUrl(item.logo)} 
                       alt={item.abbr} 
                       className="max-h-10 max-w-full object-contain group-hover:scale-105 transition-transform" 
                       loading="lazy"

@@ -1,3 +1,5 @@
+import { getCdnUrl } from '../utils/cloudinary';
+
 export const INSTITUTION_INFO = {
   name: 'Gautam Group of Colleges (GGC), Hamirpur, Himachal Pradesh',
   shortName: 'GGC Hamirpur',
@@ -31,8 +33,8 @@ export const INSTITUTION_INFO = {
   },
   totalSeats: '1,165 Total Approved Seats across Group',
   locationGeo: 'Ward No. 10, Near Bus Stand, Chakmoh, Galore, Hamirpur (H.P.)',
-  logo: '/gautam_group_colleges_logo.png',
-  campusImage: '/ggc-campus.jpg',
+  logo: getCdnUrl('/gautam_group_colleges_logo.png'),
+  campusImage: getCdnUrl('/ggc-campus.jpg'),
   stats: [
     { label: 'Students Graduated', value: '10,000+' },
     { label: 'Academic Programs', value: '25+' },

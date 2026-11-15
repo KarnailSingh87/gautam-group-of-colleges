@@ -18,6 +18,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import { NIT_GALLERY_PHOTOS } from '../components/NitGallerySection';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export const EXTENDED_GALLERY = [
   ...NIT_GALLERY_PHOTOS,
@@ -26,8 +27,8 @@ export const EXTENDED_GALLERY = [
     title: 'Actual Campus View of Gautam College of Nursing & Healthcare',
     category: 'Campus & Infrastructure',
     date: '2025',
-    thumbnail: '/ggc-campus.jpg',
-    fullImage: '/ggc-campus.jpg',
+    thumbnail: getCdnUrl('/ggc-campus.jpg'),
+    fullImage: getCdnUrl('/ggc-campus.jpg'),
     caption: 'Front multi-storey campus view at Ward No. 10 near Hamirpur Bus Stand, Himachal Pradesh.'
   },
   {
@@ -35,8 +36,8 @@ export const EXTENDED_GALLERY = [
     title: 'State Dignitary & Academic Assembly at Hamirpur Convocation',
     category: 'Convocation',
     date: '2025',
-    thumbnail: '/himachaltonite-event.webp',
-    fullImage: '/himachaltonite-event.webp',
+    thumbnail: getCdnUrl('/himachaltonite-event.webp'),
+    fullImage: getCdnUrl('/himachaltonite-event.webp'),
     caption: 'Official convocation and inaugural address at Gautam Group of Colleges with governing body members.'
   },
   {

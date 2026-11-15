@@ -1,9 +1,11 @@
+import { getCdnUrl } from '../utils/cloudinary';
+
 export const REAL_ASSETS = {
-  campusView: '/ggc-campus.jpg',
-  collegeLogo: '/gautam_group_colleges_logo.png',
-  collegeLogoRemote: '/gautam_group_colleges_logo.png',
-  nursingLogo: '/gautam_group_colleges_logo.png',
-  pharmaLogo: '/gautam_group_colleges_logo.png'
+  campusView: getCdnUrl('/ggc-campus.jpg'),
+  collegeLogo: getCdnUrl('/gautam_group_colleges_logo.png'),
+  collegeLogoRemote: getCdnUrl('/gautam_group_colleges_logo.png'),
+  nursingLogo: getCdnUrl('/gautam_group_colleges_logo.png'),
+  pharmaLogo: getCdnUrl('/gautam_group_colleges_logo.png')
 };
 
 export const PRESETS = {
@@ -16,7 +18,7 @@ export const PRESETS = {
     location: 'Near Bus Stand, Hamirpur, Himachal Pradesh 177001',
     badgeText: 'Affiliated to HPTU, HPU & AMRU • Approved by AICTE, PCI, INC & HPNRC',
     heroTag: 'Pharmacy • Nursing • Management • Sciences • Technology',
-    logo: '/gautam_group_colleges_logo.png',
+    logo: getCdnUrl('/gautam_group_colleges_logo.png'),
     campusImg: 'https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg',
     accentColor: 'indigo',
     primaryTheme: {

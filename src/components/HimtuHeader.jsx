@@ -21,6 +21,7 @@ import { useLanguage } from '../context/LanguageContext';
 import SitemapModal from './SitemapModal';
 import TelephoneDirectoryModal from './TelephoneDirectoryModal';
 import WebMailModal from './WebMailModal';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function HimtuHeader({ 
   currentPage = 'home',
@@ -235,7 +236,7 @@ export default function HimtuHeader({
               {/* College Official Crest */}
               <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 shrink-0 bg-white p-0.5 sm:p-1 rounded-full border-2 border-amber-500 shadow-sm overflow-hidden flex items-center justify-center">
                 <img 
-                  src="/gautam_group_colleges_logo.png" 
+                  src={getCdnUrl('/gautam_group_colleges_logo.png')} 
                   alt="Gautam College Logo" 
                   className="w-full h-full object-contain"
                 />

@@ -13,6 +13,7 @@ import {
   BookOpen,
   MapPin
 } from 'lucide-react';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function ApplyModal({ isOpen, onClose, mode, contextData }) {
   const [formData, setFormData] = useState({
@@ -62,7 +63,7 @@ export default function ApplyModal({ isOpen, onClose, mode, contextData }) {
 
           <div className="flex items-center gap-2.5 mb-2">
             <div className="w-9 h-9 rounded-xl bg-white p-0.5 shadow-sm flex items-center justify-center">
-              <img src="/gautam_group_colleges_logo.png" alt="GGC Logo" className="w-full h-full object-contain" />
+              <img src={getCdnUrl('/gautam_group_colleges_logo.png')} alt="GGC Logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="text-amber-300 text-[11px] font-bold uppercase tracking-wider">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, Compass, Heart, ShieldCheck, Target, Users, BookOpen, Download, Building, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { INSTITUTION_INFO } from '../data/blueprintData';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function AboutPage({ onOpenApply, onOpenTour }) {
   return (
@@ -93,7 +94,7 @@ export default function AboutPage({ onOpenApply, onOpenTour }) {
             </div>
             <div className="pt-4 border-t border-slate-100 flex items-center gap-4">
               <img 
-                src="/dignitaries/dr_rajneesh_gautam.png" 
+                src={getCdnUrl('/dignitaries/dr_rajneesh_gautam.png')} 
                 alt="Dr. Rajneesh Gautam"
                 className="w-12 h-12 rounded-full object-cover object-top border-2 border-[#1b327b]/30 shadow"
               />

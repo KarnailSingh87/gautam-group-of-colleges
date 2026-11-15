@@ -10,6 +10,7 @@ import {
   BookOpen,
   Activity
 } from 'lucide-react';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function HimtuSchoolsGrid({ onNavigate, onOpenApply }) {
   const schools = [
@@ -143,7 +144,7 @@ export default function HimtuSchoolsGrid({ onNavigate, onOpenApply }) {
                 {/* 1. Visible High-Quality Image with Badge & Icon */}
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                   <img
-                    src={school.image}
+                    src={getCdnUrl(school.image)}
                     alt={school.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Quote, Award, ShieldCheck, CheckCircle2, ArrowRight, Building, BookOpen, GraduationCap } from 'lucide-react';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function LeadershipDesk({ onOpenApply }) {
   return (
@@ -49,7 +50,7 @@ export default function LeadershipDesk({ onOpenApply }) {
               <div className="mt-6 pt-6 border-t border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3.5">
                   <img
-                    src="/dignitaries/dr_rajneesh_gautam.png"
+                    src={getCdnUrl('/dignitaries/dr_rajneesh_gautam.png')}
                     alt="Dr. Rajneesh Gautam"
                     className="w-14 h-14 rounded-full object-cover object-top border-2 border-amber-400 shadow-md shrink-0"
                   />
@@ -70,7 +71,7 @@ export default function LeadershipDesk({ onOpenApply }) {
             {/* Event Media Strip */}
             <div className="rounded-2xl overflow-hidden border border-slate-700 relative shadow-lg group">
               <img
-                src="/himachaltonite-event.webp"
+                src={getCdnUrl('/himachaltonite-event.webp')}
                 alt="State Dignitary Convocation Assembly at Gautam College Hamirpur"
                 className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500"
               />

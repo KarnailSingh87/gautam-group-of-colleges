@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Search, ChevronRight, Newspaper, BookOpen, Sparkles, Image as ImageIcon } from 'lucide-react';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function HimtuMediaPrograms({ onOpenApply, onNavigate }) {
   const [searchProgram, setSearchProgram] = useState('');
@@ -63,7 +64,7 @@ export default function HimtuMediaPrograms({ onOpenApply, onNavigate }) {
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-slate-200">
                 <img 
-                  src="/ggc-media/life-at-ggc.webp" 
+                  src={getCdnUrl('/ggc-media/life-at-ggc.webp')} 
                   alt="Life @ GGC" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -80,7 +81,7 @@ export default function HimtuMediaPrograms({ onOpenApply, onNavigate }) {
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-slate-200">
                 <img 
-                  src="/ggc-media/annual-report.webp" 
+                  src={getCdnUrl('/ggc-media/annual-report.webp')} 
                   alt="Newsletter & Annual Report" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -97,7 +98,7 @@ export default function HimtuMediaPrograms({ onOpenApply, onNavigate }) {
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-slate-200">
                 <img 
-                  src="/himachaltonite-event.webp" 
+                  src={getCdnUrl('/himachaltonite-event.webp')} 
                   alt="Latest News" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

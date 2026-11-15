@@ -20,6 +20,7 @@ import {
   FileCheck
 } from 'lucide-react';
 import { QUESTION_PAPERS, AFFILIATED_COLLEGES } from '../data/mockData';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function HimtuServicesModal({ isOpen, onClose, modalType, initialData }) {
   const [otrView, setOtrView] = useState('menu'); // 'menu', 'register', 'login', 'slip'
@@ -101,7 +102,7 @@ export default function HimtuServicesModal({ isOpen, onClose, modalType, initial
         <div className="bg-slate-950 text-white p-5 sm:p-6 flex items-center justify-between border-b border-slate-800">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-white p-0.5 flex items-center justify-center shadow">
-              <img src="/gautam_group_colleges_logo.png" alt="GGC Logo" className="w-full h-full object-contain" />
+              <img src={getCdnUrl('/gautam_group_colleges_logo.png')} alt="GGC Logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="text-xs text-amber-300 font-bold uppercase tracking-wider">

@@ -12,8 +12,9 @@ import {
   ExternalLink,
   Award
 } from 'lucide-react';
+import { getCdnUrl } from '../utils/cloudinary';
 
-export const NIT_GALLERY_PHOTOS = [
+const RAW_GALLERY_PHOTOS = [
   {
     id: 1,
     title: 'e-FDP on Integrated Circuit Design & AI/ML Insights',
@@ -177,6 +178,12 @@ export const NIT_GALLERY_PHOTOS = [
     caption: 'Acknowledging outstanding dedication to collegiate education, research, and healthcare.'
   }
 ];
+
+export const NIT_GALLERY_PHOTOS = RAW_GALLERY_PHOTOS.map(p => ({
+  ...p,
+  thumbnail: getCdnUrl(p.thumbnail),
+  fullImage: getCdnUrl(p.fullImage)
+}));
 
 export default function NitGallerySection({ onNavigate, onOpenApply }) {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);

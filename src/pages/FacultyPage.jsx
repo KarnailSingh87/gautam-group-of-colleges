@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, Search, Filter, GraduationCap, Award, BookOpen, ShieldCheck, UserCheck } from 'lucide-react';
 import { FACULTY_MEMBERS, INSTITUTION_INFO } from '../data/blueprintData';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function FacultyPage() {
   const [selectedDept, setSelectedDept] = useState('All');
@@ -56,7 +57,7 @@ export default function FacultyPage() {
           <div className="bg-white rounded-2xl p-6 border-2 border-[#ea580c]/30 shadow-sm flex flex-col justify-between hover:shadow-md transition">
             <div className="flex items-start gap-4">
               <img 
-                src="/dignitaries/dr_rajneesh_gautam.png" 
+                src={getCdnUrl('/dignitaries/dr_rajneesh_gautam.png')} 
                 alt="Dr. Rajneesh Gautam"
                 className="w-14 h-14 rounded-2xl object-cover object-top border-2 border-[#ea580c]/30 shadow-xs shrink-0" 
               />
