@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { 
-  X, 
-  GraduationCap, 
-  Sparkles, 
-  CheckCircle2, 
-  ArrowRight, 
-  ShieldCheck, 
+import {
+  X,
+  GraduationCap,
+  Sparkles,
+  CheckCircle2,
+  ArrowRight,
+  ShieldCheck,
   Lock,
   Mail,
   User,
@@ -50,7 +50,7 @@ export default function ApplyModal({ isOpen, onClose, mode, contextData }) {
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200">
       <div className="relative w-full max-w-lg bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
-        
+
         {/* Modal Header */}
         <div className="bg-slate-950 text-white p-6 relative border-b border-slate-800">
           <button
@@ -82,7 +82,7 @@ export default function ApplyModal({ isOpen, onClose, mode, contextData }) {
         <div className="p-6">
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-4">
-              
+
               {/* Step indicator */}
               <div className="flex items-center justify-between text-xs text-slate-500 border-b border-slate-100 pb-3">
                 <span className="font-bold text-slate-800">Candidate Details</span>

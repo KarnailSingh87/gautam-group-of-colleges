@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { 
-  Search, 
-  Menu, 
-  X, 
-  ChevronDown, 
-  Sparkles, 
-  Compass, 
-  Phone, 
+import {
+  Search,
+  Menu,
+  X,
+  ChevronDown,
+  Sparkles,
+  Compass,
+  Phone,
   Database,
   Building,
   GraduationCap,
@@ -27,14 +27,14 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function Navbar({ 
+export default function Navbar({
   currentPage = 'home',
   onNavigate,
-  onOpenApply, 
+  onOpenApply,
   onOpenTour,
   onOpenPortalModal,
   onOpenCMSModal,
-  onScrollToPrograms 
+  onScrollToPrograms
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null); // 'about', 'academics', 'admissions', 'campus', 'more'
@@ -98,8 +98,8 @@ export default function Navbar({
             <span className="text-slate-700">|</span>
 
             {/* Student Portals Modal */}
-            <button 
-              onClick={onOpenPortalModal} 
+            <button
+              onClick={onOpenPortalModal}
               className="text-amber-300 hover:text-white transition-colors font-semibold flex items-center gap-1"
             >
               <Database className="w-3 h-3" />
@@ -112,11 +112,11 @@ export default function Navbar({
       {/* 2. Main Navigation Bar with Official Crest & Mega-Menu */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          
+
           {/* Brand Identity / Official Crest */}
           <div className="flex items-center gap-3">
-            <button 
-              onClick={() => handleNavClick('home')} 
+            <button
+              onClick={() => handleNavClick('home')}
               className="flex items-center gap-3 group text-left"
             >
               <div className="w-13 h-13 rounded-2xl bg-white text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform border border-slate-200 overflow-hidden p-1">
@@ -141,7 +141,7 @@ export default function Navbar({
 
           {/* Desktop Mega-Menu Navigation Links */}
           <nav className="hidden xl:flex items-center gap-1">
-            
+
             {/* Home */}
             <button
               onClick={() => handleNavClick('home')}
@@ -422,7 +422,7 @@ export default function Navbar({
 
           {/* Right Action Buttons */}
           <div className="hidden sm:flex items-center gap-2.5">
-            
+
             {/* 360 Tour */}
             <button
               onClick={onOpenTour}

@@ -46,9 +46,9 @@ export default function HeroSection({
       <div className="absolute inset-0 pattern-grid opacity-15 pointer-events-none"></div>
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Top Badges & Pre-header */}
         <div className="flex flex-wrap items-center gap-2.5 mb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-bold backdrop-blur-md">
@@ -72,10 +72,10 @@ export default function HeroSection({
 
         {/* Hero Grid: Content (Left) & Shoolini-Style Conversion Box / Campus View (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
+
           {/* Left Column: Bold Academic Credibility & Conversion CTAs (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
-            
+
             <div className="space-y-3">
               <span className="text-xs uppercase tracking-widest font-extrabold text-amber-400">
                 Pioneering Professional Education in Himachal Pradesh
@@ -142,7 +142,7 @@ export default function HeroSection({
 
           {/* Right Column: Shoolini/HPTU Interactive Admission Box & Real Campus Visual (5 Cols) */}
           <div className="lg:col-span-5 space-y-4">
-            
+
             {/* Shoolini-style Quick Admission Inquiry Card */}
             <div className="bg-slate-900/95 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-slate-700/80 shadow-2xl relative">
               <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
