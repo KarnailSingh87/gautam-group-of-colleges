@@ -51,10 +51,10 @@ export default function HimtuFooter({ onNavigate, onOpenCMSModal, onOpenPortalMo
                 className="w-16 h-16 object-contain bg-white rounded-full p-1 border-2 border-amber-400 shrink-0 shadow-md"
               />
               <div>
-                <span className="block text-amber-400 font-bold text-xs font-serif tracking-wide">
+                <span className="block text-amber-400 font-bold text-xs tracking-wide font-['Noto_Sans_Devanagari',sans-serif]">
                   गौतम ग्रुप ऑफ कॉलेजेस, हमीरपुर
                 </span>
-                <h3 className="text-base sm:text-lg font-black text-white leading-tight uppercase tracking-tight">
+                <h3 className="text-base sm:text-lg font-black text-white leading-tight uppercase tracking-tight font-['Roboto_Condensed',sans-serif]">
                   GAUTAM GROUP OF COLLEGES
                 </h3>
                 <span className="text-[11px] text-slate-300 font-medium block">
