@@ -3,6 +3,7 @@ import { PRESETS } from './data/mockData';
 import ClientBar from './components/ClientBar';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
+import ConstituentColleges from './components/ConstituentColleges';
 import DigitalServicesHub from './components/DigitalServicesHub';
 import ProgramFinder from './components/ProgramFinder';
 import StatsBento from './components/StatsBento';
@@ -17,7 +18,7 @@ import ApplyModal from './components/ApplyModal';
 import HimtuServicesModal from './components/HimtuServicesModal';
 
 export default function App() {
-  const [currentPresetKey, setCurrentPresetKey] = useState('himtu'); // Default to HIMTU reference!
+  const [currentPresetKey, setCurrentPresetKey] = useState('ggchmr'); // Default to Gautam Group of Colleges Hamirpur!
   const [isPitchOpen, setIsPitchOpen] = useState(false);
   const [isTourOpen, setIsTourOpen] = useState(false);
   const [applyModal, setApplyModal] = useState({
@@ -31,7 +32,7 @@ export default function App() {
     initialData: null
   });
 
-  const currentPreset = PRESETS[currentPresetKey] || PRESETS.himtu;
+  const currentPreset = PRESETS[currentPresetKey] || PRESETS.ggchmr;
 
   const handleOpenApply = (mode = 'apply', contextData = null) => {
     setApplyModal({
@@ -65,7 +66,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-indigo-600 selection:text-white">
       
       {/* 1. Client Presentation Mode Bar & Pitch Deck Drawer */}
       <ClientBar
@@ -88,7 +89,7 @@ export default function App() {
       {/* Main Page Body */}
       <main className="flex-1">
         
-        {/* 3. Hero Section (21st.dev / Dribbble Fusion) */}
+        {/* 3. Hero Section (21st.dev / Dribbble Fusion tailored to GGC Hamirpur) */}
         <HeroSection
           preset={currentPreset}
           onOpenTour={() => setIsTourOpen(true)}
@@ -96,43 +97,48 @@ export default function App() {
           onOpenApply={handleOpenApply}
         />
 
-        {/* 4. Unified Digital Services & E-Governance Hub (himtu.ac.in Reference) */}
+        {/* 4. The 6 Constituent Colleges of Gautam Group */}
+        <ConstituentColleges
+          onOpenApply={handleOpenApply}
+        />
+
+        {/* 5. Unified Digital Services & E-Governance Hub (HPTU, HPU & AMRU Affiliated) */}
         <DigitalServicesHub
           onOpenServiceModal={handleOpenServiceModal}
         />
 
-        {/* 5. Interactive Program & Major Finder */}
+        {/* 6. Interactive Program & Major Finder */}
         <ProgramFinder
           onOpenApply={handleOpenApply}
         />
 
-        {/* 6. Institutional Bento Grid (Why Choose Us) */}
+        {/* 7. Institutional Bento Grid (Why Choose GGC Hamirpur) */}
         <StatsBento
           preset={currentPreset}
           onOpenApply={handleOpenApply}
         />
 
-        {/* 7. Campus Experience & 360 Facilities Showcase */}
+        {/* 8. Campus Experience & Facilities Showcase (Labs, Hospital Simulations, Hostels) */}
         <CampusExperience
           onOpenTour={() => setIsTourOpen(true)}
         />
 
-        {/* 8. Interactive Tuition & Merit Scholarship Estimator */}
+        {/* 9. Interactive Fee Structure & HP State Scholarship Estimator */}
         <TuitionEstimator
           onOpenApply={handleOpenApply}
         />
 
-        {/* 9. Upcoming Events & Open Days Calendar */}
+        {/* 10. Upcoming Events & Academic Calendar */}
         <UpcomingEvents
           onOpenApply={handleOpenApply}
         />
 
-        {/* 10. Alumni Success & Career Placements */}
+        {/* 11. Alumni Success & Placements (Sun Pharma, Fortis, Wipro) */}
         <AlumniStories
           onOpenApply={handleOpenApply}
         />
 
-        {/* 11. High-Conversion Enrollment Call to Action */}
+        {/* 12. High-Conversion Enrollment Call to Action */}
         <ApplicationCTA
           preset={currentPreset}
           onOpenApply={handleOpenApply}
@@ -140,20 +146,20 @@ export default function App() {
 
       </main>
 
-      {/* 12. Comprehensive Collegiate Footer */}
+      {/* 13. Comprehensive Collegiate Footer */}
       <Footer
         preset={currentPreset}
         onOpenApply={handleOpenApply}
       />
 
-      {/* 13. Interactive Virtual Tour 360 Modal */}
+      {/* 14. Interactive Virtual Tour 360 Modal */}
       <VirtualTourModal
         isOpen={isTourOpen}
         onClose={() => setIsTourOpen(false)}
         onOpenApply={handleOpenApply}
       />
 
-      {/* 14. Interactive Multi-mode Admissions Modal */}
+      {/* 15. Interactive Multi-mode Admissions Modal */}
       <ApplyModal
         isOpen={applyModal.isOpen}
         onClose={handleCloseApply}
@@ -162,7 +168,7 @@ export default function App() {
         preset={currentPreset}
       />
 
-      {/* 15. HIMTU Digital Services Interactive Modal */}
+      {/* 16. GGC / HPTU Digital Services Interactive Modal */}
       <HimtuServicesModal
         isOpen={serviceModal.isOpen}
         onClose={handleCloseServiceModal}

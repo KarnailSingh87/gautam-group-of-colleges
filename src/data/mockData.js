@@ -1,430 +1,451 @@
 export const PRESETS = {
-  himtu: {
-    id: 'himtu',
-    name: 'Himachal Pradesh Technical University',
-    shortName: 'HPTU (himtu.ac.in)',
-    tagline: 'State Technical University of Himachal Pradesh • Established under HP Act No. 16 of 2011',
-    founded: '2011',
-    location: 'Gandhi Chowk, Hamirpur, Himachal Pradesh 177001',
-    badgeText: 'UGC Recognized State Technical University • NEP 2020 & CBCS Pioneer',
-    heroTag: 'Technical & Professional Higher Education',
+  ggchmr: {
+    id: 'ggchmr',
+    name: 'Gautam Group of Colleges, Hamirpur',
+    shortName: 'GGC Hamirpur',
+    tagline: '25 Years of Educational Preeminence in Himachal Pradesh (Est. 1999)',
+    founded: '1999',
+    location: 'Near Bus Stand, Hamirpur, Himachal Pradesh 177001',
+    badgeText: 'Affiliated to HPTU, HPU & AMRU • Approved by AICTE, PCI, INC & HPNRC',
+    heroTag: 'Pharmacy • Nursing • Management • Sciences • Technology',
     accentColor: 'indigo',
     primaryTheme: {
       bgGradient: 'from-slate-950 via-slate-900 to-indigo-950',
-      badgeBg: 'bg-indigo-500/10 text-indigo-300 border-indigo-400/30',
+      badgeBg: 'bg-amber-500/10 text-amber-300 border-amber-400/30',
       primaryBtn: 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-indigo-500/30',
       accentText: 'text-indigo-600',
       tagBg: 'bg-indigo-50 text-indigo-700 border-indigo-200'
     }
   },
-  aurelius: {
-    id: 'aurelius',
-    name: 'St. Aurelius University',
-    shortName: 'St. Aurelius (Global Ivy)',
-    tagline: 'Tradition of Excellence, Future of Discovery',
-    founded: '1888',
-    location: 'Boston, Massachusetts & Oxford Campus',
-    badgeText: 'Ranked #1 in Regional Innovation & Student Outcomes 2025',
-    heroTag: 'Prestige & Liberal Arts',
+  himtu: {
+    id: 'himtu',
+    name: 'Himachal Pradesh Technical University',
+    shortName: 'HPTU Affiliate',
+    tagline: 'Technical & Professional Higher Education in Himachal Pradesh',
+    founded: '2011',
+    location: 'Gandhi Chowk, Hamirpur, H.P. 177001',
+    badgeText: 'UGC Recognized State Technical University • NEP 2020 & CBCS Pioneer',
+    heroTag: 'State Technical University Affiliate',
     accentColor: 'blue',
     primaryTheme: {
-      bgGradient: 'from-blue-900 via-slate-900 to-indigo-950',
+      bgGradient: 'from-slate-950 via-slate-900 to-blue-950',
       badgeBg: 'bg-blue-500/10 text-blue-300 border-blue-400/30',
       primaryBtn: 'bg-blue-600 hover:bg-blue-500 text-white shadow-blue-500/30',
       accentText: 'text-blue-600',
       tagBg: 'bg-blue-50 text-blue-700 border-blue-200'
     }
-  },
-  vanguard: {
-    id: 'vanguard',
-    name: 'Vanguard Institute of Technology',
-    shortName: 'Vanguard (Modern STEM)',
-    tagline: 'Engineering the Next Era of AI & Sustainability',
-    founded: '1962',
-    location: 'Austin, Texas & Silicon Valley Center',
-    badgeText: 'Top 5 Global Tech & Quantum Computing Hub 2025',
-    heroTag: 'STEM & AI Leadership',
-    accentColor: 'emerald',
-    primaryTheme: {
-      bgGradient: 'from-emerald-950 via-slate-900 to-teal-950',
-      badgeBg: 'bg-emerald-500/10 text-emerald-300 border-emerald-400/30',
-      primaryBtn: 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/30',
-      accentText: 'text-emerald-600',
-      tagBg: 'bg-emerald-50 text-emerald-700 border-emerald-200'
-    }
-  },
-  oakhaven: {
-    id: 'oakhaven',
-    name: 'Oakhaven University of Arts & Design',
-    shortName: 'Oakhaven (Design & Arts)',
-    tagline: 'Cultivating Visionaries, Designers & Humanists',
-    founded: '1912',
-    location: 'San Francisco & London Creative Quarter',
-    badgeText: 'Ranked #1 for Creative Industry Employability',
-    heroTag: 'Creativity & Human Innovation',
-    accentColor: 'rose',
-    primaryTheme: {
-      bgGradient: 'from-rose-950 via-slate-900 to-purple-950',
-      badgeBg: 'bg-rose-500/10 text-rose-300 border-rose-400/30',
-      primaryBtn: 'bg-rose-600 hover:bg-rose-500 text-white shadow-rose-500/30',
-      accentText: 'text-rose-600',
-      tagBg: 'bg-rose-50 text-rose-700 border-rose-200'
-    }
   }
 };
 
-export const HIMTU_DIGITAL_SERVICES = [
+export const CONSTITUENT_COLLEGES = [
   {
-    id: 'otr',
-    title: 'One-Time Registration (OTR)',
-    subtitle: 'Unified Student ID Portal',
-    desc: 'Mandatory single sign-on profile for admission counseling, examination enrollment, and scholarship applications.',
-    icon: 'UserCheck',
-    color: 'from-blue-600 to-indigo-700',
-    actionText: 'OTR Student Login',
-    modalType: 'otr'
+    id: 'pharmacy',
+    name: 'Gautam College of Pharmacy',
+    approvals: 'Approved by PCI, New Delhi & Affiliated to HPTU, Hamirpur',
+    degrees: 'B.Pharmacy (4 Yrs) • D.Pharmacy (2 Yrs)',
+    highlights: 'Advanced Pharmacology & Machine Room Labs, Animal House, 100% Placement in Sun Pharma, Cipla & Macleods',
+    image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80',
+    color: 'from-emerald-600 to-teal-800'
   },
   {
-    id: 'results',
-    title: 'Examination & Result Portal',
-    subtitle: 'Semester & Re-Evaluation Marks',
-    desc: 'Instant access to End-Semester examination marks cards, date sheets, scrutiny forms, and re-checking status.',
-    icon: 'GraduationCap',
-    color: 'from-emerald-600 to-teal-700',
-    actionText: 'Check Results',
-    modalType: 'results'
+    id: 'nursing',
+    name: 'Gautam College of Nursing',
+    approvals: 'Approved by INC & HPNRC • Affiliated to AMRU, Nerchowk',
+    degrees: 'B.Sc. Nursing (4 Yrs) • Post Basic B.Sc. (2 Yrs) • GNM (3 Yrs)',
+    highlights: 'Tie-ups with Top Super-Specialty Hospitals (Fortis, Max, IGMC Shimla) for Clinical Training & Internships',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+    color: 'from-blue-600 to-cyan-800'
   },
   {
-    id: 'counseling',
-    title: 'HPCET & Admission Counseling',
-    subtitle: 'State Common Entrance Test',
-    desc: 'Online registration, centralized seat allotment rounds, counseling schedules, cut-offs, and fee submission.',
-    icon: 'Ticket',
-    color: 'from-purple-600 to-indigo-700',
-    actionText: 'Counseling Portal',
-    modalType: 'counseling'
+    id: 'management',
+    name: 'Gautam Institute of Management & Technology (GIMT)',
+    approvals: 'Approved by AICTE, New Delhi & Affiliated to HPTU / HPU',
+    degrees: 'M.B.A. (Dual Specialization) • BBA • BCA • PGDCA',
+    highlights: 'Industry ERP Training, High-Speed Computing Center, Live Case Studies, Placements in Wipro, Infosys, HDFC',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
+    color: 'from-purple-600 to-indigo-800'
   },
   {
-    id: 'pyq',
-    title: 'Question Papers & Syllabi Archive',
-    subtitle: 'NEP 2020 Scheme Repositories',
-    desc: 'Free downloadable previous year question papers (PYQs), model question papers, and updated course curricula.',
-    icon: 'FileText',
-    color: 'from-amber-600 to-orange-700',
-    actionText: 'Browse Question Bank',
-    modalType: 'pyq'
+    id: 'sciences',
+    name: 'Gautam Degree College (Sciences & Humanities)',
+    approvals: 'Affiliated to Himachal Pradesh University (HPU), Shimla',
+    degrees: 'M.Sc (Physics, Chemistry, Botany, Zoology, Biotech) • B.Sc • B.Com • B.A.',
+    highlights: 'Premier Post-Graduate Science Laboratories in Hamirpur, CSIR-NET & SLET Preparation Guidance',
+    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80',
+    color: 'from-amber-600 to-orange-800'
   },
   {
-    id: 'status',
-    title: 'Application Status Tracker',
-    subtitle: 'Live Tracking System',
-    desc: 'Real-time tracking of degree verification, transcript dispatch, migration certificates, and counseling status.',
-    icon: 'SearchCheck',
-    color: 'from-cyan-600 to-blue-700',
-    actionText: 'Track Status',
-    modalType: 'status'
+    id: 'hotel',
+    name: 'Gautam College of Hotel Management',
+    approvals: 'Affiliated to HPU, Shimla',
+    degrees: 'Bachelor of Hotel Management (BHM - 4 Yrs)',
+    highlights: 'Commercial Kitchen, Mock Bar & Bakery Labs, Front-Office Suite, Internships in Taj, Oberoi & Marriott',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+    color: 'from-rose-600 to-red-800'
   },
   {
-    id: 'colleges',
-    title: 'Affiliated Colleges Directory',
-    subtitle: 'Govt & Private Institutes',
-    desc: 'Detailed directory of 42+ constituent and affiliated Engineering, Pharmacy, Management, and Polytechnic colleges.',
-    icon: 'Building2',
-    color: 'from-rose-600 to-red-700',
-    actionText: 'Explore Colleges',
-    modalType: 'colleges'
+    id: 'polytechnic',
+    name: 'Gautam Polytechnic & Vocational Institute',
+    approvals: 'Approved by AICTE & HP Takniki Shiksha Board, Dharamshala',
+    degrees: 'Polytechnic Diploma in Civil, Mechanical, Computer & Electrical',
+    highlights: 'Hands-on Mechanical Workshops, CAD/CAM Labs, Direct Lateral Entry to B.Tech 2nd Year',
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    color: 'from-slate-700 to-slate-900'
   }
 ];
 
-export const HIMTU_PRESS_NOTICES = [
+export const GGC_DIGITAL_SERVICES = [
+  {
+    id: 'online-admission',
+    title: 'Direct Admission & Registration 2025-26',
+    subtitle: 'Pharmacy • Nursing • MBA • B.Sc',
+    desc: 'Apply online for verified direct management quota seats or submit HPCET/AMRU counseling seat allotment.',
+    icon: 'UserCheck',
+    color: 'from-indigo-600 to-blue-700',
+    actionText: 'Apply Online 2025',
+    modalType: 'apply'
+  },
+  {
+    id: 'fee-portal',
+    title: 'Student Fee & Bus Pass Portal',
+    subtitle: 'Zero Cash Campus Workflow',
+    desc: 'Instant online semester fee payment, official receipt generation, and Hamirpur district student bus-pass renewal.',
+    icon: 'Ticket',
+    color: 'from-emerald-600 to-teal-700',
+    actionText: 'Pay Fee Online',
+    modalType: 'fee-pay'
+  },
+  {
+    id: 'hptu-exam',
+    title: 'HPTU & HPU Examination Cell',
+    subtitle: 'Date Sheet & Result Notices',
+    desc: 'Access semester examination datesheets, admit cards, internal assessment marks, and HPTU/HPU result notices.',
+    icon: 'GraduationCap',
+    color: 'from-purple-600 to-indigo-700',
+    actionText: 'Exam & Result Portal',
+    modalType: 'results'
+  },
+  {
+    id: 'scholarship-cell',
+    title: 'HP State Post-Matric Scholarship Cell',
+    subtitle: 'SC / ST / OBC / IRDP / Medhavi',
+    desc: 'Complete guidance and verification for National Scholarship Portal (NSP) and HP e-Kalyan state schemes.',
+    icon: 'SearchCheck',
+    color: 'from-amber-600 to-orange-700',
+    actionText: 'Scholarship Schemes',
+    modalType: 'scholarship'
+  },
+  {
+    id: 'placement-drive',
+    title: 'Training & Campus Placement Cell',
+    subtitle: 'Sun Pharma, Cipla, Fortis & MNCs',
+    desc: 'Dedicated career development cell arranging on-campus recruitment drives, hospital internships, and interview grooming.',
+    icon: 'Building2',
+    color: 'from-rose-600 to-red-700',
+    actionText: 'Placement Records',
+    modalType: 'placements'
+  },
+  {
+    id: 'pyq-syllabus',
+    title: 'Syllabus & Past Question Papers',
+    subtitle: 'HPTU / HPU / AMRU Scheme Repositories',
+    desc: 'Download semester curricula, practical manuals, and solved previous years question papers (PYQs).',
+    icon: 'FileText',
+    color: 'from-cyan-600 to-blue-700',
+    actionText: 'Download PYQs',
+    modalType: 'pyq'
+  }
+];
+
+export const GGC_PRESS_NOTICES = [
   {
     id: 1,
     date: '15 Nov 2026',
-    tag: 'Urgent Circular',
-    title: 'Notification regarding Special End-Semester Theory/Practical Examination Date Sheet (December 2026 Session).',
+    tag: 'Admissions 2025-26',
+    title: 'Direct Walk-in Counseling & Registration open for B.Pharmacy, D.Pharmacy, and B.Sc. Nursing Vacant Seats.',
     isNew: true,
-    fileSize: '420 KB PDF'
+    fileSize: '450 KB PDF'
   },
   {
     id: 2,
     date: '12 Nov 2026',
-    tag: 'Admissions 2026',
-    title: 'Revised Counseling Schedule for Vacant Seats in B.Tech, B.Pharmacy & MBA under Lateral Entry Scheme.',
+    tag: 'HPTU Examination',
+    title: 'Submission of Examination Forms for HPTU B.Tech, B.Pharmacy & MBA Odd Semester (December 2026 Session).',
     isNew: true,
-    fileSize: '1.2 MB PDF'
+    fileSize: '620 KB PDF'
   },
   {
     id: 3,
     date: '08 Nov 2026',
-    tag: 'Examination Result',
-    title: 'Declaration of Re-evaluation Results for B.Tech (CBCS & NEP 2020) 2nd, 4th & 6th Semester Examinations.',
+    tag: 'Campus Placement',
+    title: 'Annual Campus Placement Drive by Sun Pharmaceutical Industries & Fortis Healthcare on 5th December.',
     isNew: false,
-    fileSize: '890 KB PDF'
+    fileSize: '310 KB PDF'
   },
   {
     id: 4,
-    date: '02 Nov 2026',
-    tag: 'Recruitment & Tenders',
-    title: 'Notice inviting e-Tenders for setting up Advanced Robotics & AI Center of Excellence in University Campus.',
+    date: '01 Nov 2026',
+    tag: 'Scholarship Notice',
+    title: 'Mandatory Aadhaar KYC & Biometric verification for HP State Post-Matric Scholarship Renewal on NSP Portal.',
     isNew: false,
-    fileSize: '2.1 MB PDF'
-  }
-];
-
-export const AFFILIATED_COLLEGES = [
-  {
-    id: 1,
-    name: 'Jawaharlal Nehru Govt. Engineering College (JNGEC)',
-    location: 'Sundernagar, Distt. Mandi, H.P.',
-    type: 'Government Constituent College',
-    programs: 'B.Tech (CSE, Mech, Civil, ECE), M.Tech',
-    code: 'HPTU-01',
-    rating: 'NBA Accredited'
-  },
-  {
-    id: 2,
-    name: 'Rajiv Gandhi Govt. Engineering College (RGGEC)',
-    location: 'Kangra at Nagrota Bagwan, H.P.',
-    type: 'Government Constituent College',
-    programs: 'B.Tech (Computer Science, Electrical, Architecture)',
-    code: 'HPTU-02',
-    rating: 'State Premier Institute'
-  },
-  {
-    id: 3,
-    name: 'Govt. College of Pharmacy',
-    location: 'Rohru, Distt. Shimla, H.P.',
-    type: 'Government Pharmacy College',
-    programs: 'B.Pharmacy, M.Pharmacy (Pharmacology)',
-    code: 'HPTU-03',
-    rating: 'PCI Approved'
-  },
-  {
-    id: 4,
-    name: 'Atal Bihari Vajpayee Govt. Institute of Engg. & Tech. (ABVGIET)',
-    location: 'Pragatinagar, Distt. Shimla, H.P.',
-    type: 'Government Technical Institute',
-    programs: 'B.Tech (CSE, ECE), Polytechnic Diploma',
-    code: 'HPTU-04',
-    rating: 'AICTE Approved'
-  }
-];
-
-export const QUESTION_PAPERS = [
-  {
-    subject: 'Artificial Intelligence & Machine Learning',
-    code: 'CS-401 (NEP 2020)',
-    semester: '7th Semester',
-    branch: 'Computer Science & Engg',
-    year: 'Dec 2025 / June 2025'
-  },
-  {
-    subject: 'Data Structures & Algorithms',
-    code: 'CS-202 (CBCS)',
-    semester: '3rd Semester',
-    branch: 'Computer Science & IT',
-    year: 'Dec 2025 / June 2025'
-  },
-  {
-    subject: 'Pharmaceutics & Drug Delivery Systems',
-    code: 'BP-301T',
-    semester: '5th Semester',
-    branch: 'B. Pharmacy',
-    year: 'Dec 2025'
-  },
-  {
-    subject: 'Design of Concrete & Steel Structures',
-    code: 'CE-302',
-    semester: '6th Semester',
-    branch: 'Civil Engineering',
-    year: 'Dec 2025 / June 2025'
+    fileSize: '580 KB PDF'
   }
 ];
 
 export const PROGRAMS = [
   {
     id: 1,
-    title: 'B.Tech in Computer Science & Artificial Intelligence',
-    department: 'Engineering & Computing',
+    title: 'Bachelor of Pharmacy (B.Pharm) & D.Pharm',
+    department: 'Gautam College of Pharmacy',
     level: 'Undergraduate',
-    duration: '4 Years',
-    credits: '160 Credits (NEP 2020)',
-    mode: 'Campus & Lab',
-    tag: 'HPCET & JEE Main',
-    rating: '4.9/5',
-    salary: '₹12.4 LPA Avg. Starting',
-    desc: 'Curriculum structured under NEP 2020 with state-of-the-art labs in Machine Learning, Cloud Systems, and Cyber Security with mandatory industry internships.',
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80'
+    duration: '4 Years (B.Pharm) / 2 Yrs (D.Pharm)',
+    credits: 'PCI & HPTU Approved',
+    mode: 'Full-Time Campus & Machine Labs',
+    tag: 'High Placement In Pharma',
+    rating: '4.95/5',
+    salary: '₹4.5 - ₹8.5 LPA Package',
+    desc: 'Approved by Pharmacy Council of India (PCI) and affiliated to HPTU Hamirpur. Features high-tech instrumentation, animal house, and direct industrial tie-ups with Baddi & Paonta Sahib pharma hubs.',
+    image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 2,
-    title: 'Bachelor of Pharmacy (B.Pharm) & M.Pharm',
-    department: 'Pharmaceutical Sciences',
-    level: 'Undergraduate',
-    duration: '4 Years',
-    credits: 'PCI Compliant Scheme',
-    mode: 'PCI & Hospital Attached',
-    tag: 'PCI Recognized',
-    rating: '4.95/5',
-    salary: '₹8.6 LPA Avg. Starting',
-    desc: 'Approved by Pharmacy Council of India (PCI). Covers pharmaceutical chemistry, pharmacology, clinical trials, and drug formulation research.',
-    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80'
+    title: 'B.Sc. Nursing & General Nursing Midwifery (GNM)',
+    department: 'Gautam College of Nursing',
+    level: 'Professional Paramedical',
+    duration: '4 Years (B.Sc) / 3 Years (GNM)',
+    credits: 'INC, HPNRC & AMRU Nerchowk',
+    mode: 'Hospital Bedside & Simulation',
+    tag: '100% Clinical Training',
+    rating: '4.98/5',
+    salary: '₹3.8 - ₹7.2 LPA Govt/Pvt Hospital',
+    desc: 'Approved by Indian Nursing Council (INC) & affiliated with Atal Medical and Research University (AMRU). Direct clinical training at Dr. Radhakrishnan Govt Medical College Hamirpur and premier super-specialty hospitals.',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 3,
-    title: 'M.B.A. in Digital Business & Supply Chain Logistics',
-    department: 'School of Management',
-    level: 'Graduate',
-    duration: '2 Years',
-    credits: 'CBCS Framework',
+    title: 'Master of Business Administration (MBA)',
+    department: 'Gautam Institute of Management (GIMT)',
+    level: 'Postgraduate',
+    duration: '2 Years (4 Semesters)',
+    credits: 'AICTE & HPTU / HPU Approved',
     mode: 'Dual Specialization',
-    tag: 'HPCET & CAT/MAT',
+    tag: 'HPCET / Direct Admission',
     rating: '4.88/5',
-    salary: '₹9.8 LPA Avg. Starting',
-    desc: 'Prepares future enterprise executives with analytics, marketing technologies, supply chain management, and financial leadership courses.',
+    salary: '₹4.8 - ₹9.2 LPA',
+    desc: 'Dual specialization in Marketing, Finance, Human Resource Management, and Business Analytics. Focuses on live case studies, industrial corporate visits, and digital business tools.',
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 4,
-    title: 'B.Tech in Civil & Geotechnical Mountain Infrastructure',
-    department: 'Engineering & Computing',
+    title: 'Bachelor of Computer Applications (BCA) & PGDCA',
+    department: 'Information Technology',
     level: 'Undergraduate',
-    duration: '4 Years',
-    credits: '160 Credits',
-    mode: 'Fieldwork & CAD Studios',
-    tag: 'Hill Region Specialized',
-    rating: '4.85/5',
-    salary: '₹7.8 LPA Avg. Starting',
-    desc: 'Unique specialization tailored for Himalayan terrain: seismic structural engineering, tunnel mechanics, slope stabilization, and green highways.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80'
+    duration: '3 Years (BCA) / 1 Year (PGDCA)',
+    credits: 'HPU / HPTU Affiliated',
+    mode: 'Computing Labs & Live Projects',
+    tag: 'Full Stack & Web Dev',
+    rating: '4.9/5',
+    salary: '₹4.2 - ₹7.5 LPA',
+    desc: 'Rigorous programming curriculum in Python, Full Stack Java/React, Cloud Systems, and Database Management with mandatory capstone industry projects.',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 5,
-    title: 'Master of Computer Applications (M.C.A.)',
-    department: 'Computer Applications',
-    level: 'Graduate',
+    title: 'M.Sc. in Chemistry, Physics, Botany & Zoology',
+    department: 'Gautam Post-Graduate Degree College',
+    level: 'Postgraduate (Sciences)',
     duration: '2 Years',
-    credits: 'AICTE Approved',
-    mode: 'Full-Time Campus',
-    tag: 'Top Placement Track',
-    rating: '4.9/5',
-    salary: '₹10.2 LPA Avg. Starting',
-    desc: 'Advanced software development, mobile app ecosystems, distributed databases, DevOps workflows, and enterprise project work.',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80'
+    credits: 'HPU Shimla Affiliated',
+    mode: 'Advanced Lab Research',
+    tag: 'CSIR NET Guidance',
+    rating: '4.85/5',
+    salary: 'Teaching & Research Trajectory',
+    desc: 'Premier science PG department in District Hamirpur with dedicated spectrophotometers, organic synthesis labs, herbarium, and high competitive exam track record.',
+    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 6,
-    title: 'Ph.D. in Engineering & Pharmaceutical Sciences',
-    department: 'Research & Doctoral Studies',
-    level: 'Doctoral',
-    duration: '3-5 Years',
-    credits: 'UGC Research Fellowship',
-    mode: 'Full-Time / Part-Time',
-    tag: 'Funded Fellowship',
-    rating: '5.0/5',
-    salary: 'UGC/State Fellowship',
-    desc: 'Interdisciplinary research in sustainable renewable energy, mountain ecology engineering, herbal medicine extraction, and AI hardware.',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80'
+    title: 'Bachelor of Hotel Management (BHM)',
+    department: 'Gautam College of Hotel Management',
+    level: 'Professional',
+    duration: '4 Years',
+    credits: 'HPU Affiliated',
+    mode: 'Kitchen, Bakery & Front-Office Labs',
+    tag: '5-Star Hotel Internships',
+    rating: '4.9/5',
+    salary: '₹3.6 - ₹6.8 LPA + Tips/Perks',
+    desc: 'Equipped with commercial culinary kitchen, food production bakery, guest room replica, and international training tie-ups with luxury hospitality chains in India and abroad.',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
 export const CAMPUS_FACILITIES = [
   {
-    id: 'library',
-    name: 'Central University Library & National Digital Library Portal',
-    category: 'Knowledge Hub',
-    stat: '85,000+ Books & DELNET E-Journals',
+    id: 'pharma-lab',
+    name: 'Advanced Pharmaceutical & Microbiology Research Laboratories',
+    category: 'Gautam Pharmacy & Sciences',
+    stat: 'PCI Approved High-Tech Instrumentation',
+    image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1200&q=80',
+    desc: 'Equipped with digital tablet punch machines, dissolution apparatus, HPLC, UV spectrophotometers, laminar air flows, and aseptic incubation facilities.'
+  },
+  {
+    id: 'nursing-sim',
+    name: 'Clinical Nursing Simulation Hospital & Anatomy Labs',
+    category: 'Gautam College of Nursing',
+    stat: 'Approved by INC & AMRU Nerchowk',
+    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80',
+    desc: 'Realistic ICU mannequins, pediatric care models, community health lab, maternal simulation bays, and tie-ups with district civil hospitals.'
+  },
+  {
+    id: 'central-lib',
+    name: 'GGC Central Library & Digital Book Bank',
+    category: 'Academic Core',
+    stat: '35,000+ Textbooks, Journals & DELNET E-Access',
     image: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80',
-    desc: 'Automated with KOHA library management, high-speed campus fiber, digital thesis repository, and dedicated research scholar stations.'
+    desc: 'Spacious reading halls, special book bank facility for SC/ST students, free Wi-Fi terminals, and competitive exam preparation corner.'
   },
   {
-    id: 'innovation',
-    name: 'Advanced Computing & Drone Robotics Technology Lab',
-    category: 'Center of Excellence',
-    stat: 'State Sponsored Lab Hub',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
-    desc: 'High-performance computing workstations, drone prototyping testbeds, additive manufacturing, and electronic testing equipment.'
-  },
-  {
-    id: 'residence',
-    name: 'Himalayan View University Hostels & Mess',
-    category: 'Student Accommodation',
-    stat: 'Separate Boys & Girls Hostels',
+    id: 'hostel-bus',
+    name: 'Hostels & Campus Fleet (Bus Stand Proximity)',
+    category: 'Student Welfare & Living',
+    stat: 'Dedicated Boys & Girls Hostels with CCTV',
     image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1200&q=80',
-    desc: 'Modern living facilities nestled in the scenic Hamirpur pine valley, solar hot water heating, 24/7 security, and hygienic dining mess.'
-  },
-  {
-    id: 'athletics',
-    name: 'University Sports Ground & Indoor Badminton Arena',
-    category: 'Sports & Recreation',
-    stat: 'Inter-College Championship Center',
-    image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80',
-    desc: 'Full-size cricket & football ground, multipurpose indoor courts, gymnasium, and annual Inter-College Youth Festival venue.'
+    desc: 'Located right near Hamirpur Bus Stand with direct connectivity to Bilaspur, Kangra, Mandi & Una. Hygienic North Indian mess, 24/7 power backup, and security.'
   }
 ];
 
 export const UPCOMING_EVENTS = [
   {
     id: 1,
-    day: '20',
+    day: '18',
     month: 'DEC',
-    title: 'HPCET 2026 Information Webinar & Mock Test Window',
-    category: 'Admissions & Entrance Tests',
-    time: '11:00 AM – 1:00 PM IST',
-    venue: 'Online Hybrid Portal & Auditorium',
-    badge: 'Important for Aspirants',
-    spots: 'Open Registration'
+    title: 'Gautam Group Silver Jubilee Annual Day & Tech-Cultural Fest',
+    category: 'Cultural & Academic Fest',
+    time: '10:00 AM – 5:00 PM IST',
+    venue: 'GGC Main Auditorium, Hamirpur',
+    badge: '25th Anniversary Celebration',
+    spots: 'Open for Students & Parents'
   },
   {
     id: 2,
-    day: '28',
+    day: '24',
     month: 'DEC',
-    title: 'State Inter-Technical Youth Festival & Innovation Expo',
-    category: 'Cultural & Tech Fest',
-    time: '9:30 AM – 5:30 PM IST',
-    venue: 'University Central Grounds, Hamirpur',
-    badge: '42 Colleges Participating',
-    spots: 'Public Open Entry'
+    title: 'Free Health & Nursing Camp at Hamirpur Community Center',
+    category: 'Nursing College Outreach',
+    time: '9:00 AM – 3:30 PM IST',
+    venue: 'Hamirpur Town Hall',
+    badge: 'Free Public Health Drive',
+    spots: 'Conducted by Nursing Faculty'
   },
   {
     id: 3,
-    day: '12',
+    day: '08',
     month: 'JAN',
-    title: 'National Conference on Himalayan Environmental Engineering',
-    category: 'Academic Research',
-    time: '10:00 AM – 4:30 PM IST',
-    venue: 'Senate Hall & Live Stream',
-    badge: 'Faculty & Scholars',
-    spots: 'Paper Submissions Open'
+    title: 'Pharma & Biotech Industry Seminar with Baddi Industrialists',
+    category: 'Pharmacy & Biotech Seminar',
+    time: '11:00 AM – 2:00 PM IST',
+    venue: 'Seminar Hall, Pharmacy Block',
+    badge: 'Industry Expert Session',
+    spots: 'Final Year Students'
   }
 ];
 
 export const ALUMNI_TESTIMONIALS = [
   {
     id: 1,
-    name: 'Abhishek Sharma, Batch of 2022',
-    role: 'Senior Software Engineer at Oracle',
-    degree: 'B.Tech in Computer Science & Engineering',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-    quote: 'The rigorous curriculum and practical coding hackathons gave me the exact foundation needed to clear competitive technical interviews at top MNCs.',
-    company: 'Oracle'
+    name: 'Pooja Dhiman (Batch of 2022)',
+    role: 'Staff Nursing Officer at Fortis Healthcare, Mohali',
+    degree: 'B.Sc. Nursing (Gautam College of Nursing)',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
+    quote: 'The rigorous clinical training and ICU bedside rotations organized by Gautam College of Nursing gave me the confidence to clear the Fortis interview in my first attempt.',
+    company: 'Fortis Healthcare'
   },
   {
     id: 2,
-    name: 'Dr. Ananya Thakur, Batch of 2020',
-    role: 'Senior Formulation Scientist at Sun Pharma',
-    degree: 'B.Pharm & M.Pharm (Pharmaceutics)',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    quote: 'The PCI approved laboratory equipment and faculty research mentorship paved the way for my patent filing and industrial R&D career.',
+    name: 'Vikas Sharma (Batch of 2021)',
+    role: 'Quality Assurance Executive at Sun Pharma, Baddi',
+    degree: 'B.Pharmacy (Gautam College of Pharmacy)',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+    quote: 'Our pharmacy labs in Hamirpur are fully equipped with industrial machinery. The campus placement team ensured our entire batch had confirmed industrial offers before final semester results.',
     company: 'Sun Pharma'
   },
   {
     id: 3,
-    name: 'Rohit Verma, Batch of 2021',
-    role: 'Assistant Engineer at HPSEB / State Infra',
-    degree: 'B.Tech in Civil Engineering',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
-    quote: 'Being trained on specialized mountain terrain structural design gave our batch a distinct edge in state infrastructure civil exams.',
-    company: 'HP State Engineering Services'
+    name: 'Neeraj Kumar (Batch of 2023)',
+    role: 'Software Engineer at Wipro Technologies',
+    degree: 'BCA (Gautam Institute of Management & Technology)',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
+    quote: 'Studying in Hamirpur while receiving high-level IT practical training and aptitude sessions helped me crack national competitive placement tests with a great package.',
+    company: 'Wipro'
+  }
+];
+
+export const QUESTION_PAPERS = [
+  {
+    subject: 'Pharmaceutics & Pharmaceutical Dosage Forms',
+    code: 'BP-103T (HPTU)',
+    semester: '1st Semester',
+    branch: 'B. Pharmacy',
+    year: 'June 2025 / Dec 2024'
+  },
+  {
+    subject: 'Medical Surgical Nursing - I & II',
+    code: 'BSN-202 (AMRU)',
+    semester: '2nd Year',
+    branch: 'B.Sc. Nursing',
+    year: 'Annual Exam 2025'
+  },
+  {
+    subject: 'Data Structures using C & C++',
+    code: 'BCA-0201 (HPU)',
+    semester: '2nd Semester',
+    branch: 'BCA / PGDCA',
+    year: 'Dec 2024 / June 2025'
+  },
+  {
+    subject: 'Inorganic & Organic Chemistry - Advanced',
+    code: 'CHEM-401 (HPU PG)',
+    semester: '4th Semester',
+    branch: 'M.Sc. Chemistry',
+    year: 'June 2025'
+  }
+];
+
+export const AFFILIATED_COLLEGES = [
+  {
+    id: 1,
+    name: 'Gautam College of Pharmacy',
+    location: 'Near Bus Stand, Hamirpur (H.P.)',
+    type: 'PCI Approved / HPTU Affiliated',
+    programs: 'B.Pharmacy (4 Yrs), D.Pharmacy (2 Yrs)',
+    code: 'GGC-PHARMA-01',
+    rating: 'Top Rated Pharma College in Hamirpur'
+  },
+  {
+    id: 2,
+    name: 'Gautam College of Nursing',
+    location: 'Near Bus Stand, Hamirpur (H.P.)',
+    type: 'INC & HPNRC Approved / AMRU Affiliated',
+    programs: 'B.Sc. Nursing, GNM, Post Basic B.Sc Nursing',
+    code: 'GGC-NURSE-02',
+    rating: 'Premier Nursing Institute of HP'
+  },
+  {
+    id: 3,
+    name: 'Gautam Institute of Management & Technology (GIMT)',
+    location: 'Near Bus Stand, Hamirpur (H.P.)',
+    type: 'AICTE Approved / HPTU & HPU Affiliated',
+    programs: 'MBA, BBA, BCA, PGDCA',
+    code: 'GGC-MGMT-03',
+    rating: 'Premier IT & Management Hub'
+  },
+  {
+    id: 4,
+    name: 'Gautam Post-Graduate Degree College',
+    location: 'Near Bus Stand, Hamirpur (H.P.)',
+    type: 'HPU Shimla Affiliated / UGC Recognized',
+    programs: 'M.Sc (Chem, Phys, Bot, Zoo), B.Sc, B.Com, B.A., BHM',
+    code: 'GGC-DEGREE-04',
+    rating: 'Silver Jubilee 25 Years Landmark'
   }
 ];
