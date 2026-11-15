@@ -194,17 +194,17 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults }) {
               <div className="text-[10px] text-slate-400">Himachal Pradesh</div>
             </div>
 
-            {/* Dignitary 4: Vice Chancellor / Principal & Director */}
+            {/* Dignitary 4: Principal cum Secretary */}
             <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs text-center flex flex-col items-center justify-center flex-1 hover:shadow-md transition">
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-200 shadow-sm p-0.5 bg-slate-50 mb-2">
                 <img 
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" 
-                  alt="Director & Principal"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" 
+                  alt="Principal cum Secretary"
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <h3 className="text-sm font-bold text-slate-900 leading-tight">Prof. (Dr.) S. K. Sharma</h3>
-              <div className="text-[11px] text-slate-600 font-medium mt-0.5">Director & Principal</div>
+              <h3 className="text-sm font-bold text-slate-900 leading-tight">Dr. Rajneesh Gautam</h3>
+              <div className="text-[11px] text-[#ea580c] font-bold mt-0.5">Principal cum Secretary</div>
               <div className="text-[10px] text-slate-400">Gautam Group of Colleges</div>
             </div>
 

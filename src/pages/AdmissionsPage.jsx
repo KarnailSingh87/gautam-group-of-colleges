@@ -218,6 +218,43 @@ export default function AdmissionsPage({ onOpenApply, onOpenFeePay }) {
           </div>
         </div>
 
+        {/* Admission Helplines & Official Portals */}
+        <div className="bg-gradient-to-r from-orange-500 to-[#ea580c] rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-wider bg-white/20 px-2.5 py-0.5 rounded">
+                Direct Admission Helpline & Counseling
+              </span>
+              <h2 className="text-xl sm:text-2xl font-black mt-1 font-['Roboto_Condensed',sans-serif]">
+                Admission Cell: +91-9816687100 • 01972-221493
+              </h2>
+              <p className="text-xs text-orange-100 mt-1 max-w-2xl">
+                For Direct Merit Seats, Verification & Scholarship inquiries, call the central admission desk at Hamirpur campus or email <span className="underline font-bold">ggchmr@gmail.com</span>.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="https://admission.ggchmr.com"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2.5 rounded-xl bg-white text-[#ea580c] font-black text-xs hover:bg-orange-50 transition shadow-sm flex items-center gap-1.5"
+              >
+                <span>admission.ggchmr.com</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="https://amruhp.ac.in"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2.5 rounded-xl bg-blue-950 text-white font-bold text-xs hover:bg-blue-900 transition flex items-center gap-1.5"
+              >
+                <span>AMRU Nursing Entrance</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* FAQs Accordion */}
         <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4">
           <h2 className="text-xl font-bold text-slate-900">Frequently Asked Questions (FAQs)</h2>

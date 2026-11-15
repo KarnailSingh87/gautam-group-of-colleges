@@ -70,15 +70,15 @@ export default function HimtuFooter({ onNavigate, onOpenCMSModal, onOpenPortalMo
             <div className="space-y-2 pt-2 text-slate-300">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#ea580c] shrink-0 mt-0.5" />
-                <span>Near Bus Stand, Ward No. 10, Hamirpur (H.P.) – 177001, India</span>
+                <span>Ward No. 10, near Bus Stand, Chakmoh, Galore, Hamirpur (H.P.) – 177001</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#ea580c] shrink-0" />
-                <span>+91-9418010420 / 01972-221499 (Reception Desk)</span>
+                <span>01972-221493 / +91-9736391060 / +91-9816687100 (Admissions)</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#ea580c] shrink-0" />
-                <span className="font-mono">gautamcollege@gmail.com</span>
+                <span className="font-mono">ggchmr@gmail.com</span>
               </div>
             </div>
 

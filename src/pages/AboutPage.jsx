@@ -78,50 +78,52 @@ export default function AboutPage({ onOpenApply, onOpenTour }) {
 
         {/* Chairman & Principal Messages */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Chairman */}
+          {/* Principal cum Secretary */}
           <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-md flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <span className="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold uppercase">
-                Chairman's Desk
+              <span className="px-3 py-1 rounded-full bg-orange-50 text-[#ea580c] text-xs font-bold uppercase">
+                Principal & Secretary's Desk
               </span>
-              <h3 className="text-2xl font-bold text-slate-900">
-                "Empowering Himachal with Character, Competence & Compassion"
+              <h3 className="text-2xl font-bold text-slate-900 font-['Roboto_Condensed',sans-serif]">
+                "Empowering Himachal with Quality Higher Education Since 1999"
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed italic">
-                "When we founded Gautam Group of Colleges in 1999, our goal was clear: talented youth from Hamirpur, Bilaspur, Kangra, and Mandi should not need to migrate to distant metropolitan cities for world-class pharmacy, nursing, or management education. Over the past 25 years, our 25,000+ alumni serving in premier hospitals, research labs, and multinational firms stand as proof of that commitment."
+                "When Gautam Group of Colleges was founded in 1999, our goal was clear: talented youth from Hamirpur and across Himachal Pradesh should not need to migrate to distant cities for world-class pharmacy, nursing, science, or management education. Over the past 25 years, our alumni serving in premier hospitals, research labs, and multinational firms stand as proof of that commitment."
               </p>
             </div>
             <div className="pt-4 border-t border-slate-100 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-sm shadow">
+              <div className="w-12 h-12 rounded-full bg-[#1b327b] text-white font-bold flex items-center justify-center text-sm shadow">
                 RG
               </div>
               <div>
-                <div className="font-bold text-slate-900 text-sm">Dr. Rajeev Gautam</div>
-                <div className="text-xs text-indigo-600 font-medium">Chairman & Managing Director, Gautam Educational Trust</div>
+                <div className="font-bold text-slate-900 text-sm">Dr. Rajneesh Gautam</div>
+                <div className="text-xs text-[#ea580c] font-bold">Principal cum Secretary, Gautam Group of Colleges</div>
+                <div className="text-[11px] text-slate-400">Ph.D., M.Sc. • Hamirpur (H.P.)</div>
               </div>
             </div>
           </div>
 
-          {/* Principal */}
+          {/* Principal Nursing */}
           <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-md flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase">
-                Principal's Message
+              <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase">
+                Nursing Faculty Desk
               </span>
-              <h3 className="text-2xl font-bold text-slate-900">
-                "Bridging Academic Curricula with Industrial Preeminence"
+              <h3 className="text-2xl font-bold text-slate-900 font-['Roboto_Condensed',sans-serif]">
+                "Clinical Excellence, Compassion & Professional Dedication"
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed italic">
-                "At Gautam Group of Colleges, our curriculum combines university academic rigor under HPTU, HPU, and AMRU with mandatory clinical bed-side rotations and pharmaceutical machine room apprenticeships. We pride ourselves on personalized mentoring, disciplined campus culture, and guaranteed career placement pathways."
+                "At Gautam College of Nursing (Est. 2014), our curriculum combines rigorous theoretical grounding under INC and AMRU with extensive bedside clinical rotations at Dr. Radhakrishnan Government Medical College Hamirpur. We take immense pride in nurturing ethical, highly competent healthcare professionals."
               </p>
             </div>
             <div className="pt-4 border-t border-slate-100 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-sm shadow">
-                SK
+              <div className="w-12 h-12 rounded-full bg-[#ea580c] text-white font-bold flex items-center justify-center text-sm shadow">
+                PS
               </div>
               <div>
-                <div className="font-bold text-slate-900 text-sm">Prof. (Dr.) S.K. Sharma</div>
-                <div className="text-xs text-emerald-600 font-medium">Principal & Academic Dean, Gautam Group of Colleges</div>
+                <div className="font-bold text-slate-900 text-sm">Mrs. Poonam Sharma</div>
+                <div className="text-xs text-blue-900 font-bold">Principal / Associate Professor, Gautam College of Nursing</div>
+                <div className="text-[11px] text-slate-400">M.Sc Maternal Health Nursing</div>
               </div>
             </div>
           </div>

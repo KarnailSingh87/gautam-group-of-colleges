@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { 
   MapPin, 
   Phone, 
+  PhoneCall,
   Mail, 
   Clock, 
   Send, 
@@ -12,9 +13,12 @@ import {
   Train, 
   MessageCircle, 
   ExternalLink,
-  ShieldAlert,
-  ArrowRight
+  ShieldCheck,
+  Globe,
+  GraduationCap,
+  Briefcase
 } from 'lucide-react';
+import { INSTITUTION_INFO, TELEPHONE_DIRECTORY } from '../data/blueprintData';
 
 export default function ContactPage({ onOpenApply }) {
   const [formData, setFormData] = useState({
@@ -22,7 +26,7 @@ export default function ContactPage({ onOpenApply }) {
     email: '',
     phone: '',
     subject: 'Admission Inquiry',
-    department: 'Gautam College of Pharmacy',
+    department: 'Gautam College (General)',
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -36,75 +40,181 @@ export default function ContactPage({ onOpenApply }) {
     {
       name: 'Admissions & Central Registry Office',
       location: 'Administrative Block, Ground Floor',
-      phone: '+91-9418010420 / 01972-221493',
-      email: 'admissions@ggchmr.com',
+      phone: '+91-9816687100 / 01972-221493',
+      email: 'ggchmr@gmail.com',
       hours: 'Mon - Sat: 9:00 AM - 5:00 PM'
     },
     {
-      name: 'Gautam College of Pharmacy',
+      name: 'Gautam College of Pharmacy (Est. 2019)',
       location: 'Pharmacy Complex, Ward No. 10',
-      phone: '+91-9816024193',
-      email: 'pharmacy@ggchmr.com',
+      phone: '+91-9736391060 / +91-9418010420',
+      email: 'ggchmr@gmail.com',
       hours: 'Mon - Sat: 9:00 AM - 4:30 PM'
     },
     {
-      name: 'Gautam College of Nursing',
-      location: 'Health Sciences Wing',
-      phone: '+91-9805524193',
-      email: 'nursing@ggchmr.com',
+      name: 'Gautam College of Nursing (Est. 2014)',
+      location: 'Nursing Wing, Ward No. 10',
+      phone: '+91-9816687100 / 01972-221493',
+      email: 'ggchmr@gmail.com',
       hours: 'Mon - Sat: 8:30 AM - 4:30 PM'
     },
     {
       name: 'Gautam Institute of Management & Technology (GIMT)',
-      location: 'Tech & MBA Block',
-      phone: '01972-221493',
-      email: 'gimt@ggchmr.com',
+      location: 'MBA & IT Block',
+      phone: '+91-9736991060 / 01972-221493',
+      email: 'ggchmr@gmail.com',
       hours: 'Mon - Sat: 9:00 AM - 5:00 PM'
     }
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-slate-50 min-h-screen font-sans">
       {/* Header Banner */}
-      <section className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white py-16 border-b border-indigo-900/40">
+      <section className="bg-gradient-to-r from-[#1b327b] via-[#15234d] to-[#0f172a] text-white py-14 border-b border-blue-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold tracking-widest uppercase mb-3">
+          <div className="flex items-center gap-2 text-amber-400 text-xs font-bold tracking-widest uppercase mb-3">
             <span>Official Directory</span>
             <span>•</span>
-            <span>Hamirpur, Himachal Pradesh</span>
+            <span>Hamirpur (Himachal Pradesh)</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-            Contact & Campus Location
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white font-['Roboto_Condensed',sans-serif]">
+            Contact & Telephone Directory
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-3xl leading-relaxed">
-            Get in touch with the admissions office, departmental secretariats, or schedule an in-person campus visit at Gautam Group of Colleges, Hamirpur.
+          <p className="mt-3 text-sm sm:text-base text-slate-200 max-w-3xl leading-relaxed font-light">
+            Official contact points for Gautam Group of Colleges, Hamirpur. Connect directly with the Principal's office, Admission Cell, Placement Cell, or departmental secretariats.
           </p>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 lg:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          {/* 1. OFFICIAL TELEPHONE DIRECTORY TABLE (Exact College Listed Numbers) */}
+          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#ea580c] block">
+                  Official Communication Channels
+                </span>
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900 font-['Roboto_Condensed',sans-serif]">
+                  Campus Telephone Directory
+                </h2>
+              </div>
+              <div className="flex items-center gap-2 text-xs font-bold">
+                <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
+                  <ShieldCheck className="w-3.5 h-3.5" /> Verified College Data
+                </span>
+              </div>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+                <thead>
+                  <tr className="bg-slate-50 border-y border-slate-200 text-slate-700 uppercase tracking-wider text-[11px] font-bold">
+                    <th className="py-3 px-4">Section / Purpose</th>
+                    <th className="py-3 px-4">Contact Number</th>
+                    <th className="py-3 px-4">Direct Action</th>
+                    <th className="py-3 px-4">Office Role</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {TELEPHONE_DIRECTORY.map((item, idx) => (
+                    <tr key={idx} className="hover:bg-slate-50 transition-colors">
+                      <td className="py-3.5 px-4 font-bold text-slate-900 flex items-center gap-2">
+                        <PhoneCall className="w-3.5 h-3.5 text-[#ea580c]" />
+                        <span>{item.purpose}</span>
+                      </td>
+                      <td className="py-3.5 px-4 font-mono font-bold text-[#1b327b]">
+                        {item.number}
+                      </td>
+                      <td className="py-3.5 px-4">
+                        <a 
+                          href={`tel:${item.raw}`}
+                          className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-blue-50 text-[#1b327b] hover:bg-[#ea580c] hover:text-white font-bold text-xs transition"
+                        >
+                          <Phone className="w-3 h-3" />
+                          <span>Call Now</span>
+                        </a>
+                      </td>
+                      <td className="py-3.5 px-4 text-slate-500 text-xs">
+                        {item.desc}
+                      </td>
+                    </tr>
+                  ))}
+                  
+                  {/* Official Email Row */}
+                  <tr className="bg-slate-50/50">
+                    <td className="py-3.5 px-4 font-bold text-slate-900 flex items-center gap-2">
+                      <Mail className="w-3.5 h-3.5 text-[#ea580c]" />
+                      <span>Official Email</span>
+                    </td>
+                    <td className="py-3.5 px-4 font-mono font-bold text-slate-800" colSpan={2}>
+                      <a href="mailto:ggchmr@gmail.com" className="text-blue-600 hover:underline">
+                        ggchmr@gmail.com
+                      </a>
+                    </td>
+                    <td className="py-3.5 px-4 text-slate-500 text-xs">
+                      General Administration & Registrar Desk
+                    </td>
+                  </tr>
+
+                  {/* Websites Row */}
+                  <tr>
+                    <td className="py-3.5 px-4 font-bold text-slate-900 flex items-center gap-2">
+                      <Globe className="w-3.5 h-3.5 text-[#ea580c]" />
+                      <span>Official Websites</span>
+                    </td>
+                    <td className="py-3.5 px-4 font-mono text-xs" colSpan={3}>
+                      <div className="flex flex-wrap items-center gap-4">
+                        <a 
+                          href="https://www.ggchmr.com" 
+                          target="_blank" 
+                          rel="noreferrer" 
+                          className="text-blue-700 hover:underline flex items-center gap-1 font-bold"
+                        >
+                          <span>www.ggchmr.com</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                        <span className="text-slate-300">|</span>
+                        <a 
+                          href="https://admission.ggchmr.com" 
+                          target="_blank" 
+                          rel="noreferrer" 
+                          className="text-emerald-700 hover:underline flex items-center gap-1 font-bold"
+                        >
+                          <span>admission.ggchmr.com (Admission Portal)</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* 2. Grid with Contact Form & Campus Offices */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
-            {/* Left Column: Quick Contact Cards & Form (7 Cols) */}
+            {/* Left Column: Form & Helpdesk (7 Cols) */}
             <div className="lg:col-span-7 space-y-8">
               
-              {/* Emergency / Direct Call-out Box */}
-              <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              {/* WhatsApp Admission Direct Support */}
+              <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-indigo-600 mb-1">
+                  <div className="text-xs font-bold uppercase tracking-wider text-[#ea580c] mb-1">
                     Direct WhatsApp Admission Helpdesk
                   </div>
                   <div className="text-base font-bold text-slate-900">
-                    Need fast eligibility confirmation or counseling?
+                    Need instant eligibility confirmation or counseling?
                   </div>
                   <div className="text-xs text-slate-500 mt-0.5">
-                    Live response from admission counselors (9 AM - 7 PM)
+                    Call or text admission counselors directly at <strong>+91-9816687100</strong>
                   </div>
                 </div>
                 <a
-                  href="https://wa.me/919418010420?text=Hello%20Gautam%20Group%20of%20Colleges,%20I%20would%20like%20information%20regarding%20admissions."
+                  href="https://wa.me/919816687100?text=Hello%20Gautam%20Group%20of%20Colleges,%20I%20would%20like%20information%20regarding%20admissions."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition-all shrink-0"
@@ -114,9 +224,11 @@ export default function ContactPage({ onOpenApply }) {
                 </a>
               </div>
 
-              {/* Contact Form */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-sm">
-                <h2 className="text-xl font-bold text-slate-900 mb-2">Send an Official Inquiry</h2>
+              {/* Inquiry Form */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <h2 className="text-xl font-bold text-slate-900 mb-1 font-['Roboto_Condensed',sans-serif]">
+                  Send an Official Inquiry
+                </h2>
                 <p className="text-xs text-slate-600 mb-6">
                   Fill in your academic query below. Your message will be routed directly to the designated department head or admission officer.
                 </p>
@@ -148,7 +260,7 @@ export default function ContactPage({ onOpenApply }) {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder="e.g. Rohit Sharma"
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#ea580c] focus:border-transparent"
                         />
                       </div>
                       <div>
@@ -160,8 +272,8 @@ export default function ContactPage({ onOpenApply }) {
                           required
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          placeholder="e.g. 98160XXXXX"
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          placeholder="e.g. 9816687100"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#ea580c] focus:border-transparent"
                         />
                       </div>
                     </div>
@@ -176,202 +288,130 @@ export default function ContactPage({ onOpenApply }) {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="student@example.com"
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#ea580c] focus:border-transparent"
                         />
                       </div>
                       <div>
                         <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                          Target College / Stream *
+                          Constituent College / Program
                         </label>
                         <select
                           value={formData.department}
                           onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#ea580c] bg-white"
                         >
-                          <option>Gautam College of Pharmacy (B.Pharm / D.Pharm / M.Pharm)</option>
-                          <option>Gautam College of Nursing (B.Sc / GNM / M.Sc)</option>
-                          <option>GIMT - Management & Tech (BCA / BBA / MBA)</option>
-                          <option>Gautam Degree College (B.Sc / B.Com / M.Sc)</option>
-                          <option>Gautam College of Hotel Management (BHM / Diploma)</option>
-                          <option>General Administration / Verification Desk</option>
+                          <option>Gautam College (B.A., B.Sc., B.Com., M.Sc.)</option>
+                          <option>Gautam College of Pharmacy (B.Pharm, D.Pharm)</option>
+                          <option>Gautam College of Nursing (B.Sc Nursing, GNM)</option>
+                          <option>Gautam Institute of Management & Technology (MBA, BCA, BBA)</option>
+                          <option>Gautam Polytechnic (Engineering Diplomas)</option>
                         </select>
                       </div>
                     </div>
 
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                        Your Query / Message *
+                        Your Message / Question
                       </label>
                       <textarea
-                        rows={4}
+                        rows={3}
                         required
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Mention your 10+2 / graduation percentage, entrance test rank (HPCET/NEET), or specific query regarding fee structure, hostel, or eligibility..."
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        placeholder="Please ask about eligibility, seats, fees, or hostel accommodation..."
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#ea580c]"
                       ></textarea>
                     </div>
 
-                    <div className="flex items-center justify-between pt-2">
-                      <div className="text-[11px] text-slate-500 flex items-center gap-1.5">
-                        <Clock className="w-3.5 h-3.5 text-slate-400" />
-                        <span>Average response time: 2-4 hours</span>
-                      </div>
-                      <button
-                        type="submit"
-                        className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-sm hover:shadow transition-all inline-flex items-center gap-2"
-                      >
-                        <Send className="w-3.5 h-3.5" />
-                        <span>Submit Inquiry</span>
-                      </button>
-                    </div>
+                    <button
+                      type="submit"
+                      className="w-full py-3 px-6 rounded-xl bg-[#ea580c] hover:bg-orange-700 text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2"
+                    >
+                      <Send className="w-4 h-4" />
+                      <span>Submit Inquiry to Admission Office</span>
+                    </button>
                   </form>
                 )}
               </div>
 
-              {/* Departmental Office Directory Cards */}
-              <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-4">Constituent Office Directory</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {collegeOffices.map((office, idx) => (
-                    <div key={idx} className="bg-white rounded-xl p-5 border border-slate-200/80 shadow-sm hover:border-indigo-300 transition-colors">
-                      <div className="font-bold text-sm text-slate-900 mb-1">{office.name}</div>
-                      <div className="text-xs text-slate-500 mb-3">{office.location}</div>
-                      
-                      <div className="space-y-1.5 text-xs text-slate-700">
-                        <div className="flex items-center gap-2">
-                          <Phone className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
-                          <span>{office.phone}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Mail className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
-                          <span className="truncate">{office.email}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-slate-500">
-                          <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                          <span>{office.hours}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
-            {/* Right Column: Campus Address, Transit Guide & Map (5 Cols) */}
+            {/* Right Column: Campus Details & Map (5 Cols) */}
             <div className="lg:col-span-5 space-y-6">
               
               {/* Campus Address Card */}
-              <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-indigo-600" />
-                  <span>Main Campus Headquarters</span>
-                </h3>
-
-                <div className="space-y-4 text-xs text-slate-700">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-                    <div>
-                      <div className="font-bold text-slate-900 text-sm">Gautam Group of Colleges</div>
-                      <div className="text-slate-600 mt-0.5">
-                        Near Hamirpur Bus Stand, Ward No. 10,<br />
-                        Hamirpur, Himachal Pradesh – 177001, India
-                      </div>
-                      <div className="text-[11px] text-indigo-600 font-bold mt-1">
-                        AISHE Code: C-11482 / C-53351 • College Code: HMR-04
-                      </div>
-                    </div>
+              <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#ea580c] flex items-center justify-center">
+                    <MapPin className="w-5 h-5" />
                   </div>
-
-                  <div className="flex items-center gap-3 pt-2 border-t border-slate-100">
-                    <Phone className="w-4 h-4 text-indigo-600 shrink-0" />
-                    <div>
-                      <span className="font-bold text-slate-900">Phone: </span>
-                      <span>+91-9418010420, 01972-221493</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <Mail className="w-4 h-4 text-indigo-600 shrink-0" />
-                    <div>
-                      <span className="font-bold text-slate-900">Email: </span>
-                      <a href="mailto:info@ggchmr.com" className="text-indigo-600 hover:underline">info@ggchmr.com</a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <Clock className="w-4 h-4 text-amber-500 shrink-0" />
-                    <div>
-                      <span className="font-bold text-slate-900">Administrative Timings: </span>
-                      <span>Mon - Sat, 9:00 AM - 5:00 PM</span>
-                    </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-sm">Main Campus Address</h3>
+                    <div className="text-xs text-slate-500">Hamirpur, Himachal Pradesh</div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <button
-                    onClick={() => onOpenApply('apply')}
-                    className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-indigo-600 text-white font-bold text-xs transition text-center shadow-sm"
-                  >
-                    Apply for 2026 Admissions
-                  </button>
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-700 space-y-2 leading-relaxed">
+                  <p className="font-bold text-slate-900">
+                    Gautam Group of Colleges (GGC)
+                  </p>
+                  <p>
+                    Ward No. 10, near Bus Stand, Chakmoh, Galore, Hamirpur (Himachal Pradesh), PIN 177001
+                  </p>
+                  <p className="text-[11px] text-slate-500">
+                    • Near ISBT Hamirpur (Approx. 800m)
+                  </p>
+                </div>
+
+                <div className="space-y-2 text-xs text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-slate-400" />
+                    <span>Office Hours: Mon - Sat (9:00 AM - 5:00 PM)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-slate-400" />
+                    <span className="font-mono">ggchmr@gmail.com</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Transit & Commute Guide */}
-              <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm">
-                <h3 className="text-base font-bold text-slate-900 mb-4">How to Reach Campus</h3>
+              {/* Transit Directions */}
+              <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3">
+                <h3 className="text-sm font-bold text-slate-900">Transit & Commute Access</h3>
                 
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-lg bg-indigo-50 text-indigo-600 shrink-0 mt-0.5">
-                      <Bus className="w-4 h-4" />
-                    </div>
+                <div className="space-y-3 text-xs text-slate-600">
+                  <div className="flex items-start gap-2.5">
+                    <Bus className="w-4 h-4 text-[#ea580c] shrink-0 mt-0.5" />
                     <div>
-                      <div className="text-xs font-bold text-slate-900">By Inter-State Bus (HRTC)</div>
-                      <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
-                        Campus is located only <strong>800 meters from ISBT Hamirpur</strong>. Frequent deluxe & Volvo buses run from ISBT Kashmiri Gate Delhi, Sector 43 Chandigarh, and Shimla.
-                      </p>
+                      <strong className="text-slate-800">By Bus:</strong> Frequent direct HRTC & private buses to Hamirpur ISBT from Chandigarh, Shimla, Dharamshala, and Delhi.
                     </div>
                   </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-lg bg-emerald-50 text-emerald-600 shrink-0 mt-0.5">
-                      <Train className="w-4 h-4" />
-                    </div>
+                  <div className="flex items-start gap-2.5">
+                    <Train className="w-4 h-4 text-blue-700 shrink-0 mt-0.5" />
                     <div>
-                      <div className="text-xs font-bold text-slate-900">By Railway (Broad Gauge)</div>
-                      <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
-                        Nearest broad-gauge railhead is <strong>Una Himachal (UHL)</strong> (~60 km). Direct Vande Bharat and Jan Shatabdi expresses link Una with New Delhi. Connecting buses run every 20 minutes to Hamirpur.
-                      </p>
+                      <strong className="text-slate-800">By Train:</strong> Nearest broad-gauge station is Una Himachal (UHL) ~60 km (Vande Bharat connected).
                     </div>
                   </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-lg bg-sky-50 text-sky-600 shrink-0 mt-0.5">
-                      <Plane className="w-4 h-4" />
-                    </div>
+                  <div className="flex items-start gap-2.5">
+                    <Plane className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
                     <div>
-                      <div className="text-xs font-bold text-slate-900">By Air</div>
-                      <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
-                        <strong>Kangra Gaggal Airport (DHM)</strong> is ~75 km away with daily flights from Delhi. Chandigarh International Airport (IXC) is ~180 km away.
-                      </p>
+                      <strong className="text-slate-800">By Air:</strong> Kangra Airport (Gaggal, DHM) ~75 km, Chandigarh International Airport (IXC) ~180 km.
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Live Google Map Interactive Embed */}
-              <div className="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm overflow-hidden">
+              {/* Google Maps Embed */}
+              <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm overflow-hidden">
                 <div className="text-xs font-bold text-slate-900 mb-2 flex items-center justify-between">
-                  <span>Hamirpur Campus Map</span>
+                  <span>Interactive Campus Location</span>
                   <a
                     href="https://maps.google.com/?q=Gautam+Group+of+Colleges+Hamirpur+Himachal+Pradesh"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[11px] text-indigo-600 font-bold hover:underline inline-flex items-center gap-1"
+                    className="text-[11px] text-[#ea580c] font-bold hover:underline inline-flex items-center gap-1"
                   >
-                    <span>Open in Google Maps</span>
+                    <span>Open in Maps</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -392,6 +432,7 @@ export default function ContactPage({ onOpenApply }) {
             </div>
 
           </div>
+
         </div>
       </section>
     </div>

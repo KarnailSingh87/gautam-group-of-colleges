@@ -56,11 +56,11 @@ export default function HimtuHeader({
           <div className="flex items-center gap-3">
             <button onClick={() => handleNavClick('contact')} className="hover:text-blue-900 transition font-medium">Sitemap</button>
             <span className="text-slate-300">|</span>
-            <a href="tel:+919418010420" className="hover:text-blue-900 transition font-medium flex items-center gap-1">
-              <span>Telephone Directory (+91-9418010420)</span>
-            </a>
+            <button onClick={() => handleNavClick('contact')} className="hover:text-blue-900 transition font-medium flex items-center gap-1">
+              <span>Telephone Directory (01972-221493 / 9736391060)</span>
+            </button>
             <span className="text-slate-300">|</span>
-            <a href="mailto:info@ggchmr.com" className="hover:text-blue-900 transition font-medium">Web Mail</a>
+            <a href="mailto:ggchmr@gmail.com" className="hover:text-blue-900 transition font-medium">Web Mail</a>
             <span className="text-slate-300">|</span>
             <button onClick={() => handleNavClick('about')} className="hover:text-blue-900 transition font-medium">Mile Stone</button>
             <span className="text-slate-300">|</span>

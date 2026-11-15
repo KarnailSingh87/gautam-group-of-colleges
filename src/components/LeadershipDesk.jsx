@@ -48,14 +48,14 @@ export default function LeadershipDesk({ onOpenApply }) {
 
               <div className="mt-6 pt-6 border-t border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <div className="font-bold text-base text-white">Prof. (Dr.) S. K. Sharma</div>
-                  <div className="text-xs text-slate-400 font-medium">Director & Principal • Gautam Group of Colleges</div>
-                  <div className="text-[11px] text-amber-300/80 mt-0.5">Ph.D, M.Pharm • Former Member, University Academic Council</div>
+                  <div className="font-bold text-base text-white">Dr. Rajneesh Gautam</div>
+                  <div className="text-xs text-amber-400 font-bold">Principal cum Secretary • Gautam Group of Colleges</div>
+                  <div className="text-[11px] text-slate-300 mt-0.5">Ph.D., M.Sc. • Leading Academic Administration & Society Governance</div>
                 </div>
 
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>College Code: HMR-04</span>
+                  <span>Est. 1999 • HMR-04</span>
                 </div>
               </div>
             </div>
