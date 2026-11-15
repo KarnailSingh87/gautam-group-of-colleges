@@ -258,11 +258,6 @@ export default function HimtuHeroSection({
                 </button>
               </div>
 
-              {/* Slide Counter Indicator */}
-              <div className="absolute top-4 right-4 z-20 px-2.5 py-1 rounded-full bg-black/60 text-white text-[10px] font-mono font-bold backdrop-blur-xs">
-                {currentSlide + 1} / {slides.length}
-              </div>
-
             </div>
           </div>
 
