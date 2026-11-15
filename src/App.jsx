@@ -33,7 +33,6 @@ import HimtuServicesModal from './components/HimtuServicesModal';
 import StudentPortalModal from './components/StudentPortalModal';
 import AdminCMSModal from './components/AdminCMSModal';
 import StickyApplyButton from './components/StickyApplyButton';
-import CookieNotice from './components/CookieNotice';
 
 // Dedicated Blueprint Pages
 import AboutPage from './pages/AboutPage';
@@ -329,9 +328,6 @@ export default function App() {
           <StickyApplyButton 
             onOpenApply={handleOpenApply} 
           />
-
-          {/* Privacy & Cookie Notification */}
-          <CookieNotice />
 
           {/* Modals */}
           <VirtualTourModal
