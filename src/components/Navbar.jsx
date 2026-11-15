@@ -121,7 +121,7 @@ export default function Navbar({
             >
               <div className="w-13 h-13 rounded-2xl bg-white text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform border border-slate-200 overflow-hidden p-1">
                 <img 
-                  src="/ggc-logo.webp" 
+                  src="/gautam_group_colleges_logo.png" 
                   alt="Gautam College Logo" 
                   className="w-full h-full object-contain"
                 />

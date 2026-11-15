@@ -13,7 +13,7 @@ export const INSTITUTION_INFO = {
   aisheCode: 'C-11482 / C-53351',
   collegeCode: 'HMR-04 (HPU / HPTU)',
   locationGeo: '31.6862° N, 76.5213° E (Near Hamirpur Bus Stand)',
-  logo: '/ggc-logo.webp',
+  logo: '/gautam_group_colleges_logo.png',
   campusImage: 'https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg',
   stats: [
     { label: 'Students Enrolled', value: '3,200+' },

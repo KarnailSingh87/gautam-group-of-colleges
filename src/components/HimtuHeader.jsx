@@ -134,7 +134,7 @@ export default function HimtuHeader({
               {/* College Official Crest */}
               <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-white p-1 rounded-full border-2 border-amber-500 shadow-sm overflow-hidden flex items-center justify-center">
                 <img 
-                  src="/ggc-logo.webp" 
+                  src="/gautam_group_colleges_logo.png" 
                   alt="Gautam Group of Colleges Logo" 
                   className="w-full h-full object-contain"
                 />

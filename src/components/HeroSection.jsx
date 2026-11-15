@@ -250,7 +250,7 @@ export default function HeroSection({
 
               <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
-                  <img src="/ggc-logo.webp" alt="GGC Logo" className="w-5 h-5 bg-white rounded-full p-0.5" />
+                  <img src="/gautam_group_colleges_logo.png" alt="GGC Logo" className="w-5 h-5 bg-white rounded-full p-0.5" />
                   <span className="font-bold text-white text-[11px]">Real Campus • Gautam College Hamirpur</span>
                 </div>
                 <button

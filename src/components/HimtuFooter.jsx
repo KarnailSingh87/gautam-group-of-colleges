@@ -46,7 +46,7 @@ export default function HimtuFooter({ onNavigate, onOpenCMSModal, onOpenPortalMo
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3.5">
               <img 
-                src="/ggc-logo.webp" 
+                src="/gautam_group_colleges_logo.png" 
                 alt="GGC Crest" 
                 className="w-16 h-16 object-contain bg-white rounded-full p-1 border-2 border-amber-400 shrink-0 shadow-md"
               />

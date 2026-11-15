@@ -48,7 +48,7 @@ export default function HimtuSocialFeed() {
             <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
               <div className="flex items-center gap-2.5">
                 <img 
-                  src="/ggc-logo.webp" 
+                  src="/gautam_group_colleges_logo.png" 
                   alt="GGC Logo" 
                   className="w-9 h-9 rounded-full object-contain border border-slate-200 p-0.5 bg-slate-50"
                 />
@@ -108,7 +108,7 @@ export default function HimtuSocialFeed() {
             <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
               <div className="flex items-center gap-2.5">
                 <img 
-                  src="/ggc-logo.webp" 
+                  src="/gautam_group_colleges_logo.png" 
                   alt="GGC Logo" 
                   className="w-9 h-9 rounded-full object-contain border border-slate-200 p-0.5 bg-slate-50"
                 />
@@ -167,7 +167,7 @@ export default function HimtuSocialFeed() {
             <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
               <div className="flex items-center gap-2.5">
                 <img 
-                  src="/ggc-logo.webp" 
+                  src="/gautam_group_colleges_logo.png" 
                   alt="GGC Logo" 
                   className="w-9 h-9 rounded-full object-contain border border-slate-200 p-0.5 bg-slate-50"
                 />
@@ -223,7 +223,7 @@ export default function HimtuSocialFeed() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <img 
-                    src="/ggc-logo.webp" 
+                    src="/gautam_group_colleges_logo.png" 
                     alt="GGC Logo" 
                     className="w-8 h-8 rounded-full object-contain border border-pink-500 p-0.5"
                   />
