@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -97,6 +97,28 @@ export default function HimtuHeroSection({
       isNew: false
     }
   ];
+
+  // Auto vertical continuous scrolling for Notifications with mouse-wheel & cursor-hover pause
+  const notificationsRef = useRef(null);
+  const isPaused = useRef(false);
+
+  useEffect(() => {
+    const el = notificationsRef.current;
+    if (!el) return;
+
+    const interval = setInterval(() => {
+      if (!isPaused.current && el) {
+        // Seamless infinite loop when passing halfway
+        if (el.scrollTop >= el.scrollHeight / 2) {
+          el.scrollTop = 0;
+        } else {
+          el.scrollTop += 1;
+        }
+      }
+    }, 38);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative bg-slate-50 py-4 sm:py-6 overflow-hidden">
@@ -263,13 +285,23 @@ export default function HimtuHeroSection({
                 </div>
               </div>
 
-              {/* Notifications List (Dated Badges with Left Vertical Calendar Block) */}
-              <div className="p-3.5 space-y-3.5 flex-1 overflow-y-auto divide-y divide-slate-100 max-h-[380px]">
-                {notifications.map((item) => (
-                  <div key={item.id} className="pt-3 first:pt-0 flex items-start gap-3 group cursor-pointer hover:bg-slate-50 p-1.5 rounded-lg transition-colors">
+              {/* Notifications List (Auto-scrolling, Wheel-scrollable, Pauses on Cursor Hover) */}
+              <div 
+                ref={notificationsRef}
+                onMouseEnter={() => { isPaused.current = true; }}
+                onMouseLeave={() => { isPaused.current = false; }}
+                className="p-3.5 space-y-3.5 flex-1 overflow-y-auto divide-y divide-slate-100 max-h-[380px] scroll-smooth"
+                style={{ scrollbarWidth: 'thin' }}
+              >
+                {[...notifications, ...notifications].map((item, idx) => (
+                  <div 
+                    key={`${item.id}-${idx}`} 
+                    onClick={() => onOpenApply('request-info', item.title)}
+                    className="pt-3 first:pt-0 flex items-start gap-3 group cursor-pointer hover:bg-slate-50 p-1.5 rounded-lg transition-colors"
+                  >
                     
                     {/* HPTU Vertical Date Block */}
-                    <div className="w-12 h-13 shrink-0 rounded-lg border border-slate-300 bg-slate-50 text-slate-900 flex flex-col items-center justify-center font-bold">
+                    <div className="w-12 h-13 shrink-0 rounded-lg border border-slate-300 bg-slate-50 text-slate-900 flex flex-col items-center justify-center font-bold group-hover:border-[#ea580c] transition-colors">
                       <span className="text-base font-black leading-none text-slate-950">{item.day}</span>
                       <span className="text-[10px] uppercase font-bold text-slate-600 mt-0.5 tracking-wider">{item.month}</span>
                     </div>
