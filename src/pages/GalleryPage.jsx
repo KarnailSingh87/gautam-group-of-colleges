@@ -17,64 +17,134 @@ import {
   Layers,
   Sparkles
 } from 'lucide-react';
-import { NIT_GALLERY_PHOTOS } from '../components/NitGallerySection';
 import { getCdnUrl } from '../utils/cloudinary';
 
 export const EXTENDED_GALLERY = [
-  ...NIT_GALLERY_PHOTOS,
   {
-    id: 19,
-    title: 'Actual Campus View of Gautam College of Nursing & Healthcare',
+    id: 1,
+    title: 'Actual Campus View of Gautam Group of Colleges (GCN & Healthcare)',
     category: 'Campus & Infrastructure',
     date: '2025',
     thumbnail: getCdnUrl('/ggc-campus.jpg'),
     fullImage: getCdnUrl('/ggc-campus.jpg'),
-    caption: 'Front multi-storey campus view at Ward No. 10 near Hamirpur Bus Stand, Himachal Pradesh.'
+    caption: 'Front multi-storey main academic campus view at Ward No. 10 near Hamirpur Bus Stand, Himachal Pradesh (Est. 1999).'
   },
   {
-    id: 20,
+    id: 2,
     title: 'State Dignitary & Academic Assembly at Hamirpur Convocation',
     category: 'Convocation',
     date: '2025',
     thumbnail: getCdnUrl('/himachaltonite-event.webp'),
     fullImage: getCdnUrl('/himachaltonite-event.webp'),
-    caption: 'Official convocation and inaugural address at Gautam Group of Colleges with governing body members.'
+    caption: 'Official convocation and inaugural address at Gautam Group of Colleges with governing body members and guest dignitaries.'
   },
   {
-    id: 21,
-    title: 'Advanced Computer Center & Cloud Computing Lab',
-    category: 'Labs & Research',
+    id: 3,
+    title: 'Life @ GGC — Student Healthcare & Pharmacy Practical Bootcamp',
+    category: 'Sports & Student Life',
     date: '2025',
-    thumbnail: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
-    fullImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
-    caption: 'Equipped with 200+ high-performance workstations for BCA, MCA, and IT coursework.'
+    thumbnail: getCdnUrl('/ggc-media/life-at-ggc.webp'),
+    fullImage: getCdnUrl('/ggc-media/life-at-ggc.webp'),
+    caption: 'Pharmacy and healthcare students engaged in hands-on clinical and formulation practicals at Gautam Group of Colleges.'
   },
   {
-    id: 22,
-    title: 'Pharmaceutical Chemistry & Machine Formulation Lab',
+    id: 4,
+    title: 'Annual Award Ceremony & Faculty-Student Merit Felicitations',
+    category: 'Convocation',
+    date: '2025',
+    thumbnail: getCdnUrl('/ggc-media/annual-report.webp'),
+    fullImage: getCdnUrl('/ggc-media/annual-report.webp'),
+    caption: 'Annual prize distribution and recognition of outstanding academic achievers across Pharmacy, Nursing, Management and Sciences.'
+  },
+  {
+    id: 5,
+    title: 'Institutional Assembly & Leadership Address by Principal cum Secretary',
+    category: 'Dignitaries & Assembly',
+    date: '2025',
+    thumbnail: getCdnUrl('/dignitaries/dr_rajneesh_gautam_event.jpg'),
+    fullImage: getCdnUrl('/dignitaries/dr_rajneesh_gautam_event.jpg'),
+    caption: 'Dr. Rajneesh Gautam addressing the academic assembly during the collegiate development session.'
+  },
+  {
+    id: 6,
+    title: 'Pharmaceutical Chemistry & Machine Formulation Lab (GCP)',
     category: 'Labs & Research',
     date: '2025',
     thumbnail: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80',
     fullImage: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=80',
-    caption: 'PCI-approved pharmaceutical formulation and drug analysis laboratory.'
+    caption: 'PCI-approved pharmaceutical formulation, drug testing, and HPLC instrumentation laboratory at Gautam College of Pharmacy.'
   },
   {
-    id: 23,
-    title: 'Nursing Simulation Suite & Hospital Clinical Wards',
+    id: 7,
+    title: 'Nursing Simulation Suite & Hospital Clinical Training Bays (GCN)',
     category: 'Labs & Research',
     date: '2025',
     thumbnail: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
     fullImage: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80',
-    caption: 'ICU simulation and bedside patient training with Dr. Radhakrishnan GMC Hamirpur tie-up.'
+    caption: 'ICU simulation and bedside patient clinical training tied up with Dr. Radhakrishnan Government Medical College Hospital Hamirpur.'
   },
   {
-    id: 24,
+    id: 8,
+    title: 'Advanced Computer Center & Cloud Computing Lab (GIMT)',
+    category: 'Labs & Research',
+    date: '2025',
+    thumbnail: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
+    fullImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
+    caption: 'Equipped with 200+ high-performance workstations for BCA, MCA, MBA data analytics, and programming coursework.'
+  },
+  {
+    id: 9,
     title: 'Central Library & E-Resource Digital Reading Hall',
     category: 'Campus & Infrastructure',
     date: '2025',
     thumbnail: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80',
     fullImage: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80',
-    caption: 'Central university library holding over 45,000 volumes, national journals, and Delnet access.'
+    caption: 'GGC Central Library housing over 35,000 volumes, international journals, DELNET e-access, and student study reading halls.'
+  },
+  {
+    id: 10,
+    title: 'State Dignitary Convocation Assembly & Stage Proceedings',
+    category: 'Dignitaries & Assembly',
+    date: '2025',
+    thumbnail: getCdnUrl('/himachaltonite-event.webp'),
+    fullImage: getCdnUrl('/himachaltonite-event.webp'),
+    caption: 'Honoring state leaders and educational dignitaries at Gautam Group of Colleges Hamirpur auditorium.'
+  },
+  {
+    id: 11,
+    title: 'Collegiate Sports Tournament & Athletic Meet',
+    category: 'Sports & Student Life',
+    date: '2025',
+    thumbnail: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80',
+    fullImage: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=80',
+    caption: 'Inter-college sports meet and athletics held annually on collegiate grounds.'
+  },
+  {
+    id: 12,
+    title: 'Hotel Management Food Production & Culinary Lab (GCHM)',
+    category: 'Labs & Research',
+    date: '2025',
+    thumbnail: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
+    fullImage: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
+    caption: 'Commercial kitchen suites and fine dining service training for Bachelor of Hotel Management (BHM) scholars.'
+  },
+  {
+    id: 13,
+    title: 'Polytechnic Engineering & Technical Workshop (GPC)',
+    category: 'Labs & Research',
+    date: '2025',
+    thumbnail: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    fullImage: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+    caption: 'Mechanical, electrical, and computer engineering technical workshops approved by AICTE and HPTSB.'
+  },
+  {
+    id: 14,
+    title: 'Youth Cultural Celebrations & Silver Jubilee Fest',
+    category: 'Sports & Student Life',
+    date: '2025',
+    thumbnail: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
+    fullImage: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80',
+    caption: 'Annual youth festival celebrating Himachali folk heritage and contemporary collegiate arts.'
   }
 ];
 
