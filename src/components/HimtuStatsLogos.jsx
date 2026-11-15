@@ -41,56 +41,64 @@ export default function HimtuStatsLogos() {
       abbr: 'SWAYAM',
       body: 'Ministry of Education, GoI',
       url: 'https://swayam.gov.in',
-      tag: 'E-Learning'
+      tag: 'E-Learning',
+      logo: '/apex-logos/swayam.png'
     },
     {
       name: 'University Grants Commission',
       abbr: 'UGC',
       body: 'Section 2(f) & 12(B) Recognized',
       url: 'https://www.ugc.gov.in',
-      tag: 'Statutory Body'
+      tag: 'Statutory Body',
+      logo: '/apex-logos/ugc.png'
     },
     {
       name: 'All India Council for Technical Education',
       abbr: 'AICTE',
       body: 'Statutory Body for Technical Education',
       url: 'https://www.aicte-india.org',
-      tag: 'Technical'
+      tag: 'Technical',
+      logo: '/apex-logos/aicte.png'
     },
     {
       name: 'Government of Himachal Pradesh',
       abbr: 'HP Govt.',
       body: 'Department of Higher Education',
       url: 'https://himachal.nic.in',
-      tag: 'State Govt'
+      tag: 'State Govt',
+      logo: '/apex-logos/hp_govt.svg'
     },
     {
       name: 'Pharmacy Council of India',
       abbr: 'PCI',
       body: 'Apex Council for Pharmacy Education',
       url: 'https://www.pci.nic.in',
-      tag: 'Healthcare'
+      tag: 'Healthcare',
+      logo: '/apex-logos/pci.png'
     },
     {
       name: 'Indian Nursing Council',
       abbr: 'INC',
       body: 'Apex Body for Nursing Education',
       url: 'https://indiannursingcouncil.org',
-      tag: 'Nursing'
+      tag: 'Nursing',
+      logo: '/apex-logos/inc.png'
     },
     {
       name: 'Himachal Pradesh Technical University',
       abbr: 'HPTU',
       body: 'State Technical University, Hamirpur',
       url: 'https://www.himtu.ac.in',
-      tag: 'Affiliation'
+      tag: 'Affiliation',
+      logo: '/apex-logos/hptu.svg'
     },
     {
       name: 'Himachal Pradesh University',
       abbr: 'HPU',
       body: 'Summer Hill, Shimla',
       url: 'https://www.hpuniv.ac.in',
-      tag: 'Affiliation'
+      tag: 'Affiliation',
+      logo: '/apex-logos/hpu.svg'
     }
   ];
 
@@ -168,21 +176,29 @@ export default function HimtuStatsLogos() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#ea580c] hover:shadow-md transition-all flex flex-col justify-between h-28"
+                className="group p-4 rounded-xl border border-slate-200 bg-white hover:border-[#ea580c] hover:shadow-lg transition-all flex flex-col justify-between min-h-[148px]"
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-black px-2 py-0.5 rounded bg-blue-900 text-amber-300 font-mono tracking-wider">
-                    {item.abbr}
-                  </span>
-                  <span className="text-[10px] font-semibold text-slate-400 group-hover:text-[#ea580c] flex items-center gap-0.5">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="h-12 w-28 flex items-center bg-slate-50/50 p-1 rounded-lg border border-slate-100">
+                    <img 
+                      src={item.logo} 
+                      alt={item.abbr} 
+                      className="max-h-10 max-w-full object-contain group-hover:scale-105 transition-transform" 
+                      loading="lazy"
+                    />
+                  </div>
+                  <span className="text-[11px] font-semibold text-slate-400 group-hover:text-[#ea580c] flex items-center gap-0.5 shrink-0 transition-colors">
                     Verify <ExternalLink className="w-2.5 h-2.5" />
                   </span>
                 </div>
-                <div>
-                  <h4 className="text-xs font-bold text-slate-800 line-clamp-1 group-hover:text-[#ea580c] transition">
+                <div className="mt-3">
+                  <span className="text-[10px] font-mono font-bold text-blue-900 bg-blue-50 px-1.5 py-0.5 rounded">
+                    {item.abbr}
+                  </span>
+                  <h4 className="text-xs font-bold text-slate-900 line-clamp-1 group-hover:text-[#ea580c] transition-colors mt-1">
                     {item.name}
                   </h4>
-                  <p className="text-[11px] text-slate-500 line-clamp-1">
+                  <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
                     {item.body}
                   </p>
                 </div>
