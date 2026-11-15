@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronRight, Calendar, ArrowRight, ExternalLink } from 'lucide-react';
 
-export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults }) {
+export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults, onOpenNotificationsModal }) {
   const [activeTab, setActiveTab] = useState('events'); // 'events', 'official'
 
   const eventsList = [
@@ -153,8 +153,14 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults }) {
                     <div className="flex items-center justify-between text-[11px] text-slate-500">
                       <span>{item.time}</span>
                       <button 
-                        onClick={() => onOpenApply('request-info', item.title)}
-                        className="text-[#ea580c] font-bold hover:underline flex items-center gap-1 text-[11px]"
+                        onClick={() => {
+                          if (onOpenNotificationsModal) {
+                            onOpenNotificationsModal(item);
+                          } else {
+                            onOpenApply('request-info', item.title);
+                          }
+                        }}
+                        className="text-[#ea580c] font-bold hover:underline flex items-center gap-1 text-[11px] cursor-pointer"
                       >
                         <span>→ View</span>
                       </button>
@@ -168,8 +174,14 @@ export default function HimtuDignitariesEvents({ onOpenApply, onOpenResults }) {
             {/* Footer Outlined View All Button */}
             <div className="p-3 bg-slate-50 border-t border-slate-200 flex items-center justify-center">
               <button
-                onClick={() => onOpenApply('request-info', 'All Academic Events')}
-                className="px-5 py-1.5 rounded border border-[#ea580c] text-[#ea580c] hover:bg-[#ea580c] hover:text-white font-bold text-xs transition shadow-xs"
+                onClick={() => {
+                  if (onOpenNotificationsModal) {
+                    onOpenNotificationsModal(null);
+                  } else {
+                    onOpenApply('request-info', 'All Academic Events');
+                  }
+                }}
+                className="px-5 py-1.5 rounded border border-[#ea580c] text-[#ea580c] hover:bg-[#ea580c] hover:text-white font-bold text-xs transition shadow-xs cursor-pointer"
               >
                 + View All
               </button>

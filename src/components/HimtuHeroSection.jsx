@@ -20,7 +20,8 @@ export default function HimtuHeroSection({
   onOpenApply, 
   onOpenResults, 
   onOpenTour,
-  onOpenPortal
+  onOpenPortal,
+  onOpenNotificationsModal
 }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -296,7 +297,13 @@ export default function HimtuHeroSection({
                 {[...notifications, ...notifications].map((item, idx) => (
                   <div 
                     key={`${item.id}-${idx}`} 
-                    onClick={() => onOpenApply('request-info', item.title)}
+                    onClick={() => {
+                      if (onOpenNotificationsModal) {
+                        onOpenNotificationsModal(item);
+                      } else {
+                        onOpenApply('request-info', item.title);
+                      }
+                    }}
                     className="pt-3 first:pt-0 flex items-start gap-3 group cursor-pointer hover:bg-slate-50 p-1.5 rounded-lg transition-colors"
                   >
                     
@@ -328,8 +335,14 @@ export default function HimtuHeroSection({
               {/* Card Footer: Outlined "View All" Button (Exact HPTU Style) */}
               <div className="p-3 bg-slate-50 border-t border-slate-200 flex items-center justify-end shrink-0">
                 <button
-                  onClick={() => onOpenApply('request-info', 'Notice Board')}
-                  className="px-4 py-1.5 rounded-md border border-[#ea580c] text-[#ea580c] hover:bg-[#ea580c] hover:text-white font-bold text-xs transition-colors shadow-xs"
+                  onClick={() => {
+                    if (onOpenNotificationsModal) {
+                      onOpenNotificationsModal(null);
+                    } else {
+                      onOpenApply('request-info', 'Notice Board');
+                    }
+                  }}
+                  className="px-4 py-1.5 rounded-md border border-[#ea580c] text-[#ea580c] hover:bg-[#ea580c] hover:text-white font-bold text-xs transition-colors shadow-xs cursor-pointer"
                 >
                   View All
                 </button>

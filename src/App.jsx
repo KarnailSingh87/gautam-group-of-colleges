@@ -31,6 +31,7 @@ import HimtuServicesModal from './components/HimtuServicesModal';
 import StudentPortalModal from './components/StudentPortalModal';
 import AdminCMSModal from './components/AdminCMSModal';
 import GlobalSearchModal from './components/GlobalSearchModal';
+import NotificationsArchiveModal from './components/NotificationsArchiveModal';
 
 // Dedicated Blueprint Pages
 import AboutPage from './pages/AboutPage';
@@ -54,6 +55,8 @@ export default function App() {
   const [isPortalModalOpen, setIsPortalModalOpen] = useState(false);
   const [isCMSOpen, setIsCMSOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isNotificationsModalOpen, setIsNotificationsModalOpen] = useState(false);
+  const [selectedNotification, setSelectedNotification] = useState(null);
 
   // Force window to top on page refresh and initial mount
   useEffect(() => {
@@ -213,6 +216,10 @@ export default function App() {
                   onOpenResults={() => handleOpenServiceModal('results')}
                   onOpenTour={() => setIsTourOpen(true)}
                   onOpenPortal={() => setIsPortalModalOpen(true)}
+                  onOpenNotificationsModal={(item = null) => {
+                    setSelectedNotification(item);
+                    setIsNotificationsModalOpen(true);
+                  }}
                 />
 
                 {/* 4. Dignitaries & Tabbed Academic Events Bulletin (HPTU Dignitaries layout) */}
@@ -220,6 +227,10 @@ export default function App() {
                   onOpenApply={handleOpenApply}
                   onOpenResults={() => handleOpenServiceModal('results')}
                   onNavigate={handleNavigate}
+                  onOpenNotificationsModal={(item = null) => {
+                    setSelectedNotification(item);
+                    setIsNotificationsModalOpen(true);
+                  }}
                 />
 
                 {/* 5. GGC Media (Life @ GGC, Newsletter, Latest News) + Most Popular Degrees Search */}
@@ -386,6 +397,17 @@ export default function App() {
             onOpenApply={handleOpenApply}
             onOpenResults={() => handleOpenServiceModal('results')}
             onOpenPortal={() => setIsPortalModalOpen(true)}
+          />
+
+          {/* Official Notice Board & Notifications Archive Modal */}
+          <NotificationsArchiveModal
+            isOpen={isNotificationsModalOpen}
+            onClose={() => {
+              setIsNotificationsModalOpen(false);
+              setSelectedNotification(null);
+            }}
+            selectedItem={selectedNotification}
+            onNavigate={handleNavigate}
           />
 
         </div>
