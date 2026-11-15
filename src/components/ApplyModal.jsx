@@ -60,9 +60,16 @@ export default function ApplyModal({ isOpen, onClose, mode, contextData, preset 
             <X className="w-5 h-5" />
           </button>
 
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-2 border border-amber-500/30">
-            <GraduationCap className="w-3.5 h-3.5 text-amber-300" />
-            Gautam Group of Colleges, Hamirpur (H.P.)
+          <div className="flex items-center gap-2.5 mb-2">
+            <div className="w-9 h-9 rounded-xl bg-white p-0.5 shadow-sm flex items-center justify-center">
+              <img src="/ggc-logo.webp" alt="GGC Logo" className="w-full h-full object-contain" />
+            </div>
+            <div>
+              <div className="text-amber-300 text-[11px] font-bold uppercase tracking-wider">
+                Gautam Group of Colleges, Hamirpur (H.P.)
+              </div>
+              <div className="text-[10px] text-slate-400">Est. 1999 • Near Bus Stand</div>
+            </div>
           </div>
 
           <h3 className="text-xl font-bold">{getModalTitle()}</h3>

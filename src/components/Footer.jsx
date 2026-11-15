@@ -22,9 +22,9 @@ export default function Footer({ preset, onOpenApply }) {
           {/* Col 1 & 2: Brand & Institution Overview */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-white text-white flex items-center justify-center font-bold shadow-md overflow-hidden p-1">
+              <div className="w-13 h-13 rounded-2xl bg-white text-white flex items-center justify-center font-bold shadow-md overflow-hidden p-1">
                 <img 
-                  src="https://cache.careers360.mobi/media/colleges/social-media/logo/Logo_of_Gautam_College_Hamirpur_Logo.jpg" 
+                  src="/ggc-logo.webp" 
                   alt="Gautam Group Logo" 
                   className="w-full h-full object-contain"
                 />

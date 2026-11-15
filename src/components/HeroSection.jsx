@@ -124,13 +124,13 @@ export default function HeroSection({
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
 
                 {/* Top Institution Official Crest Tag */}
-                <div className="absolute top-4 right-4 z-10 flex items-center gap-2 bg-slate-950/85 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-slate-700 shadow-xl">
+                <div className="absolute top-4 right-4 z-10 flex items-center gap-2 bg-slate-950/90 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-slate-700 shadow-xl">
                   <img 
-                    src="https://cache.careers360.mobi/media/colleges/social-media/logo/Logo_of_Gautam_College_Hamirpur_Logo.jpg"
+                    src="/ggc-logo.webp"
                     alt="GGC Logo" 
-                    className="w-6 h-6 rounded-full object-cover bg-white p-0.5"
+                    className="w-7 h-7 rounded-full object-contain bg-white p-0.5 shadow-sm"
                   />
-                  <span className="text-[11px] font-bold text-amber-300">GGC Hamirpur</span>
+                  <span className="text-[11px] font-bold text-amber-300">Gautam Group (Est. 1999)</span>
                 </div>
 
                 {/* Bottom Overlay Label */}

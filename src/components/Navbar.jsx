@@ -72,9 +72,9 @@ export default function Navbar({
           {/* Brand Logo & Crest */}
           <div className="flex items-center gap-3">
             <a href="#" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 rounded-2xl bg-white text-white flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform border border-slate-200 overflow-hidden p-1">
+              <div className="w-13 h-13 rounded-2xl bg-white text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform border border-slate-200 overflow-hidden p-1">
                 <img 
-                  src="https://cache.careers360.mobi/media/colleges/social-media/logo/Logo_of_Gautam_College_Hamirpur_Logo.jpg" 
+                  src="/ggc-logo.webp" 
                   alt="Gautam Group of Colleges Logo" 
                   className="w-full h-full object-contain"
                 />
