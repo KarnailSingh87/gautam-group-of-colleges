@@ -1,244 +1,391 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
-  Image as ImageIcon, 
-  Video, 
-  X, 
+  ZoomIn, 
   ChevronLeft, 
   ChevronRight, 
-  Sparkles, 
-  Maximize2,
-  Calendar,
-  Building
+  X, 
+  Maximize2, 
+  Download, 
+  Calendar, 
+  Tag, 
+  Share2, 
+  ExternalLink,
+  Award,
+  Video,
+  Image as ImageIcon,
+  Play,
+  Layers,
+  Sparkles
 } from 'lucide-react';
+import { NIT_GALLERY_PHOTOS } from '../components/NitGallerySection';
 
-export default function GalleryPage({ onOpenApply }) {
+export const EXTENDED_GALLERY = [
+  ...NIT_GALLERY_PHOTOS,
+  {
+    id: 19,
+    title: 'Actual Campus View of Gautam College of Nursing & Healthcare',
+    category: 'Campus & Infrastructure',
+    date: '2025',
+    thumbnail: '/ggc-campus.jpg',
+    fullImage: '/ggc-campus.jpg',
+    caption: 'Front multi-storey campus view at Ward No. 10 near Hamirpur Bus Stand, Himachal Pradesh.'
+  },
+  {
+    id: 20,
+    title: 'State Dignitary & Academic Assembly at Hamirpur Convocation',
+    category: 'Convocation',
+    date: '2025',
+    thumbnail: '/himachaltonite-event.webp',
+    fullImage: '/himachaltonite-event.webp',
+    caption: 'Official convocation and inaugural address at Gautam Group of Colleges with governing body members.'
+  },
+  {
+    id: 21,
+    title: 'Advanced Computer Center & Cloud Computing Lab',
+    category: 'Labs & Research',
+    date: '2025',
+    thumbnail: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
+    fullImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
+    caption: 'Equipped with 200+ high-performance workstations for BCA, MCA, and IT coursework.'
+  },
+  {
+    id: 22,
+    title: 'Pharmaceutical Chemistry & Machine Formulation Lab',
+    category: 'Labs & Research',
+    date: '2025',
+    thumbnail: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80',
+    fullImage: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=80',
+    caption: 'PCI-approved pharmaceutical formulation and drug analysis laboratory.'
+  },
+  {
+    id: 23,
+    title: 'Nursing Simulation Suite & Hospital Clinical Wards',
+    category: 'Labs & Research',
+    date: '2025',
+    thumbnail: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
+    fullImage: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80',
+    caption: 'ICU simulation and bedside patient training with Dr. Radhakrishnan GMC Hamirpur tie-up.'
+  },
+  {
+    id: 24,
+    title: 'Central Library & E-Resource Digital Reading Hall',
+    category: 'Campus & Infrastructure',
+    date: '2025',
+    thumbnail: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80',
+    fullImage: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80',
+    caption: 'Central university library holding over 45,000 volumes, national journals, and Delnet access.'
+  }
+];
+
+export default function GalleryPage({ onOpenApply, onNavigate }) {
+  const [activeTab, setActiveTab] = useState('photos'); // 'photos' | 'videos'
   const [activeCategory, setActiveCategory] = useState('All');
-  const [activeMedia, setActiveMedia] = useState(null); // For lightbox
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
 
-  const categories = ['All', 'Campus', 'Labs & Clinical', 'Events & Fests', 'Convocation', 'Sports'];
-
-  const galleryItems = [
-    {
-      id: 0,
-      type: 'image',
-      title: 'State Dignitary Convocation Assembly at Gautam College Hamirpur',
-      category: 'Convocation',
-      date: '2025',
-      url: '/himachaltonite-event.webp',
-      caption: 'Inaugural ceremonial address with state leaders and academic governing body.'
-    },
-    {
-      id: 1,
-      type: 'image',
-      title: 'Actual Campus View of Gautam College of Nursing, Hamirpur',
-      category: 'Campus',
-      date: '2025',
-      url: 'https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg',
-      caption: 'Main Academic Block and healthcare facilities near Hamirpur Bus Stand.'
-    },
-    {
-      id: 2,
-      type: 'image',
-      title: 'Pharmaceutical Chemistry & Machine Instrumentation Lab',
-      category: 'Labs & Clinical',
-      date: '2025',
-      url: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=80',
-      caption: 'PCI-approved pharmaceutical formulation and drug analysis laboratory.'
-    },
-    {
-      id: 3,
-      type: 'image',
-      title: 'Nursing Simulation Lab & Hospital Clinical Rotations',
-      category: 'Labs & Clinical',
-      date: '2025',
-      url: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80',
-      caption: 'ICU simulation and bedside patient training with Dr. Radhakrishnan GMC Hamirpur tie-up.'
-    },
-    {
-      id: 4,
-      type: 'image',
-      title: 'GIMT Advanced Computer Center & AI Laboratory',
-      category: 'Campus',
-      date: '2025',
-      url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
-      caption: 'High-speed gigabit computing facility for MCA, BCA, and MBA scholars.'
-    },
-    {
-      id: 5,
-      type: 'image',
-      title: 'Annual Silver Jubilee Convocation Ceremony',
-      category: 'Convocation',
-      date: '2024',
-      url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Degrees awarded by Vice Chancellors of HPTU Hamirpur and HPU Shimla.'
-    },
-    {
-      id: 6,
-      type: 'image',
-      title: 'Annual Cultural Festival & Himachal Folk Fest',
-      category: 'Events & Fests',
-      date: '2024',
-      url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Himachali Natti, drama, and youth leadership competitions at the collegiate auditorium.'
-    },
-    {
-      id: 7,
-      type: 'image',
-      title: 'Inter-College Sports Tournament & Athletics Meet',
-      category: 'Sports',
-      date: '2024',
-      url: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Badminton, volleyball, basketball, and table tennis championships.'
-    },
-    {
-      id: 8,
-      type: 'image',
-      title: 'Central Library & E-Resource Digital Reading Hall',
-      category: 'Campus',
-      date: '2025',
-      url: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Equipped with National Digital Library (NDL), SWAYAM, and Delnet nodes.'
-    }
+  const categories = [
+    'All',
+    'Convocation',
+    'Dignitaries & Assembly',
+    'Sports & Student Life',
+    'Labs & Research',
+    'Campus & Infrastructure'
   ];
 
-  const filteredItems = activeCategory === 'All'
-    ? galleryItems
-    : galleryItems.filter(item => item.category === activeCategory);
+  const filteredPhotos = EXTENDED_GALLERY.filter((item) => {
+    if (activeCategory === 'All') return true;
+    return item.category === activeCategory;
+  });
+
+  // Lightbox keyboard controls
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (selectedPhotoIndex === null) return;
+      if (e.key === 'Escape') {
+        setSelectedPhotoIndex(null);
+      } else if (e.key === 'ArrowRight') {
+        setSelectedPhotoIndex((prev) => (prev + 1) % filteredPhotos.length);
+      } else if (e.key === 'ArrowLeft') {
+        setSelectedPhotoIndex((prev) => (prev - 1 + filteredPhotos.length) % filteredPhotos.length);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedPhotoIndex, filteredPhotos]);
+
+  const activePhoto = selectedPhotoIndex !== null ? filteredPhotos[selectedPhotoIndex] : null;
 
   return (
-    <div className="bg-slate-50 min-h-screen py-12 lg:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    <div className="bg-slate-100 min-h-screen py-8">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Page Header */}
-        <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
-              <ImageIcon className="w-3.5 h-3.5" />
-              <span>Campus Visual Gallery</span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
-              Life & Infrastructure at Gautam College
-            </h1>
-            <p className="text-slate-300 text-sm leading-relaxed">
-              Explore actual imagery of our laboratories, healthcare clinical setups, academic auditoriums, convocation ceremonies, and vibrant student life in Hamirpur.
-            </p>
-          </div>
-
-          <button
-            onClick={() => onOpenApply('apply')}
-            className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-400 hover:to-indigo-500 text-white font-bold text-xs shadow-md transition self-start md:self-auto shrink-0"
+        {/* NIT Hamirpur Exact Dark Navy Bar Header */}
+        <div className="shadow-xs mb-6">
+          <div 
+            className="flex flex-col sm:flex-row items-center justify-between px-6 py-3 text-white"
+            style={{ 
+              backgroundColor: '#02263c', 
+              fontFamily: "'Roboto Condensed', sans-serif" 
+            }}
           >
-            Apply for Campus Admission
-          </button>
+            <h1 className="text-xl sm:text-2xl font-bold tracking-wide uppercase">
+              Photo / Video Gallery
+            </h1>
+            <div className="flex items-center gap-2 mt-2 sm:mt-0 text-xs font-sans">
+              <span className="text-amber-300 font-semibold">Gautam Group of Colleges, Hamirpur</span>
+              <span className="opacity-60">•</span>
+              <span className="text-slate-300">{filteredPhotos.length} Photographs</span>
+            </div>
+          </div>
         </div>
 
-        {/* Category Filters */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2">
-          {categories.map((cat) => (
+        {/* Tab & Filter Strip */}
+        <div className="bg-white rounded-xs p-4 mb-6 shadow-xs border border-slate-200 flex flex-wrap items-center justify-between gap-4">
+          
+          {/* Photos vs Videos Mode */}
+          <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xs border border-slate-200">
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 ${
-                activeCategory === cat
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+              onClick={() => setActiveTab('photos')}
+              className={`flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold rounded-xs transition-all ${
+                activeTab === 'photos'
+                  ? 'bg-[#02263c] text-white shadow-xs'
+                  : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              {cat}
+              <ImageIcon className="w-3.5 h-3.5" />
+              <span>Photo Gallery</span>
             </button>
-          ))}
+            <button
+              onClick={() => setActiveTab('videos')}
+              className={`flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold rounded-xs transition-all ${
+                activeTab === 'videos'
+                  ? 'bg-[#02263c] text-white shadow-xs'
+                  : 'text-slate-700 hover:text-slate-900'
+              }`}
+            >
+              <Video className="w-3.5 h-3.5" />
+              <span>Video Gallery</span>
+            </button>
+          </div>
+
+          {/* Category Filter Pills (When on Photos tab) */}
+          {activeTab === 'photos' && (
+            <div className="flex flex-wrap items-center gap-1.5">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    setActiveCategory(cat);
+                    setSelectedPhotoIndex(null);
+                  }}
+                  className={`text-xs px-3 py-1.5 rounded-xs font-semibold transition-all ${
+                    activeCategory === cat
+                      ? 'bg-[#673035] text-white shadow-xs'
+                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => setActiveMedia(item)}
-              className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-indigo-500 shadow-sm hover:shadow-xl transition-all cursor-pointer flex flex-col justify-between"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
-                <img
-                  src={item.url}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/40 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <div className="p-2.5 rounded-full bg-white/90 text-slate-900 shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all">
-                    <Maximize2 className="w-5 h-5" />
+        {/* PHOTOS TAB VIEW: 6-Column Grid matching NIT Hamirpur */}
+        {activeTab === 'photos' && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {filteredPhotos.map((item, idx) => (
+              <div
+                key={item.id}
+                onClick={() => setSelectedPhotoIndex(idx)}
+                className="group relative block bg-slate-900 overflow-hidden cursor-pointer rounded-xs shadow-xs border border-slate-200 hover:border-slate-400 hover:shadow-lg transition-all duration-300"
+                title={item.title}
+              >
+                {/* Thumbnail Image */}
+                <div className="relative w-full aspect-[4/3] sm:h-36 overflow-hidden bg-slate-900 flex items-center justify-center">
+                  <img
+                    src={item.thumbnail}
+                    alt={item.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center transform transition-transform duration-500 ease-out group-hover:scale-115"
+                  />
+
+                  {/* NIT Hamirpur Rotating Overlay Effect */}
+                  <div 
+                    className="absolute inset-0 bg-black/65 flex flex-col items-center justify-center p-2 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"
+                    style={{ backdropFilter: 'blur(1.5px)' }}
+                  >
+                    <div className="w-10 h-10 rounded-full bg-white/20 border border-white/60 flex items-center justify-center text-white mb-1.5 shadow-lg transform -rotate-45 scale-75 group-hover:rotate-0 group-hover:scale-100 transition-transform duration-300">
+                      <ZoomIn className="w-5 h-5 text-amber-300" />
+                    </div>
+                    <p className="text-[11px] font-semibold text-white line-clamp-2 leading-tight px-1">
+                      {item.title}
+                    </p>
+                    <span className="mt-1 inline-block text-[9px] uppercase tracking-wider text-amber-300 font-bold bg-black/40 px-1.5 py-0.5 rounded-xs">
+                      {item.category}
+                    </span>
                   </div>
                 </div>
-                <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 rounded-lg bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider">
-                    {item.category}
-                  </span>
+
+                {/* Subtitle Bar below photo */}
+                <div className="p-2 bg-white border-t border-slate-100">
+                  <p className="text-[11px] font-semibold text-slate-800 truncate" title={item.title}>
+                    {item.title}
+                  </p>
+                  <p className="text-[10px] text-slate-500 flex items-center justify-between mt-0.5">
+                    <span>{item.category}</span>
+                    <span className="font-mono">{item.date}</span>
+                  </p>
                 </div>
               </div>
+            ))}
+          </div>
+        )}
 
-              <div className="p-5">
-                <div className="flex items-center gap-2 text-[11px] text-slate-500 mb-1">
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>Session {item.date}</span>
-                </div>
-                <h3 className="text-sm font-bold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">
-                  {item.title}
-                </h3>
-                <p className="mt-1 text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                  {item.caption}
-                </p>
+        {/* VIDEOS TAB VIEW */}
+        {activeTab === 'videos' && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white rounded-xs shadow-xs border border-slate-200 overflow-hidden">
+              <div className="relative aspect-video bg-black flex items-center justify-center">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="Campus Tour Gautam Group of Colleges"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-4">
+                <h3 className="font-bold text-slate-900 text-sm">Gautam Group of Colleges Hamirpur – Institutional Campus Walkthrough</h3>
+                <p className="text-xs text-slate-500 mt-1">Gautam College of Nursing, Polytechnic, Management & Technology Hamirpur (H.P.)</p>
               </div>
             </div>
-          ))}
-        </div>
+
+            <div className="bg-white rounded-xs shadow-xs border border-slate-200 overflow-hidden">
+              <div className="relative aspect-video bg-black flex items-center justify-center">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="Annual Sports Meet Highlights"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-4">
+                <h3 className="font-bold text-slate-900 text-sm">Inter-College Sports Tournament & Athletics Meet</h3>
+                <p className="text-xs text-slate-500 mt-1">Badminton, volleyball, basketball, and table tennis championships.</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xs shadow-xs border border-slate-200 overflow-hidden">
+              <div className="relative aspect-video bg-black flex items-center justify-center">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="Himachali Folk & Cultural Fest"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-4">
+                <h3 className="font-bold text-slate-900 text-sm">Annual Cultural Fest & Himachali Natti Performances</h3>
+                <p className="text-xs text-slate-500 mt-1">Celebration of youth culture and Himachali folk heritage.</p>
+              </div>
+            </div>
+          </div>
+        )}
 
       </div>
 
-      {/* Lightbox Modal */}
-      {activeMedia && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
-            
-            <button
-              onClick={() => setActiveMedia(null)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/60 hover:bg-black/90 text-white transition"
-              aria-label="Close"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="max-h-[70vh] bg-black flex items-center justify-center">
-              <img
-                src={activeMedia.url}
-                alt={activeMedia.title}
-                className="max-h-[70vh] w-auto max-w-full object-contain"
-              />
+      {/* Interactive Lightbox Modal */}
+      {activePhoto && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/92 backdrop-blur-md flex flex-col justify-between animate-fadeIn select-none"
+          onClick={() => setSelectedPhotoIndex(null)}
+        >
+          {/* Top Bar with Title, Counter, and Close Button */}
+          <div 
+            className="w-full bg-black/60 border-b border-white/10 px-4 py-3 flex items-center justify-between z-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-3 text-white max-w-2xl">
+              <span className="px-2.5 py-1 text-xs font-bold uppercase rounded-xs bg-[#673035] text-amber-300 border border-amber-300/30">
+                {activePhoto.category}
+              </span>
+              <h4 className="text-sm sm:text-base font-bold text-slate-100 truncate">
+                {activePhoto.title}
+              </h4>
             </div>
 
-            <div className="p-6 bg-slate-900 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <span className="text-[10px] uppercase tracking-wider text-amber-400 font-bold">
-                  {activeMedia.category} • Year {activeMedia.date}
-                </span>
-                <h3 className="text-base font-bold mt-0.5">{activeMedia.title}</h3>
-                <p className="text-xs text-slate-400 mt-1">{activeMedia.caption}</p>
-              </div>
-
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono text-slate-300 bg-white/10 px-2.5 py-1 rounded-xs">
+                {selectedPhotoIndex + 1} / {filteredPhotos.length}
+              </span>
               <button
-                onClick={() => {
-                  setActiveMedia(null);
-                  onOpenApply('apply', activeMedia.title);
-                }}
-                className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition shrink-0"
+                onClick={() => setSelectedPhotoIndex(null)}
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-red-600 text-white flex items-center justify-center transition-colors"
+                title="Close Lightbox (Esc)"
               >
-                Inquire About Facilities
+                <X className="w-5 h-5" />
               </button>
             </div>
+          </div>
 
+          {/* Main Stage Image & Next/Prev Controls */}
+          <div 
+            className="relative flex-1 flex items-center justify-center p-4 sm:p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedPhotoIndex((prev) => (prev - 1 + filteredPhotos.length) % filteredPhotos.length)}
+              className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-[#673035] border border-white/20 text-white flex items-center justify-center shadow-2xl transition-all transform hover:scale-110 z-20"
+              title="Previous Photo (Left Arrow)"
+            >
+              <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
+            </button>
+
+            <div className="max-w-4xl max-h-[70vh] flex flex-col items-center">
+              <img
+                src={activePhoto.fullImage}
+                alt={activePhoto.title}
+                className="max-h-[65vh] w-auto max-w-full object-contain rounded-xs shadow-2xl border border-white/10"
+              />
+              <p className="mt-3 text-xs sm:text-sm text-slate-300 text-center max-w-2xl px-4 line-clamp-2">
+                {activePhoto.caption}
+              </p>
+            </div>
+
+            <button
+              onClick={() => setSelectedPhotoIndex((prev) => (prev + 1) % filteredPhotos.length)}
+              className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-[#673035] border border-white/20 text-white flex items-center justify-center shadow-2xl transition-all transform hover:scale-110 z-20"
+              title="Next Photo (Right Arrow)"
+            >
+              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+            </button>
+          </div>
+
+          {/* Bottom Thumbnail Strip */}
+          <div 
+            className="w-full bg-black/75 border-t border-white/10 p-2 overflow-x-auto flex items-center justify-center gap-2"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {filteredPhotos.map((photo, i) => (
+              <button
+                key={photo.id}
+                onClick={() => setSelectedPhotoIndex(i)}
+                className={`relative w-14 h-10 rounded-xs overflow-hidden shrink-0 border-2 transition-all ${
+                  i === selectedPhotoIndex ? 'border-amber-400 scale-110 shadow-lg' : 'border-transparent opacity-50 hover:opacity-100'
+                }`}
+              >
+                <img
+                  src={photo.thumbnail}
+                  alt={photo.title}
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            ))}
           </div>
         </div>
       )}
-
     </div>
   );
 }
