@@ -6,12 +6,11 @@ import {
   Mail, 
   ShieldCheck, 
   ExternalLink,
-  Heart,
-  Globe,
-  Award
+  Award,
+  Database
 } from 'lucide-react';
 
-export default function Footer({ onOpenApply }) {
+export default function Footer({ onNavigate, onOpenApply, onOpenPortalModal }) {
   return (
     <footer className="bg-slate-950 text-slate-300 border-t border-slate-800 text-sm">
       
@@ -65,22 +64,46 @@ export default function Footer({ onOpenApply }) {
             </div>
           </div>
 
-          {/* Col 3: Constituent Colleges */}
+          {/* Col 3: Academic Sections */}
           <div>
             <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4">
-              Constituent Colleges
+              Academic Blueprint
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
-              <li><a href="#colleges" className="hover:text-white transition-colors">Gautam College of Pharmacy</a></li>
-              <li><a href="#colleges" className="hover:text-white transition-colors">Gautam College of Nursing</a></li>
-              <li><a href="#colleges" className="hover:text-white transition-colors">Gautam Inst. of Mgmt & Tech (GIMT)</a></li>
-              <li><a href="#colleges" className="hover:text-white transition-colors">Gautam Post-Graduate Degree College</a></li>
-              <li><a href="#colleges" className="hover:text-white transition-colors">Gautam College of Hotel Management</a></li>
-              <li><a href="#colleges" className="hover:text-white transition-colors">Gautam Polytechnic & ITI</a></li>
+              <li>
+                <button onClick={() => onNavigate && onNavigate('about')} className="hover:text-white transition-colors">
+                  About Us & Governance
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate && onNavigate('affiliations')} className="hover:text-white transition-colors">
+                  Affiliations & Approvals
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate && onNavigate('academics')} className="hover:text-white transition-colors">
+                  Departments & Syllabi
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate && onNavigate('admissions')} className="hover:text-white transition-colors">
+                  Fee Structure & Scholarships
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate && onNavigate('faculty')} className="hover:text-white transition-colors">
+                  Faculty & Staff Directory
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate && onNavigate('facilities')} className="hover:text-white transition-colors">
+                  Central Library & Hospital
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Col 4: Courses & Admissions */}
+          {/* Col 4: Programs Offered */}
           <div>
             <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4">
               Programs Offered
@@ -98,19 +121,24 @@ export default function Footer({ onOpenApply }) {
           {/* Col 5: Quick Connect & Location */}
           <div>
             <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4">
-              Location & Transport
+              Location & Portals
             </h4>
-            <p className="text-xs text-slate-400 mb-3">
-              Prime location in Hamirpur city right adjacent to Hamirpur Bus Stand with direct bus connectivity across Bilaspur, Kangra, Mandi, and Una districts.
+            <p className="text-xs text-slate-400 mb-3 leading-relaxed">
+              Prime location in Hamirpur city, 800m from Hamirpur Bus Stand with regular buses across HP, Punjab & Chandigarh.
             </p>
-            <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs">
-              <div className="text-emerald-400 font-bold">🚍 Student Bus Pass:</div>
-              <div className="text-slate-400 text-[11px]">HRTC Concessional Bus Pass verification facility available at college office.</div>
+            <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-2.5 text-xs">
               <button
-                onClick={() => onOpenApply('bus-pass')}
-                className="w-full py-1.5 px-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[11px] transition-colors"
+                onClick={onOpenPortalModal}
+                className="w-full py-2 px-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5"
               >
-                Apply for Bus Concession
+                <Database className="w-3.5 h-3.5" />
+                <span>Student Portals Gateway</span>
+              </button>
+              <button
+                onClick={() => onNavigate && onNavigate('contact')}
+                className="w-full py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs transition-colors text-center"
+              >
+                View Hamirpur Campus Map
               </button>
             </div>
           </div>
@@ -127,10 +155,18 @@ export default function Footer({ onOpenApply }) {
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-slate-300">Mandatory AICTE Disclosure</a>
-            <a href="#" className="hover:text-slate-300">Anti-Ragging Committee</a>
-            <a href="#" className="hover:text-slate-300">RTI Cell</a>
-            <a href="#" className="hover:text-slate-300">Grievance Redressal</a>
+            <button onClick={() => onNavigate && onNavigate('compliance')} className="hover:text-slate-300">
+              Mandatory AICTE Disclosure
+            </button>
+            <button onClick={() => onNavigate && onNavigate('compliance')} className="hover:text-slate-300">
+              Anti-Ragging Committee
+            </button>
+            <button onClick={() => onNavigate && onNavigate('compliance')} className="hover:text-slate-300">
+              RTI Cell
+            </button>
+            <button onClick={() => onNavigate && onNavigate('compliance')} className="hover:text-slate-300">
+              Grievance Redressal
+            </button>
           </div>
 
           <div>
