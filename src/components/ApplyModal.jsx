@@ -14,7 +14,7 @@ import {
   MapPin
 } from 'lucide-react';
 
-export default function ApplyModal({ isOpen, onClose, mode, contextData, preset }) {
+export default function ApplyModal({ isOpen, onClose, mode, contextData }) {
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',

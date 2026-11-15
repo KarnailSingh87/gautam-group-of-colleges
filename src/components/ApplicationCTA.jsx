@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sparkles, ArrowRight, ShieldCheck, Download, Calendar, MessageCircle, FileCheck, Phone } from 'lucide-react';
 
-export default function ApplicationCTA({ preset, onOpenApply }) {
+export default function ApplicationCTA({ onOpenApply }) {
   return (
     <section className="py-20 lg:py-28 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

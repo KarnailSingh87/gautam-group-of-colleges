@@ -17,7 +17,6 @@ import {
 } from 'lucide-react';
 
 export default function HeroSection({ 
-  preset, 
   onOpenTour, 
   onScrollToPrograms, 
   onOpenApply 

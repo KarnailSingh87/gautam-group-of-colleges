@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { PRESETS } from './data/mockData';
-import ClientBar from './components/ClientBar';
+import TopUtilityBar from './components/TopUtilityBar';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ConstituentColleges from './components/ConstituentColleges';
@@ -18,8 +17,6 @@ import ApplyModal from './components/ApplyModal';
 import HimtuServicesModal from './components/HimtuServicesModal';
 
 export default function App() {
-  const [currentPresetKey, setCurrentPresetKey] = useState('ggchmr'); // Default to Gautam Group of Colleges Hamirpur!
-  const [isPitchOpen, setIsPitchOpen] = useState(false);
   const [isTourOpen, setIsTourOpen] = useState(false);
   const [applyModal, setApplyModal] = useState({
     isOpen: false,
@@ -31,8 +28,6 @@ export default function App() {
     modalType: 'otr',
     initialData: null
   });
-
-  const currentPreset = PRESETS[currentPresetKey] || PRESETS.ggchmr;
 
   const handleOpenApply = (mode = 'apply', contextData = null) => {
     setApplyModal({
@@ -68,19 +63,13 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-indigo-600 selection:text-white">
       
-      {/* 1. Client Presentation Mode Bar & Pitch Deck Drawer */}
-      <ClientBar
-        currentPreset={currentPreset}
-        onSelectPreset={(key) => setCurrentPresetKey(key)}
-        presets={PRESETS}
-        isPitchOpen={isPitchOpen}
-        setIsPitchOpen={setIsPitchOpen}
-        onOpenApply={handleOpenApply}
+      {/* 1. Official Institutional Utility Header (Contact, Portal Links, Approvals) */}
+      <TopUtilityBar
+        onOpenPortal={handleOpenServiceModal}
       />
 
-      {/* 2. Institutional Navigation Bar */}
+      {/* 2. Main Institutional Navigation Bar */}
       <Navbar
-        preset={currentPreset}
         onOpenApply={handleOpenApply}
         onOpenTour={() => setIsTourOpen(true)}
         onScrollToPrograms={handleScrollToPrograms}
@@ -89,9 +78,8 @@ export default function App() {
       {/* Main Page Body */}
       <main className="flex-1">
         
-        {/* 3. Hero Section (21st.dev / Dribbble Fusion tailored to GGC Hamirpur) */}
+        {/* 3. Hero Section (21st.dev / Dribbble Bento Fusion) */}
         <HeroSection
-          preset={currentPreset}
           onOpenTour={() => setIsTourOpen(true)}
           onScrollToPrograms={handleScrollToPrograms}
           onOpenApply={handleOpenApply}
@@ -114,7 +102,6 @@ export default function App() {
 
         {/* 7. Institutional Bento Grid (Why Choose GGC Hamirpur) */}
         <StatsBento
-          preset={currentPreset}
           onOpenApply={handleOpenApply}
         />
 
@@ -140,7 +127,6 @@ export default function App() {
 
         {/* 12. High-Conversion Enrollment Call to Action */}
         <ApplicationCTA
-          preset={currentPreset}
           onOpenApply={handleOpenApply}
         />
 
@@ -148,7 +134,6 @@ export default function App() {
 
       {/* 13. Comprehensive Collegiate Footer */}
       <Footer
-        preset={currentPreset}
         onOpenApply={handleOpenApply}
       />
 
@@ -159,13 +144,12 @@ export default function App() {
         onOpenApply={handleOpenApply}
       />
 
-      {/* 15. Interactive Multi-mode Admissions Modal */}
+      {/* 15. Admissions & Registration Modal */}
       <ApplyModal
         isOpen={applyModal.isOpen}
         onClose={handleCloseApply}
         mode={applyModal.mode}
         contextData={applyModal.contextData}
-        preset={currentPreset}
       />
 
       {/* 16. GGC / HPTU Digital Services Interactive Modal */}

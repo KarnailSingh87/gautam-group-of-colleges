@@ -20,7 +20,6 @@ import {
 } from 'lucide-react';
 
 export default function Navbar({ 
-  preset, 
   onOpenApply, 
   onOpenTour,
   onScrollToPrograms 
@@ -28,7 +27,7 @@ export default function Navbar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-[37px] z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all shadow-sm">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all shadow-sm">
       {/* Institutional Ribbon / Announcement Banner */}
       <div className="bg-slate-900 text-white text-[11px] py-1.5 px-4 hidden sm:block border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex items-center justify-between">

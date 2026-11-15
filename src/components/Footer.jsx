@@ -11,7 +11,7 @@ import {
   Award
 } from 'lucide-react';
 
-export default function Footer({ preset, onOpenApply }) {
+export default function Footer({ onOpenApply }) {
   return (
     <footer className="bg-slate-950 text-slate-300 border-t border-slate-800 text-sm">
       

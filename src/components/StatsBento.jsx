@@ -14,7 +14,7 @@ import {
   HeartPulse
 } from 'lucide-react';
 
-export default function StatsBento({ preset, onOpenApply }) {
+export default function StatsBento({ onOpenApply }) {
   return (
     <section id="bento" className="py-20 lg:py-28 bg-white text-slate-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
