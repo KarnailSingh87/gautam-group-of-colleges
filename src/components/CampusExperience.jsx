@@ -11,6 +11,7 @@ import {
   ArrowRight 
 } from 'lucide-react';
 import { CAMPUS_FACILITIES } from '../data/mockData';
+import { getCdnUrl } from '../utils/cloudinary';
 
 export default function CampusExperience({ onOpenTour }) {
   const [activeTab, setActiveTab] = useState(CAMPUS_FACILITIES[0].id);
@@ -79,7 +80,7 @@ export default function CampusExperience({ onOpenTour }) {
           {/* Visual Presentation (7 Cols) */}
           <div className="lg:col-span-7 relative h-[360px] sm:h-[480px] overflow-hidden group">
             <img 
-              src={currentFacility.image} 
+              src={getCdnUrl(currentFacility.image)} 
               alt={currentFacility.name}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
