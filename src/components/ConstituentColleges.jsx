@@ -38,10 +38,15 @@ export default function ConstituentColleges({ onOpenApply }) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                   
-                  <div className="absolute bottom-3 left-3 right-3 text-white">
+                  <div className="absolute bottom-3 left-3 right-3 text-white flex items-center justify-between">
                     <span className="px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-slate-900 text-[10px] font-bold shadow">
                       {college.degrees.split('•')[0]}
                     </span>
+                    {college.id === 'nursing' && (
+                      <span className="px-2 py-0.5 rounded-full bg-indigo-600/90 text-white text-[9px] font-bold shadow">
+                        Real Campus Photo
+                      </span>
+                    )}
                   </div>
                 </div>
 

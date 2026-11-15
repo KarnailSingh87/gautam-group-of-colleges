@@ -4,13 +4,13 @@ import { X, Compass, MapPin, Play, Volume2, Eye, ChevronRight, CheckCircle2, Cal
 const TOUR_STOPS = [
   {
     id: 1,
-    title: 'GGC Administrative Block & Campus Quad',
-    category: 'Hamirpur Central Campus',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80',
+    title: 'Gautam College of Nursing & Main Campus Quad',
+    category: 'Hamirpur Main Campus View',
+    image: 'https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg',
     audioTrack: 'Audio Guide: Located near Hamirpur Bus Stand, serving 25,000+ students across Himachal Pradesh since 1999.',
     hotspots: [
       { name: 'Central Admission & Counseling Cell', x: '30%', y: '45%' },
-      { name: 'Silver Jubilee Memorial Wing', x: '70%', y: '50%' },
+      { name: 'Silver Jubilee Academic Wing', x: '70%', y: '50%' },
     ]
   },
   {

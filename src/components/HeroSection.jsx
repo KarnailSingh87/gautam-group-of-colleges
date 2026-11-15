@@ -114,22 +114,32 @@ export default function HeroSection({
             
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Primary Image Card: GGC Campus / Pharmacy & Nursing Labs */}
+              {/* Primary Image Card: Real Campus View of Gautam College of Nursing, Hamirpur */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700 group">
                 <img 
-                  src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1000&q=80" 
-                  alt="Gautam Group of Colleges Laboratories" 
-                  className="w-full h-[420px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  src="https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg" 
+                  alt="Campus View of Gautam College of Nursing, Hamirpur" 
+                  className="w-full h-[430px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+
+                {/* Top Institution Official Crest Tag */}
+                <div className="absolute top-4 right-4 z-10 flex items-center gap-2 bg-slate-950/85 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-slate-700 shadow-xl">
+                  <img 
+                    src="https://cache.careers360.mobi/media/colleges/social-media/logo/Logo_of_Gautam_College_Hamirpur_Logo.jpg"
+                    alt="GGC Logo" 
+                    className="w-6 h-6 rounded-full object-cover bg-white p-0.5"
+                  />
+                  <span className="text-[11px] font-bold text-amber-300">GGC Hamirpur</span>
+                </div>
 
                 {/* Bottom Overlay Label */}
                 <div className="absolute bottom-5 left-5 right-5 text-white">
                   <div className="inline-block px-2.5 py-1 rounded bg-indigo-600/90 backdrop-blur-sm text-[11px] font-bold uppercase tracking-wider mb-2">
-                    PCI & INC Approved Campus Labs
+                    Actual Campus View • Gautam College of Nursing
                   </div>
                   <h3 className="text-base sm:text-lg font-bold">25 Years of Shaping Healthcare & Technology Leaders</h3>
-                  <p className="text-xs text-slate-300 mt-0.5">District Hamirpur's first and largest multi-disciplinary private campus</p>
+                  <p className="text-xs text-slate-300 mt-0.5">Near Bus Stand, Hamirpur • INC, HPNRC & AMRU Approved Campus</p>
                 </div>
               </div>
 

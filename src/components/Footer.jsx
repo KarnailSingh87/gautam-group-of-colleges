@@ -22,8 +22,12 @@ export default function Footer({ preset, onOpenApply }) {
           {/* Col 1 & 2: Brand & Institution Overview */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold shadow-md">
-                <GraduationCap className="w-7 h-7 text-amber-300" />
+              <div className="w-12 h-12 rounded-2xl bg-white text-white flex items-center justify-center font-bold shadow-md overflow-hidden p-1">
+                <img 
+                  src="https://cache.careers360.mobi/media/colleges/social-media/logo/Logo_of_Gautam_College_Hamirpur_Logo.jpg" 
+                  alt="Gautam Group Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <span className="font-serif font-black text-xl text-white tracking-tight">

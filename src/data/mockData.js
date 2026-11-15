@@ -1,3 +1,10 @@
+export const REAL_ASSETS = {
+  campusView: 'https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg',
+  collegeLogo: 'https://cache.careers360.mobi/media/colleges/social-media/logo/Logo_of_Gautam_College_Hamirpur_Logo.jpg',
+  nursingLogo: 'https://cache.careers360.mobi/media/colleges/social-media/logo/logo_MF6czwx.jpg',
+  pharmaLogo: 'https://cache.careers360.mobi/media/colleges/social-media/logo/Logo_7nzI5EG.jpg'
+};
+
 export const PRESETS = {
   ggchmr: {
     id: 'ggchmr',
@@ -8,6 +15,8 @@ export const PRESETS = {
     location: 'Near Bus Stand, Hamirpur, Himachal Pradesh 177001',
     badgeText: 'Affiliated to HPTU, HPU & AMRU • Approved by AICTE, PCI, INC & HPNRC',
     heroTag: 'Pharmacy • Nursing • Management • Sciences • Technology',
+    logo: 'https://cache.careers360.mobi/media/colleges/social-media/logo/Logo_of_Gautam_College_Hamirpur_Logo.jpg',
+    campusImg: 'https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg',
     accentColor: 'indigo',
     primaryTheme: {
       bgGradient: 'from-slate-950 via-slate-900 to-indigo-950',
@@ -53,7 +62,7 @@ export const CONSTITUENT_COLLEGES = [
     approvals: 'Approved by INC & HPNRC • Affiliated to AMRU, Nerchowk',
     degrees: 'B.Sc. Nursing (4 Yrs) • Post Basic B.Sc. (2 Yrs) • GNM (3 Yrs)',
     highlights: 'Tie-ups with Top Super-Specialty Hospitals (Fortis, Max, IGMC Shimla) for Clinical Training & Internships',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+    image: 'https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg',
     color: 'from-blue-600 to-cyan-800'
   },
   {
@@ -280,6 +289,14 @@ export const PROGRAMS = [
 ];
 
 export const CAMPUS_FACILITIES = [
+  {
+    id: 'nursing-campus',
+    name: 'Gautam College of Nursing & Main Academic Campus',
+    category: 'INC & AMRU Approved Campus',
+    stat: 'State-of-the-Art Multi-Storey Infrastructure at Hamirpur',
+    image: 'https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/12841/2018/12/27/Campus%20View%20of%20Gautam%20College%20of%20Nursing,%20Hamirpur_Campus%20View.jpg',
+    desc: 'The landmark campus of Gautam College of Nursing and Gautam Group in Hamirpur, housing clinical simulation laboratories, nursing foundations bays, and smart audio-visual lecture theatres.'
+  },
   {
     id: 'pharma-lab',
     name: 'Advanced Pharmaceutical & Microbiology Research Laboratories',
