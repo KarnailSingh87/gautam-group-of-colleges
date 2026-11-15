@@ -126,7 +126,7 @@ export default function HimtuHeroSection({
       {/* 1. PINNED LEFT SOCIAL MEDIA SIDEBAR (Exact HPTU Style) */}
       <div className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1.5 shadow-md">
         <a 
-          href="https://facebook.com" 
+          href="https://www.facebook.com/search/top?q=Gautam%20Group%20of%20Colleges%20Hamirpur" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="w-9 h-9 bg-[#1877f2] text-white flex items-center justify-center hover:w-11 transition-all rounded-r"
@@ -135,7 +135,7 @@ export default function HimtuHeroSection({
           <span className="font-bold text-sm">f</span>
         </a>
         <a 
-          href="https://twitter.com" 
+          href="https://twitter.com/search?q=Gautam%20College%20Hamirpur" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="w-9 h-9 bg-black text-white flex items-center justify-center hover:w-11 transition-all rounded-r font-bold text-sm"
@@ -144,7 +144,7 @@ export default function HimtuHeroSection({
           𝕏
         </a>
         <a 
-          href="https://instagram.com" 
+          href="https://www.instagram.com/explore/tags/gautamcollegehamirpur/" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="w-9 h-9 bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center hover:w-11 transition-all rounded-r text-xs font-bold"
@@ -153,11 +153,11 @@ export default function HimtuHeroSection({
           IG
         </a>
         <a 
-          href="https://youtube.com" 
+          href="https://www.youtube.com/@gautamgroupofcollegesggc2063" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="w-9 h-9 bg-[#ff0000] text-white flex items-center justify-center hover:w-11 transition-all rounded-r font-bold text-xs"
-          title="YouTube"
+          title="YouTube (@gautamgroupofcollegesggc2063)"
         >
           YT
         </a>

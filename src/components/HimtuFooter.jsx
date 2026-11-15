@@ -175,16 +175,16 @@ export default function HimtuFooter({ onNavigate, onOpenCMSModal, onOpenPortalMo
               <div>
                 <span className="text-xs font-bold text-slate-300 block mb-2">Connect With Us:</span>
                 <div className="flex items-center gap-2">
-                  <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#1877F2] flex items-center justify-center transition">
+                  <a href="https://www.facebook.com/search/top?q=Gautam%20Group%20of%20Colleges%20Hamirpur" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#1877F2] flex items-center justify-center transition" title="Facebook">
                     <FacebookIcon className="w-4 h-4 text-white" />
                   </a>
-                  <a href="https://youtube.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#FF0000] flex items-center justify-center transition">
+                  <a href="https://www.youtube.com/@gautamgroupofcollegesggc2063" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#FF0000] flex items-center justify-center transition" title="YouTube">
                     <YoutubeIcon className="w-4 h-4 text-white" />
                   </a>
-                  <a href="https://x.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-black flex items-center justify-center transition">
+                  <a href="https://twitter.com/search?q=Gautam%20College%20Hamirpur" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-black flex items-center justify-center transition" title="X / Twitter">
                     <XIcon className="w-4 h-4 text-white" />
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-pink-600 flex items-center justify-center transition">
+                  <a href="https://www.instagram.com/explore/tags/gautamcollegehamirpur/" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-lg bg-white/10 hover:bg-pink-600 flex items-center justify-center transition" title="Instagram">
                     <InstagramIcon className="w-4 h-4 text-white" />
                   </a>
                 </div>

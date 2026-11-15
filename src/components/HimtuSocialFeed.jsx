@@ -35,10 +35,11 @@ export default function HimtuSocialFeed() {
                 <span>Facebook</span>
               </div>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/search/top?q=Gautam%20Group%20of%20Colleges%20Hamirpur"
                 target="_blank"
                 rel="noreferrer"
                 className="text-white/80 hover:text-white transition"
+                title="Visit Official Facebook Page"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
@@ -95,10 +96,11 @@ export default function HimtuSocialFeed() {
                 <span>YouTube</span>
               </div>
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@gautamgroupofcollegesggc2063"
                 target="_blank"
                 rel="noreferrer"
                 className="text-white/80 hover:text-white transition"
+                title="Visit Official YouTube Channel (@gautamgroupofcollegesggc2063)"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
@@ -118,7 +120,13 @@ export default function HimtuSocialFeed() {
                 </div>
               </div>
 
-              <div className="relative rounded-lg overflow-hidden aspect-[4/3] bg-slate-900 group cursor-pointer">
+              <a 
+                href="https://www.youtube.com/@gautamgroupofcollegesggc2063" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="relative rounded-lg overflow-hidden aspect-[4/3] bg-slate-900 group cursor-pointer block"
+                title="Play Campus Tour & Silver Jubilee Fest on YouTube"
+              >
                 <img 
                   src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80" 
                   alt="YouTube Video Thumbnail" 
@@ -132,7 +140,7 @@ export default function HimtuSocialFeed() {
                 <div className="absolute bottom-2 right-2 bg-black/80 text-white text-[10px] font-mono px-1.5 py-0.5 rounded">
                   06:42
                 </div>
-              </div>
+              </a>
 
               <p className="text-xs font-semibold text-slate-800 line-clamp-2">
                 Campus Life & Silver Jubilee Fest Highlights | Gautam Group of Colleges Hamirpur
@@ -140,7 +148,15 @@ export default function HimtuSocialFeed() {
 
               <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-slate-500 text-xs">
                 <span>3.2K Views</span>
-                <span className="text-red-600 font-bold hover:underline cursor-pointer">Watch Video</span>
+                <a 
+                  href="https://www.youtube.com/@gautamgroupofcollegesggc2063" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="text-red-600 font-bold hover:underline cursor-pointer flex items-center gap-1"
+                >
+                  <span>Watch Video</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
             </div>
           </div>
@@ -154,10 +170,11 @@ export default function HimtuSocialFeed() {
                 <span>X (Twitter)</span>
               </div>
               <a
-                href="https://x.com"
+                href="https://twitter.com/search?q=Gautam%20College%20Hamirpur"
                 target="_blank"
                 rel="noreferrer"
                 className="text-white/80 hover:text-white transition"
+                title="View on X (Twitter)"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
@@ -209,10 +226,11 @@ export default function HimtuSocialFeed() {
                 <span>Instagram</span>
               </div>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/explore/tags/gautamcollegehamirpur/"
                 target="_blank"
                 rel="noreferrer"
                 className="text-white/80 hover:text-white transition"
+                title="View on Instagram"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
@@ -229,18 +247,28 @@ export default function HimtuSocialFeed() {
                   />
                   <span className="font-bold text-xs text-slate-900">gautam_colleges_hamirpur</span>
                 </div>
-                <span className="text-[10px] font-bold text-blue-600 border border-blue-600 rounded px-1.5 py-0.5">
+                <a 
+                  href="https://www.instagram.com/explore/tags/gautamcollegehamirpur/" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="text-[10px] font-bold text-blue-600 border border-blue-600 rounded px-1.5 py-0.5 hover:bg-blue-50 transition"
+                >
                   Follow
-                </span>
+                </a>
               </div>
 
-              <div className="rounded-lg overflow-hidden aspect-[4/3] bg-slate-100 border border-slate-200 group">
+              <a 
+                href="https://www.instagram.com/explore/tags/gautamcollegehamirpur/" 
+                target="_blank" 
+                rel="noreferrer"
+                className="rounded-lg overflow-hidden aspect-[4/3] bg-slate-100 border border-slate-200 group block"
+              >
                 <img 
                   src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" 
                   alt="Instagram Campus Life" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-              </div>
+              </a>
 
               <p className="text-xs text-slate-700 line-clamp-2 leading-relaxed">
                 Celebrating 25 Glorious Years of Excellence in Education, Research & Healthcare in Hamirpur! ✨🎓
@@ -250,7 +278,15 @@ export default function HimtuSocialFeed() {
                 <span className="flex items-center gap-1 font-medium text-rose-600">
                   <Heart className="w-3.5 h-3.5 fill-rose-600" /> 542 Likes
                 </span>
-                <span className="text-slate-400 text-[11px]">View Profile</span>
+                <a 
+                  href="https://www.instagram.com/explore/tags/gautamcollegehamirpur/" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="text-slate-500 hover:text-pink-600 text-[11px] font-medium flex items-center gap-0.5"
+                >
+                  <span>View Profile</span>
+                  <ExternalLink className="w-2.5 h-2.5" />
+                </a>
               </div>
             </div>
           </div>
