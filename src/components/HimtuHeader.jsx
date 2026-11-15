@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Search, 
   Home, 
@@ -23,6 +23,41 @@ import TelephoneDirectoryModal from './TelephoneDirectoryModal';
 import WebMailModal from './WebMailModal';
 import { getCdnUrl } from '../utils/cloudinary';
 
+const QUICK_SEARCH_ITEMS = [
+  // Academic Programs
+  { title: 'Bachelor of Pharmacy (B.Pharm)', subtitle: '4 Years • PCI New Delhi & HPTU Hamirpur Affiliated', category: 'Pharmacy', page: 'academics', keywords: 'pharmacy bpharm medicine gcp pills' },
+  { title: 'Diploma in Pharmacy (D.Pharm)', subtitle: '2 Years • PCI Approved Diploma in Pharmacy', category: 'Pharmacy', page: 'academics', keywords: 'dpharm diploma pharmacy medicine' },
+  { title: 'B.Sc. Nursing', subtitle: '4 Years • INC New Delhi & AMRU Nerchowk Approved', category: 'Nursing', page: 'academics', keywords: 'nursing bsc medical healthcare hospital gcn' },
+  { title: 'General Nursing & Midwifery (GNM)', subtitle: '3 Years • Diploma Nursing & Clinical Healthcare', category: 'Nursing', page: 'academics', keywords: 'gnm nursing midwifery hospital' },
+  { title: 'Post Basic B.Sc. Nursing', subtitle: '2 Years Degree for Registered GNM Nurses', category: 'Nursing', page: 'academics', keywords: 'post basic nursing gcn' },
+  { title: 'Master of Business Administration (MBA)', subtitle: '2 Years • AICTE Approved & HPTU Affiliated', category: 'Management', page: 'academics', keywords: 'mba management business gimt finance marketing hr' },
+  { title: 'Bachelor of Computer Applications (BCA)', subtitle: '3 Years Degree in Software & Web Development', category: 'IT & CS', page: 'academics', keywords: 'bca computer coding it software programming' },
+  { title: 'Master of Computer Applications (MCA)', subtitle: '2 Years Advanced Postgraduate IT Degree', category: 'IT & CS', page: 'academics', keywords: 'mca computer data software developer' },
+  { title: 'Bachelor of Hotel Management (BHM)', subtitle: '4 Years Hospitality, Catering & Tourism Degree', category: 'Hospitality', page: 'academics', keywords: 'hotel management bhm food culinary chef gchm' },
+  { title: 'Polytechnic Engineering Diplomas', subtitle: 'Mechanical, Civil, Electrical & Computer Engineering', category: 'Engineering', page: 'academics', keywords: 'polytechnic diploma engineering gpc technical' },
+  { title: 'M.Sc. Chemistry, Physics, Botany, Zoology', subtitle: 'Postgraduate Sciences • HPU Shimla Affiliated', category: 'Sciences', page: 'academics', keywords: 'msc science chemistry physics botany zoology degree college gdc' },
+  { title: 'BBA & B.Com (Bachelor of Commerce)', subtitle: 'Undergraduate Business, Banking & Finance Degrees', category: 'Commerce', page: 'academics', keywords: 'bba bcom commerce accounts business' },
+  { title: 'B.Ed & D.El.Ed (Education & Teaching)', subtitle: 'Teacher Training Approved by NCTE & HPU', category: 'Education', page: 'academics', keywords: 'bed deled teaching teacher education gce' },
+
+  // Admissions & Fees
+  { title: 'Online Admission Application 2026-27', subtitle: 'Direct Admission Form for All Programs', category: 'Admission', action: 'apply', keywords: 'apply admission register form seat entrance' },
+  { title: 'Fee Structure & Seat Matrix', subtitle: 'Approved Tuition Fees, Hostel & Bus Charges', category: 'Fees', page: 'admissions', keywords: 'fee fees cost tuition hostel charges scholarship' },
+  { title: 'Scholarship Schemes & Financial Aid', subtitle: 'HP State Post-Matric & National NSP Schemes', category: 'Scholarship', page: 'admissions', keywords: 'scholarship aid stipend fee waiver sc st obc ews' },
+
+  // Examination & Portals
+  { title: 'End-Semester Examination Results', subtitle: 'HPTU, HPU & AMRU Semester Results Portal', category: 'Results', action: 'results', keywords: 'result results marks scorecard exam roll number' },
+  { title: 'One-Time Registration (OTR) Portal', subtitle: 'Student Academic Portal & Identity Dashboard', category: 'Portal', action: 'portal', keywords: 'otr portal login student login id purn' },
+  { title: 'Previous Year Question Papers (PYQ)', subtitle: 'Download Question Papers Archive & Syllabi', category: 'Downloads', page: 'downloads', keywords: 'pyq question paper download syllabus exam' },
+
+  // Governance & Institutional
+  { title: 'Faculty & Professors Directory', subtitle: 'Complete Teaching Staff & Council List', category: 'Faculty', page: 'faculty', keywords: 'faculty teachers professors staff directory dr rajneesh' },
+  { title: 'About Gautam Group (Est. 1999)', subtitle: '25-Year Educational Preeminence in Hamirpur', category: 'About', page: 'about', keywords: 'about history history trust society hamirpur' },
+  { title: 'Statutory Approvals & Affiliations', subtitle: 'PCI, INC, AICTE, UGC, HPTU, HPU, AMRU Approvals', category: 'Affiliations', page: 'affiliations', keywords: 'affiliations approval aicte pci inc ugc hptu hpu' },
+  { title: 'Campus Photo & Video Gallery', subtitle: 'Infrastructure, Labs & Student Life Photos', category: 'Gallery', page: 'gallery', keywords: 'gallery photos videos pictures campus' },
+  { title: 'Contact Us & Campus Address', subtitle: 'Near Bus Stand, Hamirpur (H.P.) | 01972-221493', category: 'Contact', page: 'contact', keywords: 'contact phone address email map location telephone bus stand' },
+  { title: 'Anti-Ragging Committee & Grievance Cell', subtitle: 'Mandatory Compliance & Helpline (1800-180-5522)', category: 'Compliance', page: 'compliance', keywords: 'antiragging anti ragging complaints helpline rti safety' }
+];
+
 export default function HimtuHeader({ 
   currentPage = 'home',
   onNavigate,
@@ -40,7 +75,58 @@ export default function HimtuHeader({
   const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false);
   const [isWebMailOpen, setIsWebMailOpen] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isInlineSearchOpen, setIsInlineSearchOpen] = useState(false);
+  const [inlineSearchQuery, setInlineSearchQuery] = useState('');
+  const inlineSearchRef = useRef(null);
+  const inlineInputRef = useRef(null);
   const { lang, setLang } = useLanguage();
+
+  // Focus input automatically when inline search opens
+  useEffect(() => {
+    if (isInlineSearchOpen) {
+      setTimeout(() => {
+        if (inlineInputRef.current) inlineInputRef.current.focus();
+      }, 50);
+    } else {
+      setInlineSearchQuery('');
+    }
+  }, [isInlineSearchOpen]);
+
+  // Click outside listener to dismiss the small search container
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (inlineSearchRef.current && !inlineSearchRef.current.contains(e.target)) {
+        setIsInlineSearchOpen(false);
+      }
+    };
+    if (isInlineSearchOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isInlineSearchOpen]);
+
+  // Handle selecting an inline search result
+  const handleSelectSearchResult = (item) => {
+    setIsInlineSearchOpen(false);
+    setInlineSearchQuery('');
+    if (item.action === 'apply' && onOpenApply) {
+      onOpenApply('apply');
+    } else if (item.action === 'results' && onOpenResults) {
+      onOpenResults();
+    } else if (item.action === 'portal' && onOpenPortalModal) {
+      onOpenPortalModal('student');
+    } else if (item.page) {
+      handleNavClick(item.page);
+    }
+  };
+
+  const filteredInlineResults = inlineSearchQuery.trim()
+    ? QUICK_SEARCH_ITEMS.filter(item =>
+        item.title.toLowerCase().includes(inlineSearchQuery.toLowerCase()) ||
+        item.category.toLowerCase().includes(inlineSearchQuery.toLowerCase()) ||
+        (item.keywords && item.keywords.toLowerCase().includes(inlineSearchQuery.toLowerCase()))
+      ).slice(0, 6)
+    : [];
 
   // Apply real dynamic document font scaling
   useEffect(() => {
@@ -877,17 +963,99 @@ export default function HimtuHeader({
             </div>
           </div>
 
-          {/* Right Search Button */}
-          <button
-            onClick={() => {
-              if (onOpenSearch) onOpenSearch();
-            }}
-            className="p-3 hover:bg-blue-900 text-white transition-colors flex items-center gap-1.5 group cursor-pointer"
-            title="Search Entire Website (Cmd+K)"
-          >
-            <Search className="w-4 h-4 group-hover:scale-110 transition-transform text-amber-300" />
-            <span className="hidden xl:inline text-[11px] font-sans font-semibold text-slate-200">Search</span>
-          </button>
+          {/* Right Search Area with Small Search Container on the Blue Strip */}
+          <div ref={inlineSearchRef} className="relative flex items-center">
+            
+            {/* Small container appearing on the left side of the search icon on the blue strip */}
+            {isInlineSearchOpen && (
+              <div className="flex items-center bg-white rounded-lg shadow-md border border-amber-400 pl-2.5 pr-1.5 py-1 text-slate-800 animate-in fade-in slide-in-from-right-3 duration-200 mr-2 w-56 sm:w-72 lg:w-80">
+                <Search className="w-3.5 h-3.5 text-slate-400 shrink-0 mr-1.5" />
+                <input
+                  ref={inlineInputRef}
+                  type="text"
+                  value={inlineSearchQuery}
+                  onChange={(e) => setInlineSearchQuery(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') {
+                      setIsInlineSearchOpen(false);
+                    } else if (e.key === 'Enter' && filteredInlineResults.length > 0) {
+                      handleSelectSearchResult(filteredInlineResults[0]);
+                    }
+                  }}
+                  placeholder="Search courses, faculty, fees..."
+                  className="w-full bg-transparent border-none outline-none text-xs text-slate-900 placeholder:text-slate-400 focus:ring-0 p-0"
+                />
+                {inlineSearchQuery && (
+                  <button 
+                    onClick={() => setInlineSearchQuery('')} 
+                    className="p-1 text-slate-400 hover:text-slate-700 rounded-full"
+                    title="Clear query"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+                <button
+                  onClick={() => setIsInlineSearchOpen(false)}
+                  className="ml-0.5 p-1 text-slate-400 hover:text-red-600 rounded-full"
+                  title="Close search"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            )}
+
+            {/* Search Icon on the blue strip */}
+            <button
+              onClick={() => setIsInlineSearchOpen(prev => !prev)}
+              className={`p-3 text-white transition-colors flex items-center gap-1.5 group cursor-pointer ${
+                isInlineSearchOpen ? 'bg-blue-900 text-amber-300' : 'hover:bg-blue-900'
+              }`}
+              title={isInlineSearchOpen ? "Close Search" : "Search Website"}
+            >
+              <Search className="w-4 h-4 group-hover:scale-110 transition-transform text-amber-300" />
+              {!isInlineSearchOpen && (
+                <span className="hidden xl:inline text-[11px] font-sans font-semibold text-slate-200">Search</span>
+              )}
+            </button>
+
+            {/* Small Dropdown Container (Directly under the small search bar, not full-screen) */}
+            {isInlineSearchOpen && inlineSearchQuery.trim() && (
+              <div className="absolute top-full right-0 mt-2 w-80 sm:w-96 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden text-slate-800 z-50 animate-in fade-in slide-in-from-top-2 text-left">
+                <div className="bg-slate-50 px-3 py-2 border-b border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                  <span>Quick Results ({filteredInlineResults.length})</span>
+                  <span className="text-[10px] text-slate-400 font-normal">Press Esc to close</span>
+                </div>
+                <div className="max-h-72 overflow-y-auto divide-y divide-slate-100">
+                  {filteredInlineResults.length > 0 ? (
+                    filteredInlineResults.map((item, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => handleSelectSearchResult(item)}
+                        className="w-full p-2.5 hover:bg-blue-50 text-left transition flex items-center justify-between group cursor-pointer"
+                      >
+                        <div className="min-w-0 pr-2">
+                          <div className="text-xs font-bold text-slate-900 group-hover:text-[#1e3a8a] truncate">
+                            {item.title}
+                          </div>
+                          <div className="text-[11px] text-slate-500 truncate">
+                            {item.subtitle}
+                          </div>
+                        </div>
+                        <span className="shrink-0 text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-[#ea580c] group-hover:bg-orange-100">
+                          {item.category}
+                        </span>
+                      </button>
+                    ))
+                  ) : (
+                    <div className="p-4 text-center text-xs text-slate-500">
+                      No matching results found for "{inlineSearchQuery}".
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+          </div>
 
         </div>
       </nav>
